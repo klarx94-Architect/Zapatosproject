@@ -2,11 +2,11 @@
 
 | ID | Modelo (Nombre Comercial) | Copys SEO / Palabras Clave (Venezuela) | Etiquetas (Marketplace) | Publicación Sugerida |
 |----|--------------------------|----------------------------------------|-------------------------|----------------------|
-| 1  | VORA Apex Obsidian       | Sneakers lujo Caracas, Zapatos urbanos Táchira | #Sneakers #Lujo #VORA | Día 1 |
-| 2  | VORA Zenith White        | Tenis blancos premium, Calzado urbano Venezuela| #Urbano #Premium #Blanco | Día 1 |
+| 1  | VORA Apex Obsidian (`inventory/PHOTO-2026-02-28-13-29-37.jpg`) | Sneakers lujo Caracas, Zapatos urbanos Táchira | #Sneakers #Lujo #VORA | Día 1 |
+| 2  | VORA Zenith White (`inventory/PHOTO-2026-02-28-13-31-01.jpg`) | Tenis blancos premium, Calzado urbano Venezuela| #Urbano #Premium #Blanco | Día 1 |
 | 3  | VORA Eclipse Black       | Zapatos negros elegantes, Sneakers de diseño   | #BlackEdition #Diseño | Día 2 |
 | 4  | VORA Lumina Gold         | Tacones de gala Táchira, Zapatos mujer fiesta  | #Tacones #Gala #Fiesta | Día 2 |
-| 5  | VORA Stardust Chrome     | Calzado exclusivo mujer, Tacones premium       | #Chrome #Exclusivo #Heels | Día 3 |
+| 5  | VORA Stardust Chrome (`inventory/PHOTO-2026-02-28-13-27-33.jpg`) | Calzado exclusivo mujer, Tacones premium       | #Chrome #Exclusivo #Heels | Día 3 |
 | 6  | VORA Nova Red            | Zapatos de diseño Caracas, Tacones elegantes   | #Elegancia #Moda #Venezuela | Día 3 |
 | 7  | VORA Quantum Grey        | Sneakers gris minimalista, Calzado urbano      | #Minimalista #Sneakers | Día 4 |
 | 8  | VORA Horizon Blue        | Zapatos deportivos de lujo, Tenis premium      | #SportLuxe #Urbano | Día 4 |
