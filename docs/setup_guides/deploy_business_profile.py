@@ -71,7 +71,7 @@ def deploy_vora_profile():
             }
         },
         "phoneNumbers": {
-            "primaryPhone": "+584120000000" # Formato internacional. REEMPLAZAR CON NUMERO REAL.
+            "primaryPhone": "+584163794800" # Número oficial de VORA Elite
         },
         "profile": {
             "description": "Descubre VORA Elite, la boutique definitiva en Cordero, Táchira, donde la calidad internacional y la estética de vanguardia convergen. Seleccionamos cuidadosamente calzado de lujo, desde urban sneakers de diseño exclusivo hasta tacones de alta costura, pensados para quienes exigen excelencia y sofisticación en cada paso. Nuestra pasión es redefinir el estándar de la moda en Venezuela, ofreciendo piezas únicas que elevan tu estilo personal. En VORA Elite, no solo adquieres un par de zapatos; inviertes en presencia, autoridad y un estándar inquebrantable de lujo minimalista y estética impecable. Visítanos en nuestro showroom y experimenta la verdadera exclusividad con asesoría personalizada."
