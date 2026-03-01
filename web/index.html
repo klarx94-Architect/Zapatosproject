@@ -1,367 +1,598 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth bg-black text-gray-200">
+<html lang="es" class="bg-gray-900 sm:p-4 md:p-8 flex justify-center items-center min-h-screen">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VORA Elite | Ecosystem Demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>VORA Elite | Demo Pitch</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        /* Tipografía Premium y Utilidades */
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
-        
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
         body {
             font-family: 'Inter', sans-serif;
+        }
+
+        /* Simulación del "Teléfono" en Desktop */
+        .mobile-simulator {
+            width: 100%;
+            max-width: 414px;
+            /* Ancho estándar de iPhone Max */
+            min-height: 100vh;
             background-color: #000000;
+            position: relative;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+
+        /* En Desktop le damos bordes redondeados, en mobile ocupa la pantalla entera */
+        @media (min-width: 640px) {
+            .mobile-simulator {
+                min-height: 850px;
+                height: 90vh;
+                border-radius: 40px;
+                border: 8px solid #1a1a1a;
+            }
         }
 
         /* Hover metalizado */
         .hover-metal:hover {
-            box-shadow: 0 0 15px rgba(200, 200, 200, 0.5);
-            background: linear-gradient(145deg, #333333, #111111);
-            color: #ffffff;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+            background: linear-gradient(145deg, #222, #000);
             transition: all 0.3s ease;
         }
 
-        /* Fade Transition para las vistas */
-        .view-section {
-            opacity: 0;
-            visibility: hidden;
-            position: absolute;
-            top: 0; left: 0; right: 0;
-            transition: opacity 0.5s ease-in-out, visibility 0.5s;
-            pointer-events: none;
-            z-index: 10;
+        /* Scrollbars limpios para las galerias horizontales */
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
         }
 
-        .view-section.active {
-            opacity: 1;
-            visibility: visible;
-            position: relative;
-            pointer-events: auto;
-            z-index: 20;
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
         }
 
-        /* Scrollbar styling escondido pero funcional */
-        ::-webkit-scrollbar {
-            width: 4px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #000;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #444;
+        .carousel-snap {
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
         }
 
-        /* Highlights en IG */
+        .carousel-snap>div {
+            scroll-snap-align: center;
+        }
+
+        /* Highlights IG */
         .highlight-ring {
             background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
             padding: 2px;
             border-radius: 50%;
         }
 
-        /* Smooth Carousel WhatsApp */
-        .carousel-snap {
-            scroll-snap-type: x mandatory;
-            -webkit-overflow-scrolling: touch;
+        /* Ocultar Vistas por defecto */
+        .view-section {
+            display: none;
+            width: 100%;
+            animation: fadeIn 0.4s ease;
         }
-        .carousel-snap > div {
-            scroll-snap-align: center;
+
+        .view-section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
     </style>
 </head>
-<body class="min-h-screen flex flex-col relative w-full overflow-x-hidden">
 
-    <!-- MENU SUPERIOR -->
-    <nav class="fixed top-0 w-full bg-black/80 backdrop-blur-md border-b border-gray-800 z-50">
-        <div class="max-w-md mx-auto px-4 py-3 flex justify-between items-center">
-            <h1 class="font-bold tracking-widest text-lg text-white">VORA</h1>
-            <div class="flex space-x-4 text-sm text-gray-400 font-medium">
-                <button onclick="switchView('whatsapp')" class="nav-btn wapp active hover:text-white transition-colors" data-target="whatsapp"><i class="fab fa-whatsapp"></i></button>
-                <button onclick="switchView('instagram')" class="nav-btn ig hover:text-white transition-colors" data-target="instagram"><i class="fab fa-instagram"></i></button>
-                <button onclick="switchView('tiktok')" class="nav-btn tt hover:text-white transition-colors" data-target="tiktok"><i class="fab fa-tiktok"></i></button>
-                <button onclick="switchView('google')" class="nav-btn gg hover:text-white transition-colors" data-target="google"><i class="fab fa-google"></i></button>
-            </div>
-        </div>
-    </nav>
+<body class="text-gray-200 m-0 p-0 antialiased">
 
-    <!-- ESPACIO NAVBAR -->
-    <div class="h-14"></div>
+    <!-- SIMULADOR MÓVIL (Contenedor Principal) -->
+    <main class="mobile-simulator flex flex-col bg-[#0A0A0A]">
 
-    <!-- CONTENEDOR PRINCIPAL - MAX WIDTH PANTALLA MOVIL -->
-    <main class="max-w-md mx-auto w-full relative min-h-[calc(100vh-3.5rem)] bg-[#0A0A0A]">
-        
-        <!-- =======================
-             PANTALLA WHATSAPP 
-             ======================= -->
-        <section id="whatsapp" class="view-section active w-full pb-20">
-            <!-- Header Perfil WA -->
-            <div class="px-4 py-6 bg-black flex flex-col items-center border-b border-gray-800">
-                <div class="w-24 h-24 rounded-full bg-gray-900 border border-gray-700 overflow-hidden mb-3">
-                    <img src="../brand/Gemini_Generated_Image_7plro87plro87plr.png" onerror="this.src='https://via.placeholder.com/150/000000/FFFFFF/?text=VORA'" alt="VORA Logo" class="w-full h-full object-cover">
-                </div>
-                <h2 class="text-xl font-semibold text-white">VORA Elite</h2>
-                <p class="text-xs text-green-500 font-medium mt-1"><i class="fas fa-store"></i> Cuenta de empresa oficial</p>
-                <p class="text-sm text-gray-400 text-center mt-3 leading-relaxed">
-                    Descubre VORA Elite, la boutique definitiva en Cordero, Táchira. Calzado de lujo y estética de vanguardia. Envío nacional asegurado.
-                </p>
-                <div class="flex space-x-2 w-full mt-4">
-                    <button class="flex-1 bg-green-600 hover:bg-green-500 text-white py-2 rounded-lg font-medium transition-colors text-sm">Chatear</button>
-                    <button class="flex-1 bg-[#222] hover-metal text-white py-2 rounded-lg font-medium text-sm">Ver Catálogo</button>
+        <!-- NAVEGACIÓN SUPERIOR FIJA -->
+        <nav class="sticky top-0 w-full bg-black/90 backdrop-blur-md border-b border-gray-800 z-50">
+            <div class="px-5 py-3 flex justify-between items-center">
+                <h1 class="font-bold tracking-widest text-lg text-white">VORA</h1>
+                <div class="flex space-x-5 text-lg text-gray-500 font-medium">
+                    <button onclick="switchView('whatsapp')" class="nav-btn transition-colors text-white"
+                        data-target="whatsapp"><i class="fab fa-whatsapp"></i></button>
+                    <button onclick="switchView('instagram')" class="nav-btn transition-colors hover:text-white"
+                        data-target="instagram"><i class="fab fa-instagram"></i></button>
+                    <button onclick="switchView('tiktok')" class="nav-btn transition-colors hover:text-white"
+                        data-target="tiktok"><i class="fab fa-tiktok"></i></button>
+                    <button onclick="switchView('google')" class="nav-btn transition-colors hover:text-white"
+                        data-target="google"><i class="fab fa-google"></i></button>
                 </div>
             </div>
+        </nav>
 
-            <!-- Catálogo Top 3 -->
-            <div class="px-4 py-5">
-                <h3 class="text-gray-300 font-semibold mb-4 text-sm flex items-center justify-between">Top Ventas <a href="#" class="text-green-500 text-xs">Ver todo</a></h3>
-                
-                <div class="flex overflow-x-auto gap-4 carousel-snap pb-4 scrollbar-hide">
-                    <!-- Modelo 1 -->
-                    <div class="min-w-[160px] bg-[#111] rounded-xl overflow-hidden border border-gray-800 hover:border-gray-500 transition-colors">
-                        <div class="h-40 bg-gray-900 relative">
-                            <img src="../inventory/PHOTO-2026-02-28-13-29-37.jpg" alt="VORA Apex Obsidian" class="w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/160x160/111/FFF/?text=Apex'">
+        <!-- CONTENIDO DEL SCROLL -->
+        <div class="flex-1 overflow-y-auto pb-10">
+
+            <!-- ==============================================
+                 PANTALLA WHATSAPP BUSINESS
+                 ============================================== -->
+            <section id="whatsapp" class="view-section active pt-4">
+                <!-- Cover / Avatar -->
+                <div class="px-5 pb-5 text-center border-b border-gray-800">
+                    <div class="w-28 h-28 mx-auto rounded-full bg-black border-2 border-gray-800 overflow-hidden mb-3">
+                        <img src="../brand/Gemini_Generated_Image_7plro87plro87plr.png" alt="VORA Logo"
+                            class="w-full h-full object-cover">
+                    </div>
+                    <h2 class="text-2xl font-semibold text-white">VORA Elite</h2>
+                    <p class="text-sm text-green-500 font-medium mt-1"><i class="fas fa-store mr-1"></i>Cuenta de
+                        empresa oficial</p>
+                    <p class="text-sm text-gray-400 mt-3 leading-relaxed">
+                        Boutique definitiva del calzado premium en Venezuela. Calidad internacional y estética de
+                        vanguardia en cada paso. Envío seguro a nivel nacional.
+                    </p>
+                    <div class="flex space-x-2 w-full mt-5">
+                        <button
+                            class="flex-1 bg-[#25D366] hover:bg-green-500 text-black py-2.5 rounded-xl font-bold transition-colors shadow-lg">Chatear</button>
+                        <button
+                            class="flex-1 bg-gray-800 border-gray-600 border text-white py-2.5 rounded-xl font-semibold">Catálogo</button>
+                    </div>
+                </div>
+
+                <!-- Info Block -->
+                <div class="px-5 py-4 border-b border-gray-800 text-sm text-gray-300 space-y-3">
+                    <div class="flex items-start"><i class="fas fa-map-marker-alt text-gray-500 w-6 mt-1"></i>
+                        <p>Cordero, Táchira<br><span class="text-xs text-gray-500">Venezuela</span></p>
+                    </div>
+                    <div class="flex items-center"><i class="fas fa-tag text-gray-500 w-6"></i>
+                        <p>Zapatería · Boutique</p>
+                    </div>
+                    <div class="flex items-center"><i class="far fa-clock text-gray-500 w-6"></i>
+                        <p>Abierto • Cierra 20:00</p>
+                    </div>
+                    <div class="flex items-center text-blue-400"><i class="fas fa-link w-6"></i><a
+                            href="#">instagram.com/voraelite</a></div>
+                </div>
+
+                <!-- Catálogo WA -->
+                <div class="px-5 py-5">
+                    <h3 class="text-gray-100 font-bold mb-4 text-sm flex items-center justify-between">Catálogo <span
+                            class="text-green-500 text-xs font-semibold">Ver todos (21)</span></h3>
+
+                    <div class="space-y-4">
+                        <!-- Producto 1 -->
+                        <div
+                            class="flex bg-[#111] p-3 rounded-2xl border border-gray-800 items-center hover-metal cursor-pointer">
+                            <div class="h-20 w-20 flex-shrink-0 rounded-xl overflow-hidden bg-black">
+                                <img src="../inventory/PHOTO-2026-02-28-13-29-37.jpg"
+                                    class="w-full h-full object-cover">
+                            </div>
+                            <div class="ml-4 flex-1">
+                                <h4 class="text-white text-sm font-bold">VORA Apex Obsidian</h4>
+                                <p class="text-gray-400 text-xs mt-1">$85.00</p>
+                                <p class="text-gray-500 text-[10px] mt-1 line-clamp-1">Sneakers urbanos premium</p>
+                            </div>
+                            <div
+                                class="text-green-500 bg-green-500/10 h-8 w-8 rounded-full flex items-center justify-center">
+                                <i class="fas fa-cart-plus"></i></div>
                         </div>
-                        <div class="p-3">
-                            <h4 class="text-white text-sm font-semibold truncate">VORA Apex Obsidian</h4>
-                            <p class="text-gray-400 text-xs mt-1">$85.00</p>
-                            <button class="w-full mt-3 bg-white text-black text-xs font-semibold py-1.5 rounded-md hover-metal">Pedir</button>
+
+                        <!-- Producto 2 -->
+                        <div
+                            class="flex bg-[#111] p-3 rounded-2xl border border-gray-800 items-center hover-metal cursor-pointer">
+                            <div class="h-20 w-20 flex-shrink-0 rounded-xl overflow-hidden bg-black">
+                                <img src="../inventory/PHOTO-2026-02-28-13-31-01.jpg"
+                                    class="w-full h-full object-cover">
+                            </div>
+                            <div class="ml-4 flex-1">
+                                <h4 class="text-white text-sm font-bold">VORA Zenith White</h4>
+                                <p class="text-gray-400 text-xs mt-1">$85.00</p>
+                                <p class="text-gray-500 text-[10px] mt-1 line-clamp-1">Tenis blancos edición limitada
+                                </p>
+                            </div>
+                            <div
+                                class="text-green-500 bg-green-500/10 h-8 w-8 rounded-full flex items-center justify-center">
+                                <i class="fas fa-cart-plus"></i></div>
+                        </div>
+
+                        <!-- Producto 3 -->
+                        <div
+                            class="flex bg-[#111] p-3 rounded-2xl border border-gray-800 items-center hover-metal cursor-pointer">
+                            <div class="h-20 w-20 flex-shrink-0 rounded-xl overflow-hidden bg-black">
+                                <img src="../inventory/PHOTO-2026-02-28-13-27-33.jpg"
+                                    class="w-full h-full object-cover">
+                            </div>
+                            <div class="ml-4 flex-1">
+                                <h4 class="text-white text-sm font-bold">VORA Stardust Chrome</h4>
+                                <p class="text-gray-400 text-xs mt-1">$45.00</p>
+                                <p class="text-gray-500 text-[10px] mt-1 line-clamp-1">Tacones de alta costura</p>
+                            </div>
+                            <div
+                                class="text-green-500 bg-green-500/10 h-8 w-8 rounded-full flex items-center justify-center">
+                                <i class="fas fa-cart-plus"></i></div>
                         </div>
                     </div>
-                    
-                    <!-- Modelo 2 -->
-                    <div class="min-w-[160px] bg-[#111] rounded-xl overflow-hidden border border-gray-800 hover:border-gray-500 transition-colors">
-                        <div class="h-40 bg-gray-900 relative">
-                            <img src="../inventory/PHOTO-2026-02-28-13-31-01.jpg" alt="VORA Zenith White" class="w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/160x160/111/FFF/?text=Zenith'">
-                        </div>
-                        <div class="p-3">
-                            <h4 class="text-white text-sm font-semibold truncate">VORA Zenith White</h4>
-                            <p class="text-gray-400 text-xs mt-1">$85.00</p>
-                            <button class="w-full mt-3 bg-white text-black text-xs font-semibold py-1.5 rounded-md hover-metal">Pedir</button>
-                        </div>
-                    </div>
-
-                    <!-- Modelo 3 -->
-                    <div class="min-w-[160px] bg-[#111] rounded-xl overflow-hidden border border-gray-800 hover:border-gray-500 transition-colors">
-                        <div class="h-40 bg-gray-900 relative">
-                            <img src="../inventory/PHOTO-2026-02-28-13-27-33.jpg" alt="VORA Stardust Chrome" class="w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/160x160/111/FFF/?text=Stardust'">
-                        </div>
-                        <div class="p-3">
-                            <h4 class="text-white text-sm font-semibold truncate">VORA Stardust Chrome</h4>
-                            <p class="text-gray-400 text-xs mt-1">$45.00</p>
-                            <button class="w-full mt-3 bg-white text-black text-xs font-semibold py-1.5 rounded-md hover-metal">Pedir</button>
-                        </div>
-                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-
-        <!-- =======================
-             PANTALLA INSTAGRAM 
-             ======================= -->
-        <section id="instagram" class="view-section w-full">
-            <!-- IG Header Info -->
-            <div class="px-4 py-4 border-b border-gray-800">
-                <div class="flex items-center justify-between">
-                    <div class="w-20 h-20 rounded-full highlight-ring">
-                        <div class="w-full h-full rounded-full border-2 border-black bg-gray-900 overflow-hidden">
-                            <img src="../brand/Gemini_Generated_Image_9rvt939rvt939rvt.png" alt="IG Avatar" class="w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/150/000000/FFFFFF/?text=VORA'">
+            <!-- ==============================================
+                 PANTALLA INSTAGRAM
+                 ============================================== -->
+            <section id="instagram" class="view-section">
+                <!-- IG Header -->
+                <div class="px-4 pt-5 pb-3">
+                    <div class="flex items-center justify-between">
+                        <div class="w-20 h-20 rounded-full highlight-ring flex-shrink-0">
+                            <div
+                                class="w-full h-full rounded-full border-[3px] border-black bg-gray-900 overflow-hidden">
+                                <img src="../brand/Gemini_Generated_Image_a7r5p3a7r5p3a7r5.png" alt="IG Avatar"
+                                    class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                        <div class="flex space-x-6 text-center ml-4">
+                            <div>
+                                <p class="font-bold text-white text-base">21</p>
+                                <p class="text-xs text-gray-400">Posts</p>
+                            </div>
+                            <div>
+                                <p class="font-bold text-white text-base">18.5k</p>
+                                <p class="text-xs text-gray-400">Followers</p>
+                            </div>
+                            <div>
+                                <p class="font-bold text-white text-base">0</p>
+                                <p class="text-xs text-gray-400">Following</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="flex space-x-4 text-center">
-                        <div><p class="font-bold text-white text-sm">21</p><p class="text-xs text-gray-400">Posts</p></div>
-                        <div><p class="font-bold text-white text-sm">18.5k</p><p class="text-xs text-gray-400">Followers</p></div>
-                        <div><p class="font-bold text-white text-sm">0</p><p class="text-xs text-gray-400">Following</p></div>
+                    <div class="mt-4">
+                        <p class="text-sm font-bold text-white">VORA Elite | Premium Sneakers & Heels</p>
+                        <p class="text-xs text-gray-400 mb-1">Boutique de Lujo</p>
+                        <p class="text-sm text-gray-200 leading-relaxed">El lujo americano, en tu puerta.
+                            🇻🇪<br>Asesoría personalizada.<br>📍 Táchira, Venezuela.<br><a href="#"
+                                class="text-blue-200 font-medium">linktr.ee/voraelite</a></p>
                     </div>
-                </div>
-                <div class="mt-3">
-                    <p class="text-sm font-semibold text-white">VORA Elite</p>
-                    <p class="text-xs text-gray-400">Boutique de Lujo</p>
-                    <p class="text-sm text-gray-300 mt-1">El lujo americano antes de que llegue a América. 🇻🇪<br>📍 Táchira, Venezuela.<br>🔗 linktr.ee/voraelite</p>
-                </div>
-                <div class="flex space-x-2 mt-4">
-                    <button class="flex-1 bg-white text-black py-1.5 rounded-md text-sm font-semibold hover-metal">Follow</button>
-                    <button class="flex-1 bg-[#222] text-white py-1.5 rounded-md text-sm font-semibold hover:bg-[#333]">Message</button>
-                </div>
-            </div>
-
-            <!-- IG Highlights -->
-            <div class="px-2 py-4 flex space-x-4 overflow-x-auto border-b border-gray-800 scrollbar-hide">
-                <div class="flex flex-col items-center min-w-[64px]">
-                    <div class="w-14 h-14 rounded-full border border-gray-700 bg-[#111] flex items-center justify-center mb-1">
-                        <i class="fas fa-box text-gray-300 text-xl"></i>
-                    </div>
-                    <span class="text-[10px] text-white">Envíos</span>
-                </div>
-                <div class="flex flex-col items-center min-w-[64px]">
-                    <div class="w-14 h-14 rounded-full border border-gray-700 bg-[#111] flex items-center justify-center mb-1">
-                        <i class="fas fa-star text-yellow-500 text-xl"></i>
-                    </div>
-                    <span class="text-[10px] text-white">Reviews</span>
-                </div>
-                <div class="flex flex-col items-center min-w-[64px]">
-                    <div class="w-14 h-14 rounded-full border border-gray-700 bg-[#111] flex items-center justify-center mb-1">
-                        <i class="fas fa-shoe-prints text-gray-300 text-xl"></i>
-                    </div>
-                    <span class="text-[10px] text-white">Catálogo</span>
-                </div>
-            </div>
-
-            <!-- IG Grid Icons -->
-            <div class="flex justify-around py-3 border-b border-gray-800 text-gray-400">
-                <i class="fas fa-th-large text-white"></i>
-                <i class="fas fa-play"></i>
-                <i class="fas fa-user-tag"></i>
-            </div>
-
-            <!-- IG Photos 3-Col -->
-            <div class="grid grid-cols-3 gap-0.5">
-                <div class="aspect-square bg-gray-900">
-                    <img src="../inventory/PHOTO-2026-02-28-13-29-37.jpg" class="w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/150/111/FFF/?text=Post 1'">
-                </div>
-                <div class="aspect-square bg-gray-900">
-                    <img src="../inventory/PHOTO-2026-02-28-13-31-01.jpg" class="w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/150/111/FFF/?text=Post 2'">
-                </div>
-                <div class="aspect-square bg-gray-900">
-                    <img src="../inventory/PHOTO-2026-02-28-13-27-33.jpg" class="w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/150/111/FFF/?text=Post 3'">
-                </div>
-                <div class="aspect-square bg-gray-900">
-                    <img src="../inventory/PHOTO-2026-02-28-13-24-42.jpg" class="w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/150/111/FFF/?text=Post 4'">
-                </div>
-                <div class="aspect-square bg-gray-900">
-                    <img src="../inventory/PHOTO-2026-02-28-13-25-28.jpg" class="w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/150/111/FFF/?text=Post 5'">
-                </div>
-                <div class="aspect-square bg-gray-900">
-                    <img src="../inventory/PHOTO-2026-02-28-13-26-24.jpg" class="w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/150/111/FFF/?text=Post 6'">
-                </div>
-            </div>
-        </section>
-
-
-        <!-- =======================
-             PANTALLA TIKTOK 
-             ======================= -->
-        <section id="tiktok" class="view-section w-full h-[calc(100vh-3.5rem)] bg-black relative">
-            <!-- Video Placeholder -->
-            <div class="w-full h-full relative">
-                <img src="../inventory/PHOTO-2026-02-28-13-33-51.jpg" alt="TikTok Video Cover" class="w-full h-full object-cover opacity-80" onerror="this.src='https://via.placeholder.com/400x800/111/FFF/?text=VORA+Reel'">
-                
-                <!-- Overlay Shadow -->
-                <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black"></div>
-
-                <!-- Right Sidebar UI -->
-                <div class="absolute right-4 bottom-24 flex flex-col space-y-5 items-center z-10">
-                    <div class="w-12 h-12 rounded-full border-2 border-white overflow-hidden bg-black">
-                         <img src="../brand/Gemini_Generated_Image_a7r5p3a7r5p3a7r5.png" class="w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/50/000/FFF/?text=V'">
-                    </div>
-                    <div class="text-white text-center">
-                        <i class="fas fa-heart text-3xl hover:text-red-500 transition-colors"></i>
-                        <p class="text-xs font-semibold mt-1">2.4K</p>
-                    </div>
-                    <div class="text-white text-center">
-                        <i class="fas fa-comment-dots text-3xl"></i>
-                        <p class="text-xs font-semibold mt-1">104</p>
-                    </div>
-                    <div class="text-white text-center">
-                        <i class="fas fa-bookmark text-3xl"></i>
-                        <p class="text-xs font-semibold mt-1">50</p>
-                    </div>
-                    <div class="text-white text-center">
-                        <i class="fas fa-share text-3xl"></i>
-                        <p class="text-xs font-semibold mt-1">82</p>
+                    <!-- Acción Directa IG -->
+                    <div class="flex space-x-2 mt-4">
+                        <button
+                            class="flex-1 bg-[#1A1A1A] text-white border border-gray-700 py-1.5 rounded-lg text-sm font-bold hover:bg-gray-800">Siguiendo</button>
+                        <button
+                            class="flex-1 bg-white text-black py-1.5 rounded-lg text-sm font-bold hover:bg-gray-200">Mensaje</button>
+                        <button
+                            class="w-10 bg-[#1A1A1A] text-white border border-gray-700 py-1.5 rounded-lg hover:bg-gray-800"><i
+                                class="fas fa-user-plus"></i></button>
                     </div>
                 </div>
 
-                <!-- Bottom Text Overlay -->
-                <div class="absolute left-4 bottom-20 w-[70%] z-10 text-white">
-                    <h3 class="font-bold text-base mb-1">@VoraElite</h3>
-                    <p class="text-sm font-light mb-2">VORA Apex Obsidian. Monocromo y vanguardia. 🇻🇪🔥 #SneakersVenezuela #Lujo #VORA</p>
-                    <div class="flex items-center text-xs font-medium bg-black/50 w-max px-2 py-1 rounded">
-                        <i class="fas fa-music mr-2"></i> Original Sound - VORA
+                <!-- IG Highlights -->
+                <div class="px-2 py-3 flex space-x-4 overflow-x-auto border-b border-gray-800 scrollbar-hide">
+                    <div class="flex flex-col items-center min-w-[68px]">
+                        <div
+                            class="w-16 h-16 rounded-full border border-gray-700 bg-black flex items-center justify-center mb-1">
+                            <i class="fas fa-truck-fast text-gray-300 text-xl"></i>
+                        </div>
+                        <span class="text-[11px] font-medium text-white">Envíos VIP</span>
+                    </div>
+                    <div class="flex flex-col items-center min-w-[68px]">
+                        <div
+                            class="w-16 h-16 rounded-full border border-gray-700 bg-black flex items-center justify-center mb-1">
+                            <i class="fas fa-star text-white text-xl"></i>
+                        </div>
+                        <span class="text-[11px] font-medium text-white">Reviews</span>
+                    </div>
+                    <div class="flex flex-col items-center min-w-[68px]">
+                        <div
+                            class="w-16 h-16 rounded-full border border-gray-700 bg-black flex items-center justify-center mb-1">
+                            <i class="fas fa-gem text-gray-300 text-xl"></i>
+                        </div>
+                        <span class="text-[11px] font-medium text-white">Top SS26</span>
                     </div>
                 </div>
-            </div>
-        </section>
 
+                <!-- Tabs IG -->
+                <div class="flex justify-around py-3 border-b border-gray-800 text-gray-500">
+                    <i class="fas fa-th-large text-white border-b-2 border-white pb-2 px-6"></i>
+                    <i class="fas fa-video pb-2 px-6"></i>
+                    <i class="fas fa-user-tag pb-2 px-6"></i>
+                </div>
 
-        <!-- =======================
-             PANTALLA GOOGLE MAPS 
-             ======================= -->
-        <section id="google" class="view-section w-full h-[calc(100vh-3.5rem)] bg-[#101010]">
-            <!-- Hero GMB -->
-            <div class="h-56 relative bg-gray-900 border-b border-gray-800 flex items-center justify-center overflow-hidden">
-                <div class="absolute inset-0 bg-[url('https://maps.googleapis.com/maps/api/staticmap?center=Cordero,Tachira&zoom=14&size=600x400&maptype=roadmap&style=feature:all|element:labels.text.fill|color:0x8ec3b9&style=feature:all|element:labels.text.stroke|color:0x1a3646&style=feature:all|element:labels.icon|visibility:off&style=feature:administrative.country|element:geometry.stroke|color:0x4b6878&style=feature:administrative.land_parcel|element:labels.text.fill|color:0x64779e&style=feature:administrative.province|element:geometry.stroke|color:0x4b6878&style=feature:landscape.man_made|element:geometry.stroke|color:0x334e87&style=feature:landscape.natural|element:geometry|color:0x021019&style=feature:poi|element:geometry|color:0x283d6a&style=feature:poi|element:labels.text.fill|color:0x6f9ba5&style=feature:poi|element:labels.text.stroke|color:0x1d2c4d&style=feature:poi.park|element:geometry.fill|color:0x02121c&style=feature:poi.park|element:labels.text.fill|color:0x3C7680&style=feature:road|element:geometry|color:0x304a7d&style=feature:road|element:labels.text.fill|color:0x98a5be&style=feature:road|element:labels.text.stroke|color:0x1d2c4d&style=feature:road.highway|element:geometry|color:0x2c6675&style=feature:road.highway|element:geometry.stroke|color:0x255763&style=feature:road.highway|element:labels.text.fill|color:0xb0d5ce&style=feature:road.highway|element:labels.text.stroke|color:0x023e58&style=water|element:geometry|color:0x0e1626&style=water|element:labels.text.fill|color:0x4e6d70')] bg-cover opacity-50"></div>
-                <i class="fas fa-map-marker-alt text-4xl text-white absolute z-10 drop-shadow-lg"></i>
-            </div>
-            
-            <div class="px-5 py-6">
-                <h2 class="text-3xl font-bold text-white mb-2">VORA Elite</h2>
-                <div class="flex items-center text-sm mb-3">
-                    <span class="text-yellow-400 font-bold mr-1">5.0</span>
-                    <div class="text-yellow-400 text-xs">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                <!-- Grid -->
+                <div class="grid grid-cols-3 gap-0.5 mt-0.5">
+                    <img src="../inventory/PHOTO-2026-02-28-13-29-37.jpg" class="aspect-square object-cover w-full">
+                    <img src="../inventory/PHOTO-2026-02-28-13-31-01.jpg" class="aspect-square object-cover w-full">
+                    <img src="../inventory/PHOTO-2026-02-28-13-27-33.jpg" class="aspect-square object-cover w-full">
+                    <img src="../inventory/PHOTO-2026-02-28-13-24-42.jpg" class="aspect-square object-cover w-full">
+                    <img src="../inventory/PHOTO-2026-02-28-13-25-28.jpg" class="aspect-square object-cover w-full">
+                    <img src="../inventory/PHOTO-2026-02-28-13-26-24.jpg" class="aspect-square object-cover w-full">
+                </div>
+            </section>
+
+            <!-- ==============================================
+                 PANTALLA TIKTOK (PERFIL)
+                 ============================================== -->
+            <section id="tiktok" class="view-section">
+                <!-- TT Header -->
+                <div class="flex justify-between items-center px-4 pt-4 pb-2 border-b border-gray-800">
+                    <i class="fas fa-user-plus text-xl text-gray-200"></i>
+                    <div class="flex font-bold text-white items-center">
+                        voraelite
+                        <i class="fas fa-caret-down ml-1 text-xs"></i>
                     </div>
-                    <span class="text-gray-400 ml-2">(42) • Zapatería de Lujo</span>
-                </div>
-                
-                <p class="text-gray-300 text-sm mb-4">Área de servicio en Venezuela. Centro de operaciones en Cordero, Táchira.</p>
-
-                <!-- Action Buttons -->
-                <div class="flex space-x-3 border-b border-gray-800 pb-5">
-                    <button class="flex-1 flex flex-col items-center justify-center bg-[#222] hover:bg-[#333] py-3 rounded-xl transition-colors">
-                        <i class="fas fa-directions text-blue-400 text-xl mb-1"></i>
-                        <span class="text-xs text-white">Indicaciones</span>
-                    </button>
-                    <button class="flex-1 flex flex-col items-center justify-center bg-[#222] hover:bg-[#333] py-3 rounded-xl transition-colors">
-                        <i class="fas fa-phone-alt text-blue-400 text-xl mb-1"></i>
-                        <span class="text-xs text-white">Llamar</span>
-                    </button>
-                    <button class="flex-1 flex flex-col items-center justify-center bg-[#222] hover:bg-[#333] py-3 rounded-xl transition-colors">
-                        <i class="fas fa-globe text-blue-400 text-xl mb-1"></i>
-                        <span class="text-xs text-white">Sitio Web</span>
-                    </button>
+                    <i class="fas fa-bars text-xl text-gray-200"></i>
                 </div>
 
-                <!-- Info List -->
-                <div class="mt-4 space-y-4">
-                    <div class="flex text-sm text-gray-300">
-                        <i class="fas fa-clock w-6 mt-1 text-gray-400"></i>
+                <div class="pt-6 pb-4 flex flex-col items-center">
+                    <div class="w-24 h-24 rounded-full border border-gray-700 bg-gray-900 overflow-hidden mb-3">
+                        <img src="../brand/Gemini_Generated_Image_7plro87plro87plr.png"
+                            class="w-full h-full object-cover">
+                    </div>
+                    <h2 class="text-base font-bold text-white">@voraelite</h2>
+
+                    <div class="flex space-x-6 mt-4 mb-4 text-center">
                         <div>
-                            <p class="text-green-500 font-medium">Abierto <span class="text-gray-300 font-normal">⋅ Cierra a las 20:00</span></p>
+                            <p class="font-bold text-white text-lg">20</p>
+                            <p class="text-xs text-gray-400">Siguiendo</p>
+                        </div>
+                        <div>
+                            <p class="font-bold text-white text-lg">14.5K</p>
+                            <p class="text-xs text-gray-400">Seguidores</p>
+                        </div>
+                        <div>
+                            <p class="font-bold text-white text-lg">120K</p>
+                            <p class="text-xs text-gray-400">Me gusta</p>
                         </div>
                     </div>
-                    <div class="flex text-sm text-gray-300">
-                        <i class="fas fa-check w-6 mt-1 text-gray-400"></i>
-                        <p>Entrega a nivel nacional y asesoría premium.</p>
+
+                    <div class="flex space-x-2 mt-1">
+                        <button
+                            class="bg-[#FE2C55] text-white font-bold py-2.5 px-8 rounded-md text-sm hover:bg-red-600">Seguir</button>
+                        <button
+                            class="bg-[#2A2A2A] text-white border border-gray-700 font-bold py-2.5 px-6 rounded-md text-sm hover:bg-gray-800"><i
+                                class="fab fa-instagram"></i></button>
+                    </div>
+
+                    <p class="text-[13px] text-center text-gray-300 mt-5">Monocromo y vanguardia. 🇻🇪🔥<br>Envíos por
+                        ZOOM/MRW en toda Venezuela.<br><a href="#" class="font-semibold text-white">voraelite.com</a>
+                    </p>
+                </div>
+
+                <!-- TT Tabs -->
+                <div class="flex border-b border-gray-800 text-gray-500 font-bold text-sm">
+                    <div class="flex-1 text-center py-3 text-white border-b-2 border-white"><i
+                            class="fas fa-th-large"></i></div>
+                    <div class="flex-1 text-center py-3"><i class="fas fa-lock"></i></div>
+                    <div class="flex-1 text-center py-3"><i class="fas fa-bookmark"></i></div>
+                    <div class="flex-1 text-center py-3"><i class="fas fa-heart"></i></div>
+                </div>
+
+                <!-- TT Grid (Aspect 3/4 o 9/16) -->
+                <div class="grid grid-cols-3 gap-[1px]">
+                    <div class="aspect-[3/4] bg-gray-800 relative">
+                        <img src="../inventory/PHOTO-2026-02-28-13-33-51.jpg" class="w-full h-full object-cover">
+                        <div class="absolute bottom-1 left-1 flex items-center text-white text-xs"><i
+                                class="fas fa-play mr-1"></i>34.2K</div>
+                        <div class="absolute top-1 right-1 bg-[#FE2C55] text-[10px] font-bold px-1 rounded text-white">
+                            PINNED</div>
+                    </div>
+                    <div class="aspect-[3/4] bg-gray-800 relative">
+                        <img src="../inventory/PHOTO-2026-02-28-13-29-37.jpg" class="w-full h-full object-cover">
+                        <div class="absolute bottom-1 left-1 flex items-center text-white text-xs"><i
+                                class="fas fa-play mr-1"></i>12.1K</div>
+                    </div>
+                    <div class="aspect-[3/4] bg-gray-800 relative">
+                        <img src="../inventory/PHOTO-2026-02-28-13-31-01.jpg" class="w-full h-full object-cover">
+                        <div class="absolute bottom-1 left-1 flex items-center text-white text-xs"><i
+                                class="fas fa-play mr-1"></i>8.4K</div>
+                    </div>
+                    <!-- Filler -->
+                    <div class="aspect-[3/4] bg-[#111]"></div>
+                    <div class="aspect-[3/4] bg-[#111]"></div>
+                    <div class="aspect-[3/4] bg-[#111]"></div>
+                </div>
+            </section>
+
+
+            <!-- ==============================================
+                 PANTALLA GOOGLE (MAPS / BUSINESS PAGE)
+                 ============================================== -->
+            <section id="google" class="view-section bg-[#101010]">
+                <!-- Search Mockup -->
+                <div class="px-3 pt-3 pb-2 bg-[#202124]">
+                    <div class="bg-[#303134] rounded-full h-11 flex items-center px-4 text-gray-400 text-sm shadow-md">
+                        <i class="fas fa-arrow-left mr-4"></i> VORA Elite Cordero Venezuela <i
+                            class="fas fa-search ml-auto"></i> <i class="fas fa-microphone ml-3"></i>
                     </div>
                 </div>
-            </div>
-        </section>
 
+                <!-- Hero GMB Photos (Horizontal scrollable) -->
+                <div class="flex overflow-x-auto carousel-snap h-52 snap-center">
+                    <img src="../inventory/PHOTO-2026-02-28-13-29-37.jpg"
+                        class="w-4/5 flex-shrink-0 object-cover border-r border-black">
+                    <img src="../inventory/PHOTO-2026-02-28-13-31-01.jpg"
+                        class="w-4/5 flex-shrink-0 object-cover border-r border-black">
+                    <!-- Map Mockup as last slide -->
+                    <div class="w-4/5 flex-shrink-0 relative bg-gray-900 flex items-center justify-center">
+                        <div
+                            class="absolute inset-0 bg-[url('https://maps.googleapis.com/maps/api/staticmap?center=Cordero,Tachira&zoom=14&size=400x300&style=feature:all|element:labels|visibility:off&style=feature:road|element:geometry|color:0x304a7d')] bg-cover opacity-70">
+                        </div>
+                        <i class="fas fa-map-marker-alt text-4xl text-red-500 absolute drop-shadow-lg"></i>
+                    </div>
+                </div>
+
+                <!-- Main Header Tab -->
+                <div class="bg-[#202124] px-4 py-4 border-b border-[#3c4043]">
+                    <h2 class="text-2xl font-[google-sans,Roboto] text-white">VORA Elite</h2>
+                    <div class="flex items-center text-[13px] mt-1 mb-2 tracking-wide">
+                        <span class="text-white font-medium mr-1">5.0</span>
+                        <div class="text-[#fbbc04] text-[10px]"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <span class="text-[#9aa0a6] hover:underline cursor-pointer ml-1">(42 reseñas)</span>
+                    </div>
+                    <p class="text-[#9aa0a6] text-[13px]">Zapatería • Cordero, Táchira • Abre a las 09:00</p>
+
+                    <!-- Action Grid Google -->
+                    <div class="grid grid-cols-4 gap-2 mt-5 mb-2">
+                        <div class="flex flex-col items-center">
+                            <div
+                                class="h-10 w-10 bg-[#8ab4f8] rounded-full flex items-center justify-center text-[#202124] text-lg mb-1">
+                                <i class="fas fa-phone-alt"></i></div>
+                            <span class="text-[11px] text-[#8ab4f8]">Llamar</span>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <div
+                                class="h-10 w-10 border border-[#5f6368] rounded-full flex items-center justify-center text-[#8ab4f8] text-lg mb-1">
+                                <i class="fas fa-directions"></i></div>
+                            <span class="text-[11px] text-[#8ab4f8]">Cómo llegar</span>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <div
+                                class="h-10 w-10 border border-[#5f6368] rounded-full flex items-center justify-center text-[#8ab4f8] text-lg mb-1">
+                                <i class="far fa-bookmark"></i></div>
+                            <span class="text-[11px] text-[#8ab4f8]">Guardar</span>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <div
+                                class="h-10 w-10 border border-[#5f6368] rounded-full flex items-center justify-center text-[#8ab4f8] text-lg mb-1">
+                                <i class="fas fa-globe"></i></div>
+                            <span class="text-[11px] text-[#8ab4f8]">Sitio web</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tabs Simulators -->
+                <div class="flex font-medium text-[13px] border-b border-[#3c4043] bg-[#202124] text-[#9aa0a6]">
+                    <div class="py-3 px-4 text-[#8ab4f8] border-b-2 border-[#8ab4f8]">Resumen</div>
+                    <div class="py-3 px-4">Actualizaciones</div>
+                    <div class="py-3 px-4">Servicios</div>
+                    <div class="py-3 px-4">Opiniones</div>
+                </div>
+
+                <!-- Google Shopping Carousel -->
+                <div class="bg-[#202124] py-4 mt-2">
+                    <h3 class="px-4 text-white text-[15px] font-medium mb-3">Productos populares <i
+                            class="fas fa-chevron-right text-xs text-[#9aa0a6] ml-2"></i></h3>
+                    <div class="flex px-4 overflow-x-auto space-x-3 pb-2 scrollbar-hide">
+                        <div class="w-32 flex-shrink-0">
+                            <div class="h-32 bg-[#303134] rounded-lg overflow-hidden border border-[#3c4043]"><img
+                                    src="../inventory/PHOTO-2026-02-28-13-29-37.jpg" class="w-full h-full object-cover">
+                            </div>
+                            <p class="text-white text-xs mt-2 line-clamp-2 leading-tight">VORA Apex Obsidian - Sneakers
+                                Lujo</p>
+                            <p class="text-white font-medium text-sm mt-1">$85.00</p>
+                        </div>
+                        <div class="w-32 flex-shrink-0">
+                            <div class="h-32 bg-[#303134] rounded-lg overflow-hidden border border-[#3c4043]"><img
+                                    src="../inventory/PHOTO-2026-02-28-13-31-01.jpg" class="w-full h-full object-cover">
+                            </div>
+                            <p class="text-white text-xs mt-2 line-clamp-2 leading-tight">VORA Zenith White - Edición
+                                Premium</p>
+                            <p class="text-white font-medium text-sm mt-1">$85.00</p>
+                        </div>
+                        <div class="w-32 flex-shrink-0">
+                            <div class="h-32 bg-[#303134] rounded-lg overflow-hidden border border-[#3c4043]"><img
+                                    src="../inventory/PHOTO-2026-02-28-13-27-33.jpg" class="w-full h-full object-cover">
+                            </div>
+                            <p class="text-white text-xs mt-2 line-clamp-2 leading-tight">VORA Stardust Chrome Gala</p>
+                            <p class="text-white font-medium text-sm mt-1">$45.00</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Info Line items -->
+                <div class="bg-[#202124] mt-2 pb-2">
+                    <div class="flex items-start px-4 py-4 border-b border-[#3c4043] text-[#e8eaed] text-[14px]">
+                        <i class="fas fa-map-marker-alt text-[#9aa0a6] w-6 mt-1 text-lg"></i>
+                        <div>
+                            <p>Cordero, San Cristóbal, Táchira</p>
+                            <p class="text-[#8ab4f8] text-sm mt-1">Área de servicio: Venezuela</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center px-4 py-4 border-b border-[#3c4043] text-[#e8eaed] text-[14px]">
+                        <i class="far fa-clock text-[#9aa0a6] w-6 text-lg"></i>
+                        <p><span class="text-[#34a853]">Abierto</span> · Cierra a las 20:00 <i
+                                class="fas fa-chevron-down text-xs ml-1"></i></p>
+                    </div>
+                    <div class="flex items-center px-4 py-4 text-[#e8eaed] text-[14px]">
+                        <i class="fas fa-phone-alt text-[#9aa0a6] w-6 text-lg"></i>
+                        <p>+58 414-0000000</p>
+                    </div>
+                </div>
+
+                <!-- Reseñas Reales Section -->
+                <div class="bg-[#202124] mt-2 px-4 py-5">
+                    <h3 class="text-white text-[15px] font-medium mb-4">Reseñas de la web</h2>
+
+                        <div class="mb-5">
+                            <div class="flex items-center mb-1">
+                                <div
+                                    class="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-sm mr-3">
+                                    JC</div>
+                                <div>
+                                    <p class="text-white text-[13px] font-medium">Juan Carlos Mendoza</p>
+                                    <p class="text-[#9aa0a6] text-[11px]">Local Guide · 14 reseñas</p>
+                                </div>
+                            </div>
+                            <div class="flex text-[#fbbc04] text-[10px] mb-2"><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i> <span class="text-[#9aa0a6] ml-2 text-xs">Hace 2
+                                    semanas</span></div>
+                            <p class="text-[#e8eaed] text-sm leading-snug">"Increíble calidad. Compré los Apex Obsidian
+                                y no tienen nada que envidiarle a marcas de $150. El envío a Caracas llegó intacto y el
+                                empaque es de lujo total. Excelente atención por WhatsApp."</p>
+                        </div>
+
+                        <div class="border-t border-[#3c4043] pt-4">
+                            <div class="flex items-center mb-1">
+                                <div
+                                    class="w-8 h-8 rounded-full bg-pink-600 text-white flex items-center justify-center font-bold text-sm mr-3">
+                                    MV</div>
+                                <div>
+                                    <p class="text-white text-[13px] font-medium">María Valentina</p>
+                                    <p class="text-[#9aa0a6] text-[11px]">3 reseñas</p>
+                                </div>
+                            </div>
+                            <div class="flex text-[#fbbc04] text-[10px] mb-2"><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i> <span class="text-[#9aa0a6] ml-2 text-xs">Hace 1 mes</span>
+                            </div>
+                            <p class="text-[#e8eaed] text-sm leading-snug">"Los Stardust Chrome son preciosos para
+                                eventos de gala. Súper cómodos, los usé toda la noche. Recomendados al 100%."</p>
+                        </div>
+                </div>
+            </section>
+
+        </div>
     </main>
 
     <script>
         function switchView(viewId) {
-            // Actualizar botones de navegación
+            // Limpiar clases de las pestañas
             document.querySelectorAll('.nav-btn').forEach(btn => {
                 btn.classList.remove('text-white');
-                btn.classList.add('text-gray-400');
+                btn.classList.add('text-gray-500');
             });
+            // Activar botón con estilo blanco
             const clickedBtn = document.querySelector(`.nav-btn[data-target="${viewId}"]`);
-            if(clickedBtn) {
-                clickedBtn.classList.remove('text-gray-400');
+            if (clickedBtn) {
+                clickedBtn.classList.remove('text-gray-500');
                 clickedBtn.classList.add('text-white');
             }
 
-            // Transición suave entre pantallas
+            // Ocultar todas las secciones y mostrar la seleccionada
             document.querySelectorAll('.view-section').forEach(section => {
-                if(section.id === viewId) {
-                    section.classList.add('active');
-                } else {
-                    section.classList.remove('active');
-                }
+                section.classList.remove('active');
             });
+            document.getElementById(viewId).classList.add('active');
+
+            // Scroll to top para un cambio limpio
+            document.querySelector('.overflow-y-auto').scrollTo(0, 0);
         }
     </script>
 </body>
+
 </html>
