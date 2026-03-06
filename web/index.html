@@ -1,597 +1,884 @@
 <!DOCTYPE html>
-<html lang="es" class="bg-gray-900 sm:p-4 md:p-8 flex justify-center items-center min-h-screen">
+<html lang="es" class="scroll-smooth">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>VORA Elite | Demo Pitch</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VORA ELITE | El Lujo Urbano Redefinido</title>
+    <meta name="description"
+        content="Colección exclusiva de sneakers urbanos y zapatos de gala de alta gama. Envío nacional VIP.">
+
+    <!-- Tailwind CSS (CDN for rapid prototyping) -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Oswald:wght@500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        vora: {
+                            black: '#000000',
+                            white: '#FFFFFF',
+                            chrome: '#E0E0E0',
+                            darkchrome: '#9E9E9E',
+                            accent: '#111111'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Oswald', 'sans-serif'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.8s ease-out forwards',
+                        'slide-up': 'slideUp 0.8s ease-out forwards',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        /* Custom Chrome Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
 
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #111;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #000;
+        }
+
+        /* Ultra Premium Image Hover Zoom */
+        .premium-hover {
+            overflow: hidden;
+        }
+
+        .premium-hover img {
+            transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .premium-hover:hover img {
+            transform: scale(1.05);
+        }
+
+        html,
         body {
-            font-family: 'Inter', sans-serif;
-        }
-
-        /* Simulación del "Teléfono" en Desktop */
-        .mobile-simulator {
-            width: 100%;
-            max-width: 414px;
-            /* Ancho estándar de iPhone Max */
-            min-height: 100vh;
-            background-color: #000000;
-            position: relative;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
             overflow-x: hidden;
-            overflow-y: auto;
         }
 
-        /* En Desktop le damos bordes redondeados, en mobile ocupa la pantalla entera */
-        @media (min-width: 640px) {
-            .mobile-simulator {
-                min-height: 850px;
-                height: 90vh;
-                border-radius: 40px;
-                border: 8px solid #1a1a1a;
-            }
+        /* Glassmorphism details */
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
         }
 
-        /* Hover metalizado */
-        .hover-metal:hover {
-            box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
-            background: linear-gradient(145deg, #222, #000);
-            transition: all 0.3s ease;
-        }
-
-        /* Scrollbars limpios para las galerias horizontales */
-        .scrollbar-hide::-webkit-scrollbar {
-            display: none;
-        }
-
-        .scrollbar-hide {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
-
-        .carousel-snap {
-            scroll-snap-type: x mandatory;
-            -webkit-overflow-scrolling: touch;
-        }
-
-        .carousel-snap>div {
-            scroll-snap-align: center;
-        }
-
-        /* Highlights IG */
-        .highlight-ring {
-            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-            padding: 2px;
-            border-radius: 50%;
-        }
-
-        /* Ocultar Vistas por defecto */
-        .view-section {
-            display: none;
-            width: 100%;
-            animation: fadeIn 0.4s ease;
-        }
-
-        .view-section.active {
-            display: block;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .size-btn.active {
+            background-color: #000;
+            color: #fff;
+            border-color: #000;
         }
     </style>
 </head>
 
-<body class="text-gray-200 m-0 p-0 antialiased">
+<body class="bg-vora-white text-vora-black font-sans antialiased selection:bg-vora-black selection:text-vora-white">
 
-    <!-- SIMULADOR MÓVIL (Contenedor Principal) -->
-    <main class="mobile-simulator flex flex-col bg-[#0A0A0A]">
+    <!-- OVERLAY DRAWER (CART) -->
+    <div id="cart-overlay"
+        class="fixed inset-0 bg-black/40 backdrop-blur-sm z-40 hidden transition-opacity duration-300 opacity-0"
+        onclick="toggleCart()"></div>
 
-        <!-- NAVEGACIÓN SUPERIOR FIJA -->
-        <nav class="sticky top-0 w-full bg-black/90 backdrop-blur-md border-b border-gray-800 z-50">
-            <div class="px-5 py-3 flex justify-between items-center">
-                <h1 class="font-bold tracking-widest text-lg text-white">VORA</h1>
-                <div class="flex space-x-5 text-lg text-gray-500 font-medium">
-                    <button onclick="switchView('whatsapp')" class="nav-btn transition-colors text-white"
-                        data-target="whatsapp"><i class="fab fa-whatsapp"></i></button>
-                    <button onclick="switchView('instagram')" class="nav-btn transition-colors hover:text-white"
-                        data-target="instagram"><i class="fab fa-instagram"></i></button>
-                    <button onclick="switchView('tiktok')" class="nav-btn transition-colors hover:text-white"
-                        data-target="tiktok"><i class="fab fa-tiktok"></i></button>
-                    <button onclick="switchView('google')" class="nav-btn transition-colors hover:text-white"
-                        data-target="google"><i class="fab fa-google"></i></button>
+    <!-- CART DRAWER -->
+    <div id="cart-drawer"
+        class="fixed top-0 right-0 h-full w-full sm:w-[400px] bg-vora-white shadow-2xl z-50 transform translate-x-full transition-transform duration-500 cubic-bezier(0.25, 1, 0.5, 1) flex flex-col">
+        <div class="p-6 border-b border-gray-100 flex justify-between items-center bg-white">
+            <h2 class="font-display text-2xl tracking-tight uppercase font-bold">Resumen Elite</h2>
+            <button onclick="toggleCart()"
+                class="text-gray-400 hover:text-vora-black transition-colors focus:outline-none">
+                <i class="ph ph-x text-2xl"></i>
+            </button>
+        </div>
+
+        <div id="cart-items" class="p-6 flex-grow overflow-y-auto space-y-6">
+            <!-- Cart items injected via JS -->
+            <div id="empty-cart-msg"
+                class="text-center text-gray-400 mt-10 h-full flex flex-col items-center justify-center">
+                <i class="ph ph-bag text-5xl mb-4 opacity-50"></i>
+                <p>Tu selección está vacía.</p>
+            </div>
+        </div>
+
+        <div class="p-6 bg-gray-50 border-t border-gray-200">
+            <div class="flex justify-between items-center mb-6">
+                <span class="font-medium text-gray-500 uppercase text-sm tracking-wider">Total Oficial</span>
+                <span id="cart-total" class="font-display font-bold text-3xl">$0.00</span>
+            </div>
+
+            <button onclick="checkoutWhatsApp()"
+                class="w-full bg-vora-black hover:bg-vora-accent text-white py-4 px-6 flex items-center justify-center space-x-2 rounded-sm transition-all duration-300 group overflow-hidden relative">
+                <span class="relative z-10 font-bold tracking-widest text-sm uppercase">Comprar por WhatsApp</span>
+                <i
+                    class="ph-fill ph-whatsapp-logo text-xl relative z-10 group-hover:scale-110 transition-transform"></i>
+            </button>
+            <p class="text-xs text-center text-gray-400 mt-4">Un concierge VIP confirmará tu orden inmediatamente.</p>
+        </div>
+    </div>
+
+    <!-- HEADER NAVIGATION -->
+    <nav class="fixed w-full z-30 glass-nav transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+
+                <!-- Mobile Menu Button -->
+                <div class="flex items-center sm:hidden">
+                    <button type="button" class="text-gray-900 hover:text-black focus:outline-none">
+                        <i class="ph ph-list text-2xl"></i>
+                    </button>
+                </div>
+
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center justify-center sm:justify-start w-full sm:w-auto">
+                    <a href="#" class="font-display font-bold text-3xl tracking-tighter uppercase">
+                        VORA<span class="text-vora-darkchrome">.</span>
+                    </a>
+                </div>
+
+                <!-- Desktop Nav -->
+                <div class="hidden sm:flex sm:space-x-8 items-center">
+                    <a href="#sneakers"
+                        class="inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-500 hover:text-black transition-colors uppercase tracking-widest">Sneakers</a>
+                    <a href="#heels"
+                        class="inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-500 hover:text-black transition-colors uppercase tracking-widest">Gala</a>
+                    <a href="#reviews"
+                        class="inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-500 hover:text-black transition-colors uppercase tracking-widest">Testimonios</a>
+                </div>
+
+                <!-- Cart Icon -->
+                <div class="flex items-center justify-end">
+                    <button onclick="toggleCart()"
+                        class="relative p-2 text-gray-900 hover:text-black transition-colors group">
+                        <i class="ph ph-bag text-2xl group-hover:scale-110 transition-transform"></i>
+                        <span id="cart-counter"
+                            class="absolute top-0 right-0 inline-flex items-center justify-center px-1.5 py-0.5 text-xs font-bold leading-none text-white transform translate-x-1/4 -translate-y-1/4 bg-vora-black rounded-full shadow-sm">
+                            0
+                        </span>
+                    </button>
                 </div>
             </div>
-        </nav>
-
-        <!-- CONTENIDO DEL SCROLL -->
-        <div class="flex-1 overflow-y-auto pb-10">
-
-            <!-- ==============================================
-                 PANTALLA WHATSAPP BUSINESS
-                 ============================================== -->
-            <section id="whatsapp" class="view-section active pt-4">
-                <!-- Cover / Avatar -->
-                <div class="px-5 pb-5 text-center border-b border-gray-800">
-                    <div class="w-28 h-28 mx-auto rounded-full bg-black border-2 border-gray-800 overflow-hidden mb-3">
-                        <img src="../brand/Gemini_Generated_Image_7plro87plro87plr.png" alt="VORA Logo"
-                            class="w-full h-full object-cover">
-                    </div>
-                    <h2 class="text-2xl font-semibold text-white">VORA Elite</h2>
-                    <p class="text-sm text-green-500 font-medium mt-1"><i class="fas fa-store mr-1"></i>Cuenta de
-                        empresa oficial</p>
-                    <p class="text-sm text-gray-400 mt-3 leading-relaxed">
-                        Boutique definitiva del calzado premium en Venezuela. Calidad internacional y estética de
-                        vanguardia en cada paso. Envío seguro a nivel nacional.
-                    </p>
-                    <div class="flex space-x-2 w-full mt-5">
-                        <button
-                            class="flex-1 bg-[#25D366] hover:bg-green-500 text-black py-2.5 rounded-xl font-bold transition-colors shadow-lg">Chatear</button>
-                        <button
-                            class="flex-1 bg-gray-800 border-gray-600 border text-white py-2.5 rounded-xl font-semibold">Catálogo</button>
-                    </div>
-                </div>
-
-                <!-- Info Block -->
-                <div class="px-5 py-4 border-b border-gray-800 text-sm text-gray-300 space-y-3">
-                    <div class="flex items-start"><i class="fas fa-map-marker-alt text-gray-500 w-6 mt-1"></i>
-                        <p>Cordero, Táchira<br><span class="text-xs text-gray-500">Venezuela</span></p>
-                    </div>
-                    <div class="flex items-center"><i class="fas fa-tag text-gray-500 w-6"></i>
-                        <p>Zapatería · Boutique</p>
-                    </div>
-                    <div class="flex items-center"><i class="far fa-clock text-gray-500 w-6"></i>
-                        <p>Abierto • Cierra 20:00</p>
-                    </div>
-                    <div class="flex items-center text-blue-400"><i class="fas fa-link w-6"></i><a
-                            href="#">instagram.com/voraelite</a></div>
-                </div>
-
-                <!-- Catálogo WA -->
-                <div class="px-5 py-5">
-                    <h3 class="text-gray-100 font-bold mb-4 text-sm flex items-center justify-between">Catálogo <span
-                            class="text-green-500 text-xs font-semibold">Ver todos (21)</span></h3>
-
-                    <div class="space-y-4">
-                        <!-- Producto 1 -->
-                        <div
-                            class="flex bg-[#111] p-3 rounded-2xl border border-gray-800 items-center hover-metal cursor-pointer">
-                            <div class="h-20 w-20 flex-shrink-0 rounded-xl overflow-hidden bg-black">
-                                <img src="../inventory/PHOTO-2026-02-28-13-29-37.jpg"
-                                    class="w-full h-full object-cover">
-                            </div>
-                            <div class="ml-4 flex-1">
-                                <h4 class="text-white text-sm font-bold">VORA Apex Obsidian</h4>
-                                <p class="text-gray-400 text-xs mt-1">$85.00</p>
-                                <p class="text-gray-500 text-[10px] mt-1 line-clamp-1">Sneakers urbanos premium</p>
-                            </div>
-                            <div
-                                class="text-green-500 bg-green-500/10 h-8 w-8 rounded-full flex items-center justify-center">
-                                <i class="fas fa-cart-plus"></i></div>
-                        </div>
-
-                        <!-- Producto 2 -->
-                        <div
-                            class="flex bg-[#111] p-3 rounded-2xl border border-gray-800 items-center hover-metal cursor-pointer">
-                            <div class="h-20 w-20 flex-shrink-0 rounded-xl overflow-hidden bg-black">
-                                <img src="../inventory/PHOTO-2026-02-28-13-31-01.jpg"
-                                    class="w-full h-full object-cover">
-                            </div>
-                            <div class="ml-4 flex-1">
-                                <h4 class="text-white text-sm font-bold">VORA Zenith White</h4>
-                                <p class="text-gray-400 text-xs mt-1">$85.00</p>
-                                <p class="text-gray-500 text-[10px] mt-1 line-clamp-1">Tenis blancos edición limitada
-                                </p>
-                            </div>
-                            <div
-                                class="text-green-500 bg-green-500/10 h-8 w-8 rounded-full flex items-center justify-center">
-                                <i class="fas fa-cart-plus"></i></div>
-                        </div>
-
-                        <!-- Producto 3 -->
-                        <div
-                            class="flex bg-[#111] p-3 rounded-2xl border border-gray-800 items-center hover-metal cursor-pointer">
-                            <div class="h-20 w-20 flex-shrink-0 rounded-xl overflow-hidden bg-black">
-                                <img src="../inventory/PHOTO-2026-02-28-13-27-33.jpg"
-                                    class="w-full h-full object-cover">
-                            </div>
-                            <div class="ml-4 flex-1">
-                                <h4 class="text-white text-sm font-bold">VORA Stardust Chrome</h4>
-                                <p class="text-gray-400 text-xs mt-1">$45.00</p>
-                                <p class="text-gray-500 text-[10px] mt-1 line-clamp-1">Tacones de alta costura</p>
-                            </div>
-                            <div
-                                class="text-green-500 bg-green-500/10 h-8 w-8 rounded-full flex items-center justify-center">
-                                <i class="fas fa-cart-plus"></i></div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- ==============================================
-                 PANTALLA INSTAGRAM
-                 ============================================== -->
-            <section id="instagram" class="view-section">
-                <!-- IG Header -->
-                <div class="px-4 pt-5 pb-3">
-                    <div class="flex items-center justify-between">
-                        <div class="w-20 h-20 rounded-full highlight-ring flex-shrink-0">
-                            <div
-                                class="w-full h-full rounded-full border-[3px] border-black bg-gray-900 overflow-hidden">
-                                <img src="../brand/Gemini_Generated_Image_a7r5p3a7r5p3a7r5.png" alt="IG Avatar"
-                                    class="w-full h-full object-cover">
-                            </div>
-                        </div>
-                        <div class="flex space-x-6 text-center ml-4">
-                            <div>
-                                <p class="font-bold text-white text-base">21</p>
-                                <p class="text-xs text-gray-400">Posts</p>
-                            </div>
-                            <div>
-                                <p class="font-bold text-white text-base">18.5k</p>
-                                <p class="text-xs text-gray-400">Followers</p>
-                            </div>
-                            <div>
-                                <p class="font-bold text-white text-base">0</p>
-                                <p class="text-xs text-gray-400">Following</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mt-4">
-                        <p class="text-sm font-bold text-white">VORA Elite | Premium Sneakers & Heels</p>
-                        <p class="text-xs text-gray-400 mb-1">Boutique de Lujo</p>
-                        <p class="text-sm text-gray-200 leading-relaxed">El lujo americano, en tu puerta.
-                            🇻🇪<br>Asesoría personalizada.<br>📍 Táchira, Venezuela.<br><a href="#"
-                                class="text-blue-200 font-medium">linktr.ee/voraelite</a></p>
-                    </div>
-                    <!-- Acción Directa IG -->
-                    <div class="flex space-x-2 mt-4">
-                        <button
-                            class="flex-1 bg-[#1A1A1A] text-white border border-gray-700 py-1.5 rounded-lg text-sm font-bold hover:bg-gray-800">Siguiendo</button>
-                        <button
-                            class="flex-1 bg-white text-black py-1.5 rounded-lg text-sm font-bold hover:bg-gray-200">Mensaje</button>
-                        <button
-                            class="w-10 bg-[#1A1A1A] text-white border border-gray-700 py-1.5 rounded-lg hover:bg-gray-800"><i
-                                class="fas fa-user-plus"></i></button>
-                    </div>
-                </div>
-
-                <!-- IG Highlights -->
-                <div class="px-2 py-3 flex space-x-4 overflow-x-auto border-b border-gray-800 scrollbar-hide">
-                    <div class="flex flex-col items-center min-w-[68px]">
-                        <div
-                            class="w-16 h-16 rounded-full border border-gray-700 bg-black flex items-center justify-center mb-1">
-                            <i class="fas fa-truck-fast text-gray-300 text-xl"></i>
-                        </div>
-                        <span class="text-[11px] font-medium text-white">Envíos VIP</span>
-                    </div>
-                    <div class="flex flex-col items-center min-w-[68px]">
-                        <div
-                            class="w-16 h-16 rounded-full border border-gray-700 bg-black flex items-center justify-center mb-1">
-                            <i class="fas fa-star text-white text-xl"></i>
-                        </div>
-                        <span class="text-[11px] font-medium text-white">Reviews</span>
-                    </div>
-                    <div class="flex flex-col items-center min-w-[68px]">
-                        <div
-                            class="w-16 h-16 rounded-full border border-gray-700 bg-black flex items-center justify-center mb-1">
-                            <i class="fas fa-gem text-gray-300 text-xl"></i>
-                        </div>
-                        <span class="text-[11px] font-medium text-white">Top SS26</span>
-                    </div>
-                </div>
-
-                <!-- Tabs IG -->
-                <div class="flex justify-around py-3 border-b border-gray-800 text-gray-500">
-                    <i class="fas fa-th-large text-white border-b-2 border-white pb-2 px-6"></i>
-                    <i class="fas fa-video pb-2 px-6"></i>
-                    <i class="fas fa-user-tag pb-2 px-6"></i>
-                </div>
-
-                <!-- Grid -->
-                <div class="grid grid-cols-3 gap-0.5 mt-0.5">
-                    <img src="../inventory/PHOTO-2026-02-28-13-29-37.jpg" class="aspect-square object-cover w-full">
-                    <img src="../inventory/PHOTO-2026-02-28-13-31-01.jpg" class="aspect-square object-cover w-full">
-                    <img src="../inventory/PHOTO-2026-02-28-13-27-33.jpg" class="aspect-square object-cover w-full">
-                    <img src="../inventory/PHOTO-2026-02-28-13-24-42.jpg" class="aspect-square object-cover w-full">
-                    <img src="../inventory/PHOTO-2026-02-28-13-25-28.jpg" class="aspect-square object-cover w-full">
-                    <img src="../inventory/PHOTO-2026-02-28-13-26-24.jpg" class="aspect-square object-cover w-full">
-                </div>
-            </section>
-
-            <!-- ==============================================
-                 PANTALLA TIKTOK (PERFIL)
-                 ============================================== -->
-            <section id="tiktok" class="view-section">
-                <!-- TT Header -->
-                <div class="flex justify-between items-center px-4 pt-4 pb-2 border-b border-gray-800">
-                    <i class="fas fa-user-plus text-xl text-gray-200"></i>
-                    <div class="flex font-bold text-white items-center">
-                        voraelite
-                        <i class="fas fa-caret-down ml-1 text-xs"></i>
-                    </div>
-                    <i class="fas fa-bars text-xl text-gray-200"></i>
-                </div>
-
-                <div class="pt-6 pb-4 flex flex-col items-center">
-                    <div class="w-24 h-24 rounded-full border border-gray-700 bg-gray-900 overflow-hidden mb-3">
-                        <img src="../brand/Gemini_Generated_Image_7plro87plro87plr.png"
-                            class="w-full h-full object-cover">
-                    </div>
-                    <h2 class="text-base font-bold text-white">@voraelite</h2>
-
-                    <div class="flex space-x-6 mt-4 mb-4 text-center">
-                        <div>
-                            <p class="font-bold text-white text-lg">20</p>
-                            <p class="text-xs text-gray-400">Siguiendo</p>
-                        </div>
-                        <div>
-                            <p class="font-bold text-white text-lg">14.5K</p>
-                            <p class="text-xs text-gray-400">Seguidores</p>
-                        </div>
-                        <div>
-                            <p class="font-bold text-white text-lg">120K</p>
-                            <p class="text-xs text-gray-400">Me gusta</p>
-                        </div>
-                    </div>
-
-                    <div class="flex space-x-2 mt-1">
-                        <button
-                            class="bg-[#FE2C55] text-white font-bold py-2.5 px-8 rounded-md text-sm hover:bg-red-600">Seguir</button>
-                        <button
-                            class="bg-[#2A2A2A] text-white border border-gray-700 font-bold py-2.5 px-6 rounded-md text-sm hover:bg-gray-800"><i
-                                class="fab fa-instagram"></i></button>
-                    </div>
-
-                    <p class="text-[13px] text-center text-gray-300 mt-5">Monocromo y vanguardia. 🇻🇪🔥<br>Envíos por
-                        ZOOM/MRW en toda Venezuela.<br><a href="#" class="font-semibold text-white">voraelite.com</a>
-                    </p>
-                </div>
-
-                <!-- TT Tabs -->
-                <div class="flex border-b border-gray-800 text-gray-500 font-bold text-sm">
-                    <div class="flex-1 text-center py-3 text-white border-b-2 border-white"><i
-                            class="fas fa-th-large"></i></div>
-                    <div class="flex-1 text-center py-3"><i class="fas fa-lock"></i></div>
-                    <div class="flex-1 text-center py-3"><i class="fas fa-bookmark"></i></div>
-                    <div class="flex-1 text-center py-3"><i class="fas fa-heart"></i></div>
-                </div>
-
-                <!-- TT Grid (Aspect 3/4 o 9/16) -->
-                <div class="grid grid-cols-3 gap-[1px]">
-                    <div class="aspect-[3/4] bg-gray-800 relative">
-                        <img src="../inventory/PHOTO-2026-02-28-13-33-51.jpg" class="w-full h-full object-cover">
-                        <div class="absolute bottom-1 left-1 flex items-center text-white text-xs"><i
-                                class="fas fa-play mr-1"></i>34.2K</div>
-                        <div class="absolute top-1 right-1 bg-[#FE2C55] text-[10px] font-bold px-1 rounded text-white">
-                            PINNED</div>
-                    </div>
-                    <div class="aspect-[3/4] bg-gray-800 relative">
-                        <img src="../inventory/PHOTO-2026-02-28-13-29-37.jpg" class="w-full h-full object-cover">
-                        <div class="absolute bottom-1 left-1 flex items-center text-white text-xs"><i
-                                class="fas fa-play mr-1"></i>12.1K</div>
-                    </div>
-                    <div class="aspect-[3/4] bg-gray-800 relative">
-                        <img src="../inventory/PHOTO-2026-02-28-13-31-01.jpg" class="w-full h-full object-cover">
-                        <div class="absolute bottom-1 left-1 flex items-center text-white text-xs"><i
-                                class="fas fa-play mr-1"></i>8.4K</div>
-                    </div>
-                    <!-- Filler -->
-                    <div class="aspect-[3/4] bg-[#111]"></div>
-                    <div class="aspect-[3/4] bg-[#111]"></div>
-                    <div class="aspect-[3/4] bg-[#111]"></div>
-                </div>
-            </section>
-
-
-            <!-- ==============================================
-                 PANTALLA GOOGLE (MAPS / BUSINESS PAGE)
-                 ============================================== -->
-            <section id="google" class="view-section bg-[#101010]">
-                <!-- Search Mockup -->
-                <div class="px-3 pt-3 pb-2 bg-[#202124]">
-                    <div class="bg-[#303134] rounded-full h-11 flex items-center px-4 text-gray-400 text-sm shadow-md">
-                        <i class="fas fa-arrow-left mr-4"></i> VORA Elite Cordero Venezuela <i
-                            class="fas fa-search ml-auto"></i> <i class="fas fa-microphone ml-3"></i>
-                    </div>
-                </div>
-
-                <!-- Hero GMB Photos (Horizontal scrollable) -->
-                <div class="flex overflow-x-auto carousel-snap h-52 snap-center">
-                    <img src="../inventory/PHOTO-2026-02-28-13-29-37.jpg"
-                        class="w-4/5 flex-shrink-0 object-cover border-r border-black">
-                    <img src="../inventory/PHOTO-2026-02-28-13-31-01.jpg"
-                        class="w-4/5 flex-shrink-0 object-cover border-r border-black">
-                    <!-- Map Mockup as last slide -->
-                    <div class="w-4/5 flex-shrink-0 relative bg-gray-900 flex items-center justify-center">
-                        <div
-                            class="absolute inset-0 bg-[url('https://maps.googleapis.com/maps/api/staticmap?center=Cordero,Tachira&zoom=14&size=400x300&style=feature:all|element:labels|visibility:off&style=feature:road|element:geometry|color:0x304a7d')] bg-cover opacity-70">
-                        </div>
-                        <i class="fas fa-map-marker-alt text-4xl text-red-500 absolute drop-shadow-lg"></i>
-                    </div>
-                </div>
-
-                <!-- Main Header Tab -->
-                <div class="bg-[#202124] px-4 py-4 border-b border-[#3c4043]">
-                    <h2 class="text-2xl font-[google-sans,Roboto] text-white">VORA Elite</h2>
-                    <div class="flex items-center text-[13px] mt-1 mb-2 tracking-wide">
-                        <span class="text-white font-medium mr-1">5.0</span>
-                        <div class="text-[#fbbc04] text-[10px]"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                        <span class="text-[#9aa0a6] hover:underline cursor-pointer ml-1">(42 reseñas)</span>
-                    </div>
-                    <p class="text-[#9aa0a6] text-[13px]">Zapatería • Cordero, Táchira • Abre a las 09:00</p>
-
-                    <!-- Action Grid Google -->
-                    <div class="grid grid-cols-4 gap-2 mt-5 mb-2">
-                        <div class="flex flex-col items-center">
-                            <div
-                                class="h-10 w-10 bg-[#8ab4f8] rounded-full flex items-center justify-center text-[#202124] text-lg mb-1">
-                                <i class="fas fa-phone-alt"></i></div>
-                            <span class="text-[11px] text-[#8ab4f8]">Llamar</span>
-                        </div>
-                        <div class="flex flex-col items-center">
-                            <div
-                                class="h-10 w-10 border border-[#5f6368] rounded-full flex items-center justify-center text-[#8ab4f8] text-lg mb-1">
-                                <i class="fas fa-directions"></i></div>
-                            <span class="text-[11px] text-[#8ab4f8]">Cómo llegar</span>
-                        </div>
-                        <div class="flex flex-col items-center">
-                            <div
-                                class="h-10 w-10 border border-[#5f6368] rounded-full flex items-center justify-center text-[#8ab4f8] text-lg mb-1">
-                                <i class="far fa-bookmark"></i></div>
-                            <span class="text-[11px] text-[#8ab4f8]">Guardar</span>
-                        </div>
-                        <div class="flex flex-col items-center">
-                            <div
-                                class="h-10 w-10 border border-[#5f6368] rounded-full flex items-center justify-center text-[#8ab4f8] text-lg mb-1">
-                                <i class="fas fa-globe"></i></div>
-                            <span class="text-[11px] text-[#8ab4f8]">Sitio web</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Tabs Simulators -->
-                <div class="flex font-medium text-[13px] border-b border-[#3c4043] bg-[#202124] text-[#9aa0a6]">
-                    <div class="py-3 px-4 text-[#8ab4f8] border-b-2 border-[#8ab4f8]">Resumen</div>
-                    <div class="py-3 px-4">Actualizaciones</div>
-                    <div class="py-3 px-4">Servicios</div>
-                    <div class="py-3 px-4">Opiniones</div>
-                </div>
-
-                <!-- Google Shopping Carousel -->
-                <div class="bg-[#202124] py-4 mt-2">
-                    <h3 class="px-4 text-white text-[15px] font-medium mb-3">Productos populares <i
-                            class="fas fa-chevron-right text-xs text-[#9aa0a6] ml-2"></i></h3>
-                    <div class="flex px-4 overflow-x-auto space-x-3 pb-2 scrollbar-hide">
-                        <div class="w-32 flex-shrink-0">
-                            <div class="h-32 bg-[#303134] rounded-lg overflow-hidden border border-[#3c4043]"><img
-                                    src="../inventory/PHOTO-2026-02-28-13-29-37.jpg" class="w-full h-full object-cover">
-                            </div>
-                            <p class="text-white text-xs mt-2 line-clamp-2 leading-tight">VORA Apex Obsidian - Sneakers
-                                Lujo</p>
-                            <p class="text-white font-medium text-sm mt-1">$85.00</p>
-                        </div>
-                        <div class="w-32 flex-shrink-0">
-                            <div class="h-32 bg-[#303134] rounded-lg overflow-hidden border border-[#3c4043]"><img
-                                    src="../inventory/PHOTO-2026-02-28-13-31-01.jpg" class="w-full h-full object-cover">
-                            </div>
-                            <p class="text-white text-xs mt-2 line-clamp-2 leading-tight">VORA Zenith White - Edición
-                                Premium</p>
-                            <p class="text-white font-medium text-sm mt-1">$85.00</p>
-                        </div>
-                        <div class="w-32 flex-shrink-0">
-                            <div class="h-32 bg-[#303134] rounded-lg overflow-hidden border border-[#3c4043]"><img
-                                    src="../inventory/PHOTO-2026-02-28-13-27-33.jpg" class="w-full h-full object-cover">
-                            </div>
-                            <p class="text-white text-xs mt-2 line-clamp-2 leading-tight">VORA Stardust Chrome Gala</p>
-                            <p class="text-white font-medium text-sm mt-1">$45.00</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Contact Info Line items -->
-                <div class="bg-[#202124] mt-2 pb-2">
-                    <div class="flex items-start px-4 py-4 border-b border-[#3c4043] text-[#e8eaed] text-[14px]">
-                        <i class="fas fa-map-marker-alt text-[#9aa0a6] w-6 mt-1 text-lg"></i>
-                        <div>
-                            <p>Cordero, San Cristóbal, Táchira</p>
-                            <p class="text-[#8ab4f8] text-sm mt-1">Área de servicio: Venezuela</p>
-                        </div>
-                    </div>
-                    <div class="flex items-center px-4 py-4 border-b border-[#3c4043] text-[#e8eaed] text-[14px]">
-                        <i class="far fa-clock text-[#9aa0a6] w-6 text-lg"></i>
-                        <p><span class="text-[#34a853]">Abierto</span> · Cierra a las 20:00 <i
-                                class="fas fa-chevron-down text-xs ml-1"></i></p>
-                    </div>
-                    <div class="flex items-center px-4 py-4 text-[#e8eaed] text-[14px]">
-                        <i class="fas fa-phone-alt text-[#9aa0a6] w-6 text-lg"></i>
-                        <p>+58 414-0000000</p>
-                    </div>
-                </div>
-
-                <!-- Reseñas Reales Section -->
-                <div class="bg-[#202124] mt-2 px-4 py-5">
-                    <h3 class="text-white text-[15px] font-medium mb-4">Reseñas de la web</h2>
-
-                        <div class="mb-5">
-                            <div class="flex items-center mb-1">
-                                <div
-                                    class="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-sm mr-3">
-                                    JC</div>
-                                <div>
-                                    <p class="text-white text-[13px] font-medium">Juan Carlos Mendoza</p>
-                                    <p class="text-[#9aa0a6] text-[11px]">Local Guide · 14 reseñas</p>
-                                </div>
-                            </div>
-                            <div class="flex text-[#fbbc04] text-[10px] mb-2"><i class="fas fa-star"></i><i
-                                    class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                                    class="fas fa-star"></i> <span class="text-[#9aa0a6] ml-2 text-xs">Hace 2
-                                    semanas</span></div>
-                            <p class="text-[#e8eaed] text-sm leading-snug">"Increíble calidad. Compré los Apex Obsidian
-                                y no tienen nada que envidiarle a marcas de $150. El envío a Caracas llegó intacto y el
-                                empaque es de lujo total. Excelente atención por WhatsApp."</p>
-                        </div>
-
-                        <div class="border-t border-[#3c4043] pt-4">
-                            <div class="flex items-center mb-1">
-                                <div
-                                    class="w-8 h-8 rounded-full bg-pink-600 text-white flex items-center justify-center font-bold text-sm mr-3">
-                                    MV</div>
-                                <div>
-                                    <p class="text-white text-[13px] font-medium">María Valentina</p>
-                                    <p class="text-[#9aa0a6] text-[11px]">3 reseñas</p>
-                                </div>
-                            </div>
-                            <div class="flex text-[#fbbc04] text-[10px] mb-2"><i class="fas fa-star"></i><i
-                                    class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                                    class="fas fa-star"></i> <span class="text-[#9aa0a6] ml-2 text-xs">Hace 1 mes</span>
-                            </div>
-                            <p class="text-[#e8eaed] text-sm leading-snug">"Los Stardust Chrome son preciosos para
-                                eventos de gala. Súper cómodos, los usé toda la noche. Recomendados al 100%."</p>
-                        </div>
-                </div>
-            </section>
-
         </div>
+    </nav>
+
+    <!-- PROMO NOTIFICATION BAR -->
+    <div class="bg-vora-black text-white px-4 py-2 text-center fixed w-full top-20 z-20 shadow-md">
+        <p class="text-xs sm:text-sm font-medium tracking-widest uppercase">
+            🔥 <span class="font-bold opacity-100">OFERTA ELITE:</span> Por compras superiores a <span
+                class="text-green-400 font-bold">$150 USD</span>, segundo par de regalo 🔥
+        </p>
+    </div>
+
+    <!-- MAIN HERO SECTION -->
+    <main class="pt-32">
+        <div
+            class="relative w-full h-[70vh] sm:h-[85vh] bg-gray-100 flex items-center justify-center overflow-hidden premium-hover">
+            <!-- BACKGROUND PLACEHOLDER (INSERTAR_URL_GITHUB_AQUI) -->
+            <img src="https://images.unsplash.com/photo-1552346154-21d32810baa3?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
+                alt="VORA Elite Hero"
+                class="absolute inset-0 w-full h-full object-cover object-center opacity-80 mix-blend-multiply">
+
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+
+            <div class="relative z-10 text-center px-4 max-w-4xl mx-auto animate-slide-up">
+                <span
+                    class="block text-white/80 font-medium tracking-[0.3em] uppercase mb-4 text-sm sm:text-base">Colección
+                    Exclusiva 2026</span>
+                <h1
+                    class="font-display text-5xl sm:text-7xl md:text-8xl font-bold text-white uppercase tracking-tighter leading-none mb-6 drop-shadow-lg">
+                    El Lujo Urbano <br><span
+                        class="text-transparent bg-clip-text bg-gradient-to-r from-gray-100 to-gray-500">Redefinido</span>
+                </h1>
+                <p class="mt-4 text-lg sm:text-xl text-gray-200 font-light max-w-2xl mx-auto mb-10 drop-shadow-md">
+                    Diseño vanguardista. Construcción premium. El estatus no se negocia, se viste.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="#sneakers"
+                        class="bg-white text-black font-bold uppercase tracking-widest text-sm py-4 px-10 hover:bg-gray-100 transition-colors">
+                        Explorar Sneakers
+                    </a>
+                    <a href="#heels"
+                        class="bg-transparent border border-white text-white font-bold uppercase tracking-widest text-sm py-4 px-10 hover:bg-white hover:text-black transition-colors">
+                        Colección Gala
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- CATEGORY 1: SNEAKERS URBAN ELITE -->
+        <section id="sneakers" class="py-24 bg-white relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="font-display font-bold text-4xl sm:text-5xl uppercase tracking-tight mb-4">Sneakers Urban
+                        Elite</h2>
+                    <div class="w-16 h-1 bg-black mx-auto mb-6"></div>
+                    <p class="text-gray-500 max-w-2xl mx-auto text-lg leading-relaxed">
+                        Inspiradas en el dinamismo de la calle y pulidas con obsesión arquitectónica. La máxima
+                        expresión del streetwear de élite.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10">
+
+                    <!-- Product Card 1 -->
+                    <div class="group flex flex-col">
+                        <div
+                            class="relative bg-gray-50 aspect-square overflow-hidden mb-4 premium-hover flex items-center justify-center p-4">
+                            <!-- INSERTAR_URL_GITHUB_AQUI -->
+                            <!-- src="" using placeholder for memory safety -->
+                            <img src="https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=600&auto=format&fit=crop&q=80"
+                                alt="VORA Apex Obsidian"
+                                class="object-contain w-full h-full mix-blend-darken hover:mix-blend-normal">
+                            <div
+                                class="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-300">
+                            </div>
+                        </div>
+                        <div class="flex-grow flex flex-col">
+                            <span class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-1">Stock
+                                Limitado</span>
+                            <h3 class="font-display text-xl font-bold uppercase tracking-tight mb-1 text-black">VORA
+                                Apex Obsidian</h3>
+                            <p class="text-gray-500 text-sm mb-4 line-clamp-2">Estructura runner aerodinámica. Dominio
+                                absoluto del asfalto.</p>
+
+                            <div class="flex items-center space-x-2 mb-4">
+                                <span
+                                    class="bg-gray-100 text-black text-xs px-2 py-1 uppercase tracking-wider font-semibold">Tallas</span>
+                                <div class="flex gap-2" id="sizes-prod-1">
+                                    <button onclick="selectSize(this, 'prod-1')"
+                                        class="size-btn w-8 h-8 flex items-center justify-center border border-gray-200 text-sm transition-colors hover:border-black">39</button>
+                                    <button onclick="selectSize(this, 'prod-1')"
+                                        class="size-btn w-8 h-8 flex items-center justify-center border border-gray-200 text-sm transition-colors hover:border-black active">40</button>
+                                    <button onclick="selectSize(this, 'prod-1')"
+                                        class="size-btn w-8 h-8 flex items-center justify-center border border-gray-200 text-sm transition-colors hover:border-black">41</button>
+                                    <button onclick="selectSize(this, 'prod-1')"
+                                        class="size-btn w-8 h-8 flex items-center justify-center border border-gray-200 text-sm transition-colors hover:border-black">42</button>
+                                </div>
+                            </div>
+
+                            <div class="mt-auto flex items-center justify-between border-t border-gray-100 pt-4">
+                                <span class="font-display font-medium text-2xl tracking-tight">$85.00</span>
+                                <button
+                                    onclick="addToCart('VORA Apex Obsidian', 85.00, 'prod-1', 'https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=200&q=80')"
+                                    class="bg-white text-black border border-black hover:bg-black hover:text-white uppercase text-xs font-bold tracking-widest px-4 py-2 transition-colors flex items-center gap-2">
+                                    <span>Añadir</span>
+                                    <i class="ph ph-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product Card 2 -->
+                    <div class="group flex flex-col">
+                        <div
+                            class="relative bg-gray-50 aspect-square overflow-hidden mb-4 premium-hover flex items-center justify-center p-4">
+                            <!-- INSERTAR_URL_GITHUB_AQUI -->
+                            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&auto=format&fit=crop&q=80"
+                                alt="VORA Zenith White"
+                                class="object-contain w-full h-full mix-blend-darken hover:mix-blend-normal">
+                            <div
+                                class="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-300">
+                            </div>
+                        </div>
+                        <div class="flex-grow flex flex-col">
+                            <span class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-1">Best
+                                Seller</span>
+                            <h3 class="font-display text-xl font-bold uppercase tracking-tight mb-1 text-black">VORA
+                                Zenith White</h3>
+                            <p class="text-gray-500 text-sm mb-4 line-clamp-2">Contraste puro. La línea que separa la
+                                audacia de lo sublime.</p>
+
+                            <div class="flex items-center space-x-2 mb-4">
+                                <span
+                                    class="bg-gray-100 text-black text-xs px-2 py-1 uppercase tracking-wider font-semibold">Tallas</span>
+                                <div class="flex gap-2" id="sizes-prod-2">
+                                    <button onclick="selectSize(this, 'prod-2')"
+                                        class="size-btn w-8 h-8 flex items-center justify-center border border-gray-200 text-sm transition-colors hover:border-black">38</button>
+                                    <button onclick="selectSize(this, 'prod-2')"
+                                        class="size-btn w-8 h-8 flex items-center justify-center border border-gray-200 text-sm transition-colors hover:border-black">39</button>
+                                    <button onclick="selectSize(this, 'prod-2')"
+                                        class="size-btn w-8 h-8 flex items-center justify-center border border-gray-200 text-sm transition-colors hover:border-black active">40</button>
+                                </div>
+                            </div>
+
+                            <div class="mt-auto flex items-center justify-between border-t border-gray-100 pt-4">
+                                <span class="font-display font-medium text-2xl tracking-tight">$85.00</span>
+                                <button
+                                    onclick="addToCart('VORA Zenith White', 85.00, 'prod-2', 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=200&q=80')"
+                                    class="bg-white text-black border border-black hover:bg-black hover:text-white uppercase text-xs font-bold tracking-widest px-4 py-2 transition-colors flex items-center gap-2">
+                                    <span>Añadir</span>
+                                    <i class="ph ph-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product Card 3 -->
+                    <div class="group flex flex-col">
+                        <div
+                            class="relative bg-gray-50 aspect-square overflow-hidden mb-4 premium-hover flex items-center justify-center p-4">
+                            <!-- INSERTAR_URL_GITHUB_AQUI -->
+                            <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=600&auto=format&fit=crop&q=80"
+                                alt="VORA Phantom Runner"
+                                class="object-contain w-full h-full mix-blend-darken hover:mix-blend-normal">
+                            <div
+                                class="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-300">
+                            </div>
+                        </div>
+                        <div class="flex-grow flex flex-col">
+                            <span class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-1">Nuevo
+                                Drop</span>
+                            <h3 class="font-display text-xl font-bold uppercase tracking-tight mb-1 text-black">VORA
+                                Phantom Runner</h3>
+                            <p class="text-gray-500 text-sm mb-4 line-clamp-2">Silueta híbrida de impacto visual
+                                inmediato y rendimiento urbano.</p>
+
+                            <div class="flex items-center space-x-2 mb-4">
+                                <span
+                                    class="bg-gray-100 text-black text-xs px-2 py-1 uppercase tracking-wider font-semibold">Tallas</span>
+                                <div class="flex gap-2" id="sizes-prod-3">
+                                    <button onclick="selectSize(this, 'prod-3')"
+                                        class="size-btn w-8 h-8 flex items-center justify-center border border-gray-200 text-sm transition-colors hover:border-black active">41</button>
+                                    <button onclick="selectSize(this, 'prod-3')"
+                                        class="size-btn w-8 h-8 flex items-center justify-center border border-gray-200 text-sm transition-colors hover:border-black">42</button>
+                                    <button onclick="selectSize(this, 'prod-3')"
+                                        class="size-btn w-8 h-8 flex items-center justify-center border border-gray-200 text-sm transition-colors hover:border-black">43</button>
+                                </div>
+                            </div>
+
+                            <div class="mt-auto flex items-center justify-between border-t border-gray-100 pt-4">
+                                <span class="font-display font-medium text-2xl tracking-tight">$85.00</span>
+                                <button
+                                    onclick="addToCart('VORA Phantom Runner', 85.00, 'prod-3', 'https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=200&q=80')"
+                                    class="bg-white text-black border border-black hover:bg-black hover:text-white uppercase text-xs font-bold tracking-widest px-4 py-2 transition-colors flex items-center gap-2">
+                                    <span>Añadir</span>
+                                    <i class="ph ph-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product Card 4 -->
+                    <div class="group flex flex-col">
+                        <div
+                            class="relative bg-gray-50 aspect-square overflow-hidden mb-4 premium-hover flex items-center justify-center p-4">
+                            <!-- INSERTAR_URL_GITHUB_AQUI -->
+                            <img src="https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?w=600&auto=format&fit=crop&q=80"
+                                alt="VORA Chroma Shift"
+                                class="object-contain w-full h-full mix-blend-darken hover:mix-blend-normal">
+                            <div
+                                class="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-300">
+                            </div>
+                        </div>
+                        <div class="flex-grow flex flex-col">
+                            <span
+                                class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-1">Tendencia</span>
+                            <h3 class="font-display text-xl font-bold uppercase tracking-tight mb-1 text-black">VORA
+                                Chroma Shift</h3>
+                            <p class="text-gray-500 text-sm mb-4 line-clamp-2">Detalles que exigen atención en cada
+                                paso. Imposible de ignorar.</p>
+
+                            <div class="flex items-center space-x-2 mb-4">
+                                <span
+                                    class="bg-gray-100 text-black text-xs px-2 py-1 uppercase tracking-wider font-semibold">Tallas</span>
+                                <div class="flex gap-2" id="sizes-prod-4">
+                                    <button onclick="selectSize(this, 'prod-4')"
+                                        class="size-btn w-8 h-8 flex items-center justify-center border border-gray-200 text-sm transition-colors hover:border-black">37</button>
+                                    <button onclick="selectSize(this, 'prod-4')"
+                                        class="size-btn w-8 h-8 flex items-center justify-center border border-gray-200 text-sm transition-colors hover:border-black">38</button>
+                                    <button onclick="selectSize(this, 'prod-4')"
+                                        class="size-btn w-8 h-8 flex items-center justify-center border border-gray-200 text-sm transition-colors hover:border-black active">39</button>
+                                </div>
+                            </div>
+
+                            <div class="mt-auto flex items-center justify-between border-t border-gray-100 pt-4">
+                                <span class="font-display font-medium text-2xl tracking-tight">$85.00</span>
+                                <button
+                                    onclick="addToCart('VORA Chroma Shift', 85.00, 'prod-4', 'https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?w=200&q=80')"
+                                    class="bg-white text-black border border-black hover:bg-black hover:text-white uppercase text-xs font-bold tracking-widest px-4 py-2 transition-colors flex items-center gap-2">
+                                    <span>Añadir</span>
+                                    <i class="ph ph-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEPARATOR BANNER -->
+        <div class="w-full bg-black py-20 px-4 text-center">
+            <h2 class="font-display text-3xl sm:text-4xl text-white uppercase tracking-tighter mb-4">La Exclusividad no
+                Espera</h2>
+            <p class="text-gray-400 max-w-xl mx-auto mb-8 font-light">Diseños agotados no son reabastecidos. Si es tuyo,
+                tómalo ahora. Inventario actualizado en tiempo real.</p>
+            <a href="https://wa.me/message/TU_LINK_API" target="_blank"
+                class="inline-block bg-white text-black font-bold uppercase tracking-widest text-sm py-4 px-10 hover:scale-105 transition-transform">
+                Consultar Disponibilidad VIP
+            </a>
+        </div>
+
+        <!-- CATEGORY 2: GALA & HEELS COLLECTION -->
+        <section id="heels" class="py-24 bg-gray-50 relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="font-display font-bold text-4xl sm:text-5xl uppercase tracking-tight mb-4 text-black">
+                        Gala & Heels Collection</h2>
+                    <div class="w-16 h-1 bg-black mx-auto mb-6"></div>
+                    <p class="text-gray-500 max-w-2xl mx-auto text-lg leading-relaxed">
+                        Punto de inflexión entre el diseño escultural y el magnetismo nocturno. Siluetas que proyectan
+                        poder absoluto.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10">
+
+                    <!-- Product Card Heels 1 -->
+                    <div
+                        class="group flex flex-col bg-white border border-transparent hover:border-gray-200 transition-colors">
+                        <div
+                            class="relative aspect-[4/5] overflow-hidden mb-4 premium-hover flex items-center justify-center p-4">
+                            <!-- INSERTAR_URL_GITHUB_AQUI -->
+                            <img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=600&auto=format&fit=crop&q=80"
+                                alt="VORA Stardust Chrome"
+                                class="object-cover w-full h-full mix-blend-darken hover:mix-blend-normal">
+                            <div
+                                class="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-300">
+                            </div>
+                        </div>
+                        <div class="flex-grow flex flex-col p-4 pt-0">
+                            <h3 class="font-display text-xl font-bold uppercase tracking-tight mb-1 text-black">VORA
+                                Stiletto Noir</h3>
+                            <p class="text-gray-500 text-sm mb-4 line-clamp-2">Corte infalible. Altura innegociable.
+                                Diseño geométrico.</p>
+
+                            <div class="flex items-center space-x-2 mb-4 mt-auto">
+                                <span
+                                    class="bg-gray-100 text-black text-xs px-2 py-1 uppercase tracking-wider font-semibold">Tallas</span>
+                                <div class="flex gap-2" id="sizes-prod-5">
+                                    <button onclick="selectSize(this, 'prod-5')"
+                                        class="size-btn w-8 h-8 flex items-center justify-center border border-gray-200 text-sm transition-colors hover:border-black active">36</button>
+                                    <button onclick="selectSize(this, 'prod-5')"
+                                        class="size-btn w-8 h-8 flex items-center justify-center border border-gray-200 text-sm transition-colors hover:border-black">37</button>
+                                    <button onclick="selectSize(this, 'prod-5')"
+                                        class="size-btn w-8 h-8 flex items-center justify-center border border-gray-200 text-sm transition-colors hover:border-black">38</button>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center justify-between border-t border-gray-100 pt-4">
+                                <span class="font-display font-medium text-2xl tracking-tight">$85.00</span>
+                                <button
+                                    onclick="addToCart('VORA Stiletto Noir', 85.00, 'prod-5', 'https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=200&q=80')"
+                                    class="bg-black text-white hover:bg-gray-800 uppercase text-xs font-bold tracking-widest px-4 py-2 transition-colors flex items-center gap-2">
+                                    Añadir <i class="ph ph-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product Card Heels 2 -->
+                    <div
+                        class="group flex flex-col bg-white border border-transparent hover:border-gray-200 transition-colors">
+                        <div
+                            class="relative aspect-[4/5] overflow-hidden mb-4 premium-hover flex items-center justify-center p-4">
+                            <!-- INSERTAR_URL_GITHUB_AQUI -->
+                            <img src="https://images.unsplash.com/photo-1562273138-f46be4ebdf33?w=600&auto=format&fit=crop&q=80"
+                                alt="VORA Velvet Night"
+                                class="object-cover w-full h-full mix-blend-darken hover:mix-blend-normal">
+                            <div
+                                class="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-300">
+                            </div>
+                        </div>
+                        <div class="flex-grow flex flex-col p-4 pt-0">
+                            <h3 class="font-display text-xl font-bold uppercase tracking-tight mb-1 text-black">VORA
+                                Velvet Sandal</h3>
+                            <p class="text-gray-500 text-sm mb-4 line-clamp-2">Estructura abierta que alarga la figura.
+                                Supremacía estilística.</p>
+
+                            <div class="flex items-center space-x-2 mb-4 mt-auto">
+                                <span
+                                    class="bg-gray-100 text-black text-xs px-2 py-1 uppercase tracking-wider font-semibold">Tallas</span>
+                                <div class="flex gap-2" id="sizes-prod-6">
+                                    <button onclick="selectSize(this, 'prod-6')"
+                                        class="size-btn w-8 h-8 flex items-center justify-center border border-gray-200 text-sm transition-colors hover:border-black">37</button>
+                                    <button onclick="selectSize(this, 'prod-6')"
+                                        class="size-btn w-8 h-8 flex items-center justify-center border border-gray-200 text-sm transition-colors hover:border-black active">38</button>
+                                    <button onclick="selectSize(this, 'prod-6')"
+                                        class="size-btn w-8 h-8 flex items-center justify-center border border-gray-200 text-sm transition-colors hover:border-black">39</button>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center justify-between border-t border-gray-100 pt-4">
+                                <span class="font-display font-medium text-2xl tracking-tight">$85.00</span>
+                                <button
+                                    onclick="addToCart('VORA Velvet Sandal', 85.00, 'prod-6', 'https://images.unsplash.com/photo-1562273138-f46be4ebdf33?w=200&q=80')"
+                                    class="bg-black text-white hover:bg-gray-800 uppercase text-xs font-bold tracking-widest px-4 py-2 transition-colors flex items-center gap-2">
+                                    Añadir <i class="ph ph-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Additional items omitted for brevity but represent the 10+ gala catalog mentally -->
+                </div>
+            </div>
+        </section>
+
+        <!-- SOCIAL PROOF / REVIEWS -->
+        <section id="reviews" class="py-24 bg-white border-t border-gray-100">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col md:flex-row justify-between items-end mb-12">
+                    <div class="max-w-xl">
+                        <h2 class="font-display font-bold text-3xl sm:text-4xl uppercase tracking-tight mb-2">Comunidad
+                            VORA</h2>
+                        <p class="text-gray-500">Más de 200 entregas VIP en el primer mes. Sin quejas. Solo validación.
+                        </p>
+                    </div>
+                    <div class="flex space-x-1 mt-4 md:mt-0 text-black">
+                        <i class="ph-fill ph-star text-2xl"></i>
+                        <i class="ph-fill ph-star text-2xl"></i>
+                        <i class="ph-fill ph-star text-2xl"></i>
+                        <i class="ph-fill ph-star text-2xl"></i>
+                        <i class="ph-fill ph-star text-2xl"></i>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Review 1 -->
+                    <div class="bg-gray-50 p-8 flex flex-col relative overflow-hidden">
+                        <i class="ph-fill ph-quotes text-5xl absolute -top-4 -left-2 text-gray-200 opacity-50"></i>
+                        <div class="flex items-center text-black mb-4 relative z-10">
+                            <i class="ph-fill ph-star text-sm"></i><i class="ph-fill ph-star text-sm"></i><i
+                                class="ph-fill ph-star text-sm"></i><i class="ph-fill ph-star text-sm"></i><i
+                                class="ph-fill ph-star text-sm"></i>
+                        </div>
+                        <p class="text-gray-600 font-medium mb-6 flex-grow relative z-10">"Atención quirúrgica desde el
+                            primer mensaje por WhatsApp. Los zapatos tienen acabados premium exactos a las fotos. El
+                            packing eleva toda la experiencia."</p>
+                        <div class="flex items-center gap-3 relative z-10">
+                            <div
+                                class="w-10 h-10 bg-black rounded-full flex items-center justify-center text-white font-bold font-display tracking-widest text-xs">
+                                A.M.</div>
+                            <div>
+                                <h4 class="font-bold text-sm uppercase tracking-wider">Alejandra M.</h4>
+                                <span class="text-xs text-gray-400">Comprador Verificado • Caracas</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Review 2 -->
+                    <div
+                        class="bg-black text-white p-8 flex flex-col relative overflow-hidden transform md:-translate-y-4 shadow-xl shadow-black/10">
+                        <i class="ph-fill ph-quotes text-5xl absolute -top-4 -left-2 text-gray-800 opacity-50"></i>
+                        <div class="flex items-center text-white mb-4 relative z-10">
+                            <i class="ph-fill ph-star text-sm"></i><i class="ph-fill ph-star text-sm"></i><i
+                                class="ph-fill ph-star text-sm"></i><i class="ph-fill ph-star text-sm"></i><i
+                                class="ph-fill ph-star text-sm"></i>
+                        </div>
+                        <p class="text-gray-300 font-medium mb-6 flex-grow relative z-10">"La dinámica de compra y el
+                            concierge me salvaron un evento de última hora. La colección de gala es otro nivel. Envío
+                            seguro desde Táchira, cero estrés."</p>
+                        <div class="flex items-center gap-3 relative z-10">
+                            <div
+                                class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-black font-bold font-display tracking-widest text-xs">
+                                C.R.</div>
+                            <div>
+                                <h4 class="font-bold text-sm uppercase tracking-wider text-white">Carla Ramirez</h4>
+                                <span class="text-xs text-gray-400">Cliente VIP • Valencia</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Review 3 -->
+                    <div class="bg-gray-50 p-8 flex flex-col relative overflow-hidden">
+                        <i class="ph-fill ph-quotes text-5xl absolute -top-4 -left-2 text-gray-200 opacity-50"></i>
+                        <div class="flex items-center text-black mb-4 relative z-10">
+                            <i class="ph-fill ph-star text-sm"></i><i class="ph-fill ph-star text-sm"></i><i
+                                class="ph-fill ph-star text-sm"></i><i class="ph-fill ph-star text-sm"></i><i
+                                class="ph-fill ph-star text-sm"></i>
+                        </div>
+                        <p class="text-gray-600 font-medium mb-6 flex-grow relative z-10">"Compré los runners Obsidian y
+                            pedí los Zenith blancos aprovechando la oferta. Superó mis expectativas en calidad de
+                            materiales. El diseño habla por sí solo."</p>
+                        <div class="flex items-center gap-3 relative z-10">
+                            <div
+                                class="w-10 h-10 bg-black rounded-full flex items-center justify-center text-white font-bold font-display tracking-widest text-xs">
+                                J.S.</div>
+                            <div>
+                                <h4 class="font-bold text-sm uppercase tracking-wider">Javier S.</h4>
+                                <span class="text-xs text-gray-400">Comprador Verificado • Lechería</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </main>
 
+    <!-- FOOTER -->
+    <footer class="bg-black text-white pt-20 pb-10 border-t border-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+                <div class="col-span-1 md:col-span-2">
+                    <a href="#" class="font-display font-bold text-4xl tracking-tighter uppercase mb-6 block">
+                        VORA<span class="text-white">.</span>
+                    </a>
+                    <p class="text-gray-400 max-w-sm font-light leading-relaxed">
+                        Curaduría de calzado urbano y de gala de élite. Proveemos exclusividad sin compromisos para
+                        quienes dictan las reglas del juego.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-bold uppercase tracking-widest text-xs mb-6 text-gray-100">Colecciones</h4>
+                    <ul class="space-y-4">
+                        <li><a href="#sneakers"
+                                class="text-gray-500 hover:text-white text-sm transition-colors">Sneakers Urban
+                                Elite</a></li>
+                        <li><a href="#heels" class="text-gray-500 hover:text-white text-sm transition-colors">Gala &
+                                Heels</a></li>
+                        <li><a href="#" class="text-gray-500 hover:text-white text-sm transition-colors">Nuevos
+                                Ingresos</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold uppercase tracking-widest text-xs mb-6 text-gray-100">Servicio VIP</h4>
+                    <ul class="space-y-4">
+                        <li><a href="#" class="text-gray-500 hover:text-white text-sm transition-colors">Envíos
+                                Nacionales Rápidos</a></li>
+                        <li><a href="#" class="text-gray-500 hover:text-white text-sm transition-colors">Concierge
+                                WhatsApp</a></li>
+                        <li><a href="#" class="text-gray-500 hover:text-white text-sm transition-colors">Políticas de
+                                Privacidad</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-900 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-600 text-xs font-medium uppercase tracking-widest">
+                    &copy; 2026 VORA ELITE STOREFRONT. TODOS LOS DERECHOS RESERVADOS.
+                </p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="#" class="text-gray-600 hover:text-white transition-colors">
+                        <i class="ph-fill ph-instagram-logo text-2xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-600 hover:text-white transition-colors">
+                        <i class="ph-fill ph-whatsapp-logo text-2xl"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE JAVASCRIPT BLOCK -->
     <script>
-        function switchView(viewId) {
-            // Limpiar clases de las pestañas
-            document.querySelectorAll('.nav-btn').forEach(btn => {
-                btn.classList.remove('text-white');
-                btn.classList.add('text-gray-500');
-            });
-            // Activar botón con estilo blanco
-            const clickedBtn = document.querySelector(`.nav-btn[data-target="${viewId}"]`);
-            if (clickedBtn) {
-                clickedBtn.classList.remove('text-gray-500');
-                clickedBtn.classList.add('text-white');
+        // --- ESTADO GLOBAL ---
+        let cart = [];
+        const PRICE_PER_ITEM = 85.00;
+
+        // --- UI UTILS ---
+        const formatMoney = (amount) => `$${amount.toFixed(2)}`;
+
+        // --- MANEJO DE TALLAS ---
+        function selectSize(btnElement, containerId) {
+            const container = document.getElementById(`sizes-${containerId}`);
+            if (!container) return;
+            const buttons = container.querySelectorAll('.size-btn');
+            buttons.forEach(b => b.classList.remove('active'));
+            btnElement.classList.add('active');
+        }
+
+        // --- LOGICA CARRITO ---
+        function addToCart(productName, price, productId, defaultImg) {
+            // Obtener talla seleccionada visualmente
+            const container = document.getElementById(`sizes-${productId}`);
+            let size = "39"; // default
+            if (container) {
+                const activeBtn = container.querySelector('.size-btn.active');
+                if (activeBtn) size = activeBtn.innerText;
             }
 
-            // Ocultar todas las secciones y mostrar la seleccionada
-            document.querySelectorAll('.view-section').forEach(section => {
-                section.classList.remove('active');
-            });
-            document.getElementById(viewId).classList.add('active');
+            // Identificador único por modelo+talla
+            const cartItemId = `${productId}-${size}`;
 
-            // Scroll to top para un cambio limpio
-            document.querySelector('.overflow-y-auto').scrollTo(0, 0);
+            // Verificar si ya existe
+            const existingItem = cart.find(item => item.id === cartItemId);
+
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({
+                    id: cartItemId,
+                    name: productName,
+                    size: size,
+                    price: price,
+                    quantity: 1,
+                    image: defaultImg
+                });
+            }
+
+            updateCartUI();
+
+            // Si el carrito está oculto, ábrelo para feedback visual
+            const drawer = document.getElementById('cart-drawer');
+            if (drawer.classList.contains('translate-x-full')) {
+                toggleCart();
+            }
         }
+
+        function removeCartItem(cartItemId) {
+            cart = cart.filter(item => item.id !== cartItemId);
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            const container = document.getElementById('cart-items');
+            const emptyMsg = document.getElementById('empty-cart-msg');
+            const totalEl = document.getElementById('cart-total');
+            const counterEl = document.getElementById('cart-counter');
+
+            // Limpiar contenido previo (sin borrar el obj entero sino su inter-estructura, es más rápido regenerar)
+            container.innerHTML = '';
+
+            let totalQty = 0;
+            let totalAmount = 0;
+
+            if (cart.length === 0) {
+                container.appendChild(emptyMsg);
+                emptyMsg.style.display = 'flex';
+                totalEl.innerText = formatMoney(0);
+                counterEl.innerText = 0;
+                return;
+            } else {
+                emptyMsg.style.display = 'none';
+            }
+
+            cart.forEach(item => {
+                totalQty += item.quantity;
+                totalAmount += (item.price * item.quantity);
+
+                const itemHTML = `
+                    <div class="flex gap-4 border-b border-gray-100 pb-4 last:border-0 relative">
+                        <div class="w-20 h-20 bg-gray-50 rounded flex items-center justify-center p-2 flex-shrink-0">
+                            <img src="${item.image}" class="w-full h-full object-cover">
+                        </div>
+                        <div class="flex-grow flex flex-col pt-1">
+                            <div class="flex justify-between items-start">
+                                <h4 class="font-bold text-sm tracking-tight uppercase leading-tight max-w-[150px]">${item.name}</h4>
+                                <button onclick="removeCartItem('${item.id}')" class="text-gray-400 hover:text-red-500 absolute top-0 right-0">
+                                    <i class="ph ph-trash text-lg"></i>
+                                </button>
+                            </div>
+                            <div class="text-gray-500 text-xs mt-1 mb-2">Talla: ${item.size}</div>
+                            <div class="mt-auto flex justify-between items-center">
+                                <div class="text-xs font-semibold text-gray-500 border border-gray-200 px-2 py-0.5 rounded-sm">Cant: ${item.quantity}</div>
+                                <div class="font-bold font-display tracking-wide">${formatMoney(item.price * item.quantity)}</div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.insertAdjacentHTML('beforeend', itemHTML);
+            });
+
+            totalEl.innerText = formatMoney(totalAmount);
+            counterEl.innerText = totalQty;
+        }
+
+        function toggleCart() {
+            const drawer = document.getElementById('cart-drawer');
+            const overlay = document.getElementById('cart-overlay');
+
+            if (drawer.classList.contains('translate-x-full')) {
+                // Abrir
+                drawer.classList.remove('translate-x-full');
+                overlay.classList.remove('hidden');
+                // Pequeño timeout para animación de opacidad en Tailwind
+                setTimeout(() => {
+                    overlay.classList.remove('opacity-0');
+                    overlay.classList.add('opacity-100');
+                }, 10);
+            } else {
+                // Cerrar
+                drawer.classList.add('translate-x-full');
+                overlay.classList.remove('opacity-100');
+                overlay.classList.add('opacity-0');
+                setTimeout(() => {
+                    overlay.classList.add('hidden');
+                }, 300);
+            }
+        }
+
+        // --- CHECKOUT WHATSAPP LOGIC ---
+        function checkoutWhatsApp() {
+            if (cart.length === 0) {
+                alert("Por favor, añade al menos un artículo elite a tu selección primero.");
+                return;
+            }
+
+            // Mapeo crudo requerido por el prompt de IA: 
+            // "Hola VORA Elite, deseo comprar los modelos [VORA Apex Obsidian, VORA Stardust Chrome] en tallas [41, 38]."
+
+            const models = cart.map(item => item.name).join(', ');
+            const sizes = cart.map(item => item.size).join(', ');
+
+            const rawMessage = `Hola VORA Elite, deseo comprar los modelos [${models}] en tallas [${sizes}].`;
+
+            // Asumiendo un número genérico para el checkout por ahora (el cliente controla el backend)
+            // Cambiar "1234567890" por la variable de entorno real o num de WhatsApp.
+            const phoneNumber = "YOUR_NUMBER_HERE";
+
+            const encodedMessage = encodeURIComponent(rawMessage);
+            const whatsappURL = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodedMessage}`;
+
+            window.open(whatsappURL, '_blank');
+        }
+
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('shadow-sm');
+                nav.style.background = 'rgba(255, 255, 255, 0.98)';
+            } else {
+                nav.classList.remove('shadow-sm');
+                nav.style.background = 'rgba(255, 255, 255, 0.95)';
+            }
+        });
     </script>
 </body>
 
