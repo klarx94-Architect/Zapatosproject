@@ -4,9 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VORA ELITE | El Lujo Urbano Redefinido</title>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <title>VORA Elite | El Lujo Urbano Redefinido</title>
     <meta name="description"
-        content="Colección exclusiva de sneakers urbanos y zapatos de gala de alta gama. Envío nacional VIP.">
+        content="VORA Elite: Calzado exclusivo y streetwear de lujo en Venezuela. Colecciones limitadas para quienes dominan el asfalto.">
+
+    <!-- Open Graph for Social Sharing -->
+    <meta property="og:title" content="VORA Elite | Streetwear Premium">
+    <meta property="og:description" content="Diseño vanguardista. Construcción premium. El estatus no se negocia.">
+    <meta property="og:type" content="website">
 
     <!-- Tailwind CSS (CDN for rapid prototyping) -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -208,24 +216,26 @@
     <!-- MAIN HERO SECTION -->
     <main class="pt-32">
         <div
-            class="relative w-full h-[70vh] sm:h-[85vh] bg-gray-100 flex items-center justify-center overflow-hidden premium-hover">
-            <!-- BACKGROUND PLACEHOLDER (INSERTAR_URL_GITHUB_AQUI) -->
-            <img src="https://images.unsplash.com/photo-1552346154-21d32810baa3?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
-                alt="VORA Elite Hero"
-                class="absolute inset-0 w-full h-full object-cover object-center opacity-80 mix-blend-multiply">
+            class="relative w-full h-[70vh] sm:h-[85vh] bg-[#050505] flex items-center justify-center overflow-hidden group">
 
-            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+            <div class="absolute inset-0 bg-gradient-to-b from-black via-gray-900 to-black opacity-90"></div>
+            <div
+                class="absolute top-0 right-0 w-2/3 h-full bg-gradient-to-bl from-white/5 to-transparent pointer-events-none">
+            </div>
+            <div
+                class="absolute -bottom-40 -left-40 w-96 h-96 bg-gray-600 rounded-full mix-blend-overlay filter blur-[120px] opacity-40 pointer-events-none group-hover:opacity-60 transition-opacity duration-1000">
+            </div>
 
-            <div class="relative z-10 text-center px-4 max-w-4xl mx-auto animate-slide-up">
+            <div class="relative z-10 text-center px-4 max-w-4xl mx-auto animate-slide-up mt-10">
                 <span
-                    class="block text-white/80 font-medium tracking-[0.3em] uppercase mb-4 text-sm sm:text-base">Colección
+                    class="inline-block border border-white/20 text-white/90 font-medium tracking-[0.3em] uppercase mb-6 px-4 py-1.5 text-xs sm:text-sm backdrop-blur-sm shadow-xl">Colección
                     Exclusiva 2026</span>
                 <h1
-                    class="font-display text-5xl sm:text-7xl md:text-8xl font-bold text-white uppercase tracking-tighter leading-none mb-6 drop-shadow-lg">
+                    class="font-display text-5xl sm:text-7xl md:text-8xl font-bold text-white uppercase tracking-tighter leading-none mb-6 drop-shadow-[0_0_30px_rgba(255,255,255,0.2)]">
                     El Lujo Urbano <br><span
-                        class="text-transparent bg-clip-text bg-gradient-to-r from-gray-100 to-gray-500">Redefinido</span>
+                        class="text-transparent bg-clip-text bg-gradient-to-r from-gray-100 via-gray-300 to-gray-500">Redefinido</span>
                 </h1>
-                <p class="mt-4 text-lg sm:text-xl text-gray-200 font-light max-w-2xl mx-auto mb-10 drop-shadow-md">
+                <p class="mt-4 text-lg sm:text-xl text-gray-300 font-light max-w-2xl mx-auto mb-10 drop-shadow-md">
                     Diseño vanguardista. Construcción premium. El estatus no se negocia, se viste.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
@@ -260,13 +270,10 @@
                     <div class="group flex flex-col">
                         <div
                             class="relative bg-gray-50 aspect-square overflow-hidden mb-4 premium-hover flex items-center justify-center p-4">
-                            <!-- INSERTAR_URL_GITHUB_AQUI -->
-                            <!-- src="" using placeholder for memory safety -->
-                            <img src="https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=600&auto=format&fit=crop&q=80"
-                                alt="VORA Apex Obsidian"
-                                class="object-contain w-full h-full mix-blend-darken hover:mix-blend-normal">
+                            <img src="./assets/images/products/sneaker-apex.jpg" alt="VORA Apex Obsidian"
+                                class="object-cover w-full h-full mix-blend-darken hover:mix-blend-normal scale-110">
                             <div
-                                class="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-300">
+                                class="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-300 pointer-events-none">
                             </div>
                         </div>
                         <div class="flex-grow flex flex-col">
@@ -292,14 +299,23 @@
                                 </div>
                             </div>
 
-                            <div class="mt-auto flex items-center justify-between border-t border-gray-100 pt-4">
-                                <span class="font-display font-medium text-2xl tracking-tight">$85.00</span>
-                                <button
-                                    onclick="addToCart('VORA Apex Obsidian', 85.00, 'prod-1', 'https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=200&q=80')"
-                                    class="bg-white text-black border border-black hover:bg-black hover:text-white uppercase text-xs font-bold tracking-widest px-4 py-2 transition-colors flex items-center gap-2">
-                                    <span>Añadir</span>
-                                    <i class="ph ph-plus"></i>
-                                </button>
+                            <div class="mt-auto flex flex-col pt-4 gap-2">
+                                <div class="flex justify-between items-center w-full">
+                                    <span class="font-display font-medium text-2xl tracking-tight">$85.00</span>
+                                </div>
+                                <div class="flex gap-2 w-full mt-2">
+                                    <button
+                                        onclick="addToCart('VORA Apex Obsidian', 85.00, 'prod-1', './assets/images/products/sneaker-apex.jpg')"
+                                        class="flex-1 bg-white text-black border border-black hover:bg-black hover:text-white uppercase text-xs font-bold tracking-widest px-1 py-3 transition-colors flex items-center justify-center gap-1 group/btn">
+                                        <i class="ph ph-bag text-lg group-hover/btn:scale-110 transition-transform"></i>
+                                    </button>
+                                    <button onclick="checkoutSingleItem('VORA Apex Obsidian', 'prod-1')"
+                                        class="flex-[2] bg-black text-white hover:bg-[#25D366] border border-black uppercase text-xs font-bold tracking-widest px-2 py-3 transition-colors flex items-center justify-center gap-2 group/wp">
+                                        <span>Pedir</span>
+                                        <i
+                                            class="ph-fill ph-whatsapp-logo text-lg group-hover/wp:scale-110 transition-transform"></i>
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -308,12 +324,10 @@
                     <div class="group flex flex-col">
                         <div
                             class="relative bg-gray-50 aspect-square overflow-hidden mb-4 premium-hover flex items-center justify-center p-4">
-                            <!-- INSERTAR_URL_GITHUB_AQUI -->
-                            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&auto=format&fit=crop&q=80"
-                                alt="VORA Zenith White"
-                                class="object-contain w-full h-full mix-blend-darken hover:mix-blend-normal">
+                            <img src="./assets/images/products/sneaker-zenith.jpg" alt="VORA Zenith White"
+                                class="object-cover w-full h-full mix-blend-darken hover:mix-blend-normal scale-110">
                             <div
-                                class="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-300">
+                                class="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-300 pointer-events-none">
                             </div>
                         </div>
                         <div class="flex-grow flex flex-col">
@@ -337,14 +351,23 @@
                                 </div>
                             </div>
 
-                            <div class="mt-auto flex items-center justify-between border-t border-gray-100 pt-4">
-                                <span class="font-display font-medium text-2xl tracking-tight">$85.00</span>
-                                <button
-                                    onclick="addToCart('VORA Zenith White', 85.00, 'prod-2', 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=200&q=80')"
-                                    class="bg-white text-black border border-black hover:bg-black hover:text-white uppercase text-xs font-bold tracking-widest px-4 py-2 transition-colors flex items-center gap-2">
-                                    <span>Añadir</span>
-                                    <i class="ph ph-plus"></i>
-                                </button>
+                            <div class="mt-auto flex flex-col pt-4 gap-2">
+                                <div class="flex justify-between items-center w-full">
+                                    <span class="font-display font-medium text-2xl tracking-tight">$85.00</span>
+                                </div>
+                                <div class="flex gap-2 w-full mt-2">
+                                    <button
+                                        onclick="addToCart('VORA Zenith White', 85.00, 'prod-2', './assets/images/products/sneaker-zenith.jpg')"
+                                        class="flex-1 bg-white text-black border border-black hover:bg-black hover:text-white uppercase text-xs font-bold tracking-widest px-1 py-3 transition-colors flex items-center justify-center gap-1 group/btn">
+                                        <i class="ph ph-bag text-lg group-hover/btn:scale-110 transition-transform"></i>
+                                    </button>
+                                    <button onclick="checkoutSingleItem('VORA Zenith White', 'prod-2')"
+                                        class="flex-[2] bg-black text-white hover:bg-[#25D366] border border-black uppercase text-xs font-bold tracking-widest px-2 py-3 transition-colors flex items-center justify-center gap-2 group/wp">
+                                        <span>Pedir</span>
+                                        <i
+                                            class="ph-fill ph-whatsapp-logo text-lg group-hover/wp:scale-110 transition-transform"></i>
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -353,12 +376,10 @@
                     <div class="group flex flex-col">
                         <div
                             class="relative bg-gray-50 aspect-square overflow-hidden mb-4 premium-hover flex items-center justify-center p-4">
-                            <!-- INSERTAR_URL_GITHUB_AQUI -->
-                            <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=600&auto=format&fit=crop&q=80"
-                                alt="VORA Phantom Runner"
-                                class="object-contain w-full h-full mix-blend-darken hover:mix-blend-normal">
+                            <img src="./assets/images/products/sneaker-phantom.jpg" alt="VORA Phantom Runner"
+                                class="object-cover w-full h-full mix-blend-darken hover:mix-blend-normal scale-110">
                             <div
-                                class="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-300">
+                                class="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-300 pointer-events-none">
                             </div>
                         </div>
                         <div class="flex-grow flex flex-col">
@@ -382,14 +403,23 @@
                                 </div>
                             </div>
 
-                            <div class="mt-auto flex items-center justify-between border-t border-gray-100 pt-4">
-                                <span class="font-display font-medium text-2xl tracking-tight">$85.00</span>
-                                <button
-                                    onclick="addToCart('VORA Phantom Runner', 85.00, 'prod-3', 'https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=200&q=80')"
-                                    class="bg-white text-black border border-black hover:bg-black hover:text-white uppercase text-xs font-bold tracking-widest px-4 py-2 transition-colors flex items-center gap-2">
-                                    <span>Añadir</span>
-                                    <i class="ph ph-plus"></i>
-                                </button>
+                            <div class="mt-auto flex flex-col pt-4 gap-2">
+                                <div class="flex justify-between items-center w-full">
+                                    <span class="font-display font-medium text-2xl tracking-tight">$85.00</span>
+                                </div>
+                                <div class="flex gap-2 w-full mt-2">
+                                    <button
+                                        onclick="addToCart('VORA Phantom Runner', 85.00, 'prod-3', './assets/images/products/sneaker-phantom.jpg')"
+                                        class="flex-1 bg-white text-black border border-black hover:bg-black hover:text-white uppercase text-xs font-bold tracking-widest px-1 py-3 transition-colors flex items-center justify-center gap-1 group/btn">
+                                        <i class="ph ph-bag text-lg group-hover/btn:scale-110 transition-transform"></i>
+                                    </button>
+                                    <button onclick="checkoutSingleItem('VORA Phantom Runner', 'prod-3')"
+                                        class="flex-[2] bg-black text-white hover:bg-[#25D366] border border-black uppercase text-xs font-bold tracking-widest px-2 py-3 transition-colors flex items-center justify-center gap-2 group/wp">
+                                        <span>Pedir</span>
+                                        <i
+                                            class="ph-fill ph-whatsapp-logo text-lg group-hover/wp:scale-110 transition-transform"></i>
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -398,12 +428,10 @@
                     <div class="group flex flex-col">
                         <div
                             class="relative bg-gray-50 aspect-square overflow-hidden mb-4 premium-hover flex items-center justify-center p-4">
-                            <!-- INSERTAR_URL_GITHUB_AQUI -->
-                            <img src="https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?w=600&auto=format&fit=crop&q=80"
-                                alt="VORA Chroma Shift"
-                                class="object-contain w-full h-full mix-blend-darken hover:mix-blend-normal">
+                            <img src="./assets/images/products/sneaker-chroma.jpg" alt="VORA Chroma Shift"
+                                class="object-cover w-full h-full mix-blend-darken hover:mix-blend-normal scale-110">
                             <div
-                                class="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-300">
+                                class="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-300 pointer-events-none">
                             </div>
                         </div>
                         <div class="flex-grow flex flex-col">
@@ -427,14 +455,23 @@
                                 </div>
                             </div>
 
-                            <div class="mt-auto flex items-center justify-between border-t border-gray-100 pt-4">
-                                <span class="font-display font-medium text-2xl tracking-tight">$85.00</span>
-                                <button
-                                    onclick="addToCart('VORA Chroma Shift', 85.00, 'prod-4', 'https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?w=200&q=80')"
-                                    class="bg-white text-black border border-black hover:bg-black hover:text-white uppercase text-xs font-bold tracking-widest px-4 py-2 transition-colors flex items-center gap-2">
-                                    <span>Añadir</span>
-                                    <i class="ph ph-plus"></i>
-                                </button>
+                            <div class="mt-auto flex flex-col pt-4 gap-2">
+                                <div class="flex justify-between items-center w-full">
+                                    <span class="font-display font-medium text-2xl tracking-tight">$85.00</span>
+                                </div>
+                                <div class="flex gap-2 w-full mt-2">
+                                    <button
+                                        onclick="addToCart('VORA Chroma Shift', 85.00, 'prod-4', './assets/images/products/sneaker-chroma.jpg')"
+                                        class="flex-1 bg-white text-black border border-black hover:bg-black hover:text-white uppercase text-xs font-bold tracking-widest px-1 py-3 transition-colors flex items-center justify-center gap-1 group/btn">
+                                        <i class="ph ph-bag text-lg group-hover/btn:scale-110 transition-transform"></i>
+                                    </button>
+                                    <button onclick="checkoutSingleItem('VORA Chroma Shift', 'prod-4')"
+                                        class="flex-[2] bg-black text-white hover:bg-[#25D366] border border-black uppercase text-xs font-bold tracking-widest px-2 py-3 transition-colors flex items-center justify-center gap-2 group/wp">
+                                        <span>Pedir</span>
+                                        <i
+                                            class="ph-fill ph-whatsapp-logo text-lg group-hover/wp:scale-110 transition-transform"></i>
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -474,12 +511,10 @@
                         class="group flex flex-col bg-white border border-transparent hover:border-gray-200 transition-colors">
                         <div
                             class="relative aspect-[4/5] overflow-hidden mb-4 premium-hover flex items-center justify-center p-4">
-                            <!-- INSERTAR_URL_GITHUB_AQUI -->
-                            <img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=600&auto=format&fit=crop&q=80"
-                                alt="VORA Stardust Chrome"
-                                class="object-cover w-full h-full mix-blend-darken hover:mix-blend-normal">
+                            <img src="./assets/images/products/heel-stiletto.jpg" alt="VORA Stardust Chrome"
+                                class="object-cover w-full h-full mix-blend-darken hover:mix-blend-normal scale-110">
                             <div
-                                class="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-300">
+                                class="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-300 pointer-events-none">
                             </div>
                         </div>
                         <div class="flex-grow flex flex-col p-4 pt-0">
@@ -501,13 +536,23 @@
                                 </div>
                             </div>
 
-                            <div class="flex items-center justify-between border-t border-gray-100 pt-4">
-                                <span class="font-display font-medium text-2xl tracking-tight">$85.00</span>
-                                <button
-                                    onclick="addToCart('VORA Stiletto Noir', 85.00, 'prod-5', 'https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=200&q=80')"
-                                    class="bg-black text-white hover:bg-gray-800 uppercase text-xs font-bold tracking-widest px-4 py-2 transition-colors flex items-center gap-2">
-                                    Añadir <i class="ph ph-plus"></i>
-                                </button>
+                            <div class="mt-auto flex flex-col pt-4 gap-2">
+                                <div class="flex justify-between items-center w-full mb-1">
+                                    <span class="font-display font-medium text-2xl tracking-tight">$85.00</span>
+                                </div>
+                                <div class="flex gap-2 w-full">
+                                    <button
+                                        onclick="addToCart('VORA Stiletto Noir', 85.00, 'prod-5', './assets/images/products/heel-stiletto.jpg')"
+                                        class="flex-1 bg-white text-black border border-black hover:bg-black hover:text-white uppercase text-xs font-bold tracking-widest px-1 py-3 transition-colors flex items-center justify-center gap-1 group/btn">
+                                        <i class="ph ph-bag text-lg group-hover/btn:scale-110 transition-transform"></i>
+                                    </button>
+                                    <button onclick="checkoutSingleItem('VORA Stiletto Noir', 'prod-5')"
+                                        class="flex-[2] bg-black text-white hover:bg-[#25D366] border border-black uppercase text-xs font-bold tracking-widest px-2 py-3 transition-colors flex items-center justify-center gap-2 group/wp">
+                                        <span>Pedir</span>
+                                        <i
+                                            class="ph-fill ph-whatsapp-logo text-lg group-hover/wp:scale-110 transition-transform"></i>
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -517,12 +562,10 @@
                         class="group flex flex-col bg-white border border-transparent hover:border-gray-200 transition-colors">
                         <div
                             class="relative aspect-[4/5] overflow-hidden mb-4 premium-hover flex items-center justify-center p-4">
-                            <!-- INSERTAR_URL_GITHUB_AQUI -->
-                            <img src="https://images.unsplash.com/photo-1562273138-f46be4ebdf33?w=600&auto=format&fit=crop&q=80"
-                                alt="VORA Velvet Night"
-                                class="object-cover w-full h-full mix-blend-darken hover:mix-blend-normal">
+                            <img src="./assets/images/products/heel-velvet.jpg" alt="VORA Velvet Night"
+                                class="object-cover w-full h-full mix-blend-darken hover:mix-blend-normal scale-110">
                             <div
-                                class="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-300">
+                                class="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-300 pointer-events-none">
                             </div>
                         </div>
                         <div class="flex-grow flex flex-col p-4 pt-0">
@@ -544,13 +587,23 @@
                                 </div>
                             </div>
 
-                            <div class="flex items-center justify-between border-t border-gray-100 pt-4">
-                                <span class="font-display font-medium text-2xl tracking-tight">$85.00</span>
-                                <button
-                                    onclick="addToCart('VORA Velvet Sandal', 85.00, 'prod-6', 'https://images.unsplash.com/photo-1562273138-f46be4ebdf33?w=200&q=80')"
-                                    class="bg-black text-white hover:bg-gray-800 uppercase text-xs font-bold tracking-widest px-4 py-2 transition-colors flex items-center gap-2">
-                                    Añadir <i class="ph ph-plus"></i>
-                                </button>
+                            <div class="mt-auto flex flex-col pt-4 gap-2">
+                                <div class="flex justify-between items-center w-full mb-1">
+                                    <span class="font-display font-medium text-2xl tracking-tight">$85.00</span>
+                                </div>
+                                <div class="flex gap-2 w-full">
+                                    <button
+                                        onclick="addToCart('VORA Velvet Sandal', 85.00, 'prod-6', './assets/images/products/heel-velvet.jpg')"
+                                        class="flex-1 bg-white text-black border border-black hover:bg-black hover:text-white uppercase text-xs font-bold tracking-widest px-1 py-3 transition-colors flex items-center justify-center gap-1 group/btn">
+                                        <i class="ph ph-bag text-lg group-hover/btn:scale-110 transition-transform"></i>
+                                    </button>
+                                    <button onclick="checkoutSingleItem('VORA Velvet Sandal', 'prod-6')"
+                                        class="flex-[2] bg-black text-white hover:bg-[#25D366] border border-black uppercase text-xs font-bold tracking-widest px-2 py-3 transition-colors flex items-center justify-center gap-2 group/wp">
+                                        <span>Pedir</span>
+                                        <i
+                                            class="ph-fill ph-whatsapp-logo text-lg group-hover/wp:scale-110 transition-transform"></i>
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -844,6 +897,20 @@
         }
 
         // --- CHECKOUT WHATSAPP LOGIC ---
+        function checkoutSingleItem(productName, productId) {
+            const container = document.getElementById(`sizes-${productId}`);
+            let size = "39"; // default
+            if (container) {
+                const activeBtn = container.querySelector('.size-btn.active');
+                if (activeBtn) size = activeBtn.innerText;
+            }
+
+            const rawMessage = `Hola VORA Elite, deseo comprar el modelo [${productName}] en talla [${size}].`;
+            const phoneNumber = "YOUR_NUMBER_HERE";
+            const encodedMessage = encodeURIComponent(rawMessage);
+            const whatsappURL = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodedMessage}`;
+            window.open(whatsappURL, '_blank');
+        }
         function checkoutWhatsApp() {
             if (cart.length === 0) {
                 alert("Por favor, añade al menos un artículo elite a tu selección primero.");
