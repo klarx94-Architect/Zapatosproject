@@ -49,7 +49,17 @@ def build_card(prod, index):
     img_url = f"./assets/images/products/{safe_name}?v=1.0"
     
     options = "".join([f'<option value="{size}">{size}</option>' for size in range(35, 46)])
-    sizes_html = f"""<select id="size-input-prod-{index}" class="w-full bg-gray-50 border border-gray-200 text-center text-sm font-bold focus:outline-none focus:border-black transition-colors py-1 px-2 cursor-pointer"><option value="" disabled selected>Talla...</option>{options}</select>"""
+    sizes_html = f"""
+        <div class="relative w-full">
+            <select id="size-input-prod-{index}" class="appearance-none w-full bg-gray-50 border border-gray-200 text-center text-sm font-bold focus:outline-none focus:border-black transition-colors py-2 px-9 cursor-pointer">
+                <option value="" disabled selected>SELECCIONAR TALLA</option>
+                {options}
+            </select>
+            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-black">
+                <i class="ph ph-caret-down text-lg"></i>
+            </div>
+        </div>
+    """
         
     return f"""
     <!-- Product Card {index} -->
@@ -62,9 +72,8 @@ def build_card(prod, index):
             <h3 class="font-display text-xl font-bold uppercase tracking-tight mb-1 text-black">{prod['name']}</h3>
             <p class="text-gray-500 text-sm mb-4 line-clamp-2">{prod['desc']}</p>
 
-            <div class="flex items-center space-x-2 mb-4 mt-auto">
-                <span class="bg-gray-100 text-black text-xs px-2 py-1 uppercase tracking-wider font-semibold">Tallas</span>
-                <div class="flex gap-2" id="sizes-prod-{index}">
+            <div class="w-full mb-4 mt-auto">
+                <div class="w-full" id="sizes-prod-{index}">
                     {sizes_html}
                 </div>
             </div>
