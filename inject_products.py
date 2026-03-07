@@ -10,27 +10,27 @@ os.makedirs(assets_dir, exist_ok=True)
 
 # Categorized data from AI agent
 products_data = [
-  {"file": "PHOTO-2026-02-28-13-23-05(1).jpg", "category": "Heel", "name": "VORA Stiletto Noir", "desc": "Corte infalible. Altura innegociable.", "price": "85.00", "sizes": ["36", "37", "38"]},
-  {"file": "PHOTO-2026-02-28-13-23-05.jpg", "category": "Heel", "name": "VORA Velvet Night", "desc": "Suavidad nocturna. Elegancia absoluta.", "price": "85.00", "sizes": ["37", "38", "39"]},
-  {"file": "PHOTO-2026-02-28-13-24-42(1).jpg", "category": "Heel", "name": "VORA Stardust Chrome", "desc": "Brillo espectacular. Diseño arquitectónico.", "price": "85.00", "sizes": ["36", "37", "38", "39"]},
-  {"file": "PHOTO-2026-02-28-13-24-42.jpg", "category": "Heel", "name": "VORA Lumina Platin", "desc": "Elevación máxima. Estructura de poder.", "price": "85.00", "sizes": ["38", "39", "40"]},
-  {"file": "PHOTO-2026-02-28-13-25-28(1).jpg", "category": "Sneaker", "name": "VORA Zenith White", "desc": "Blanco puro. Líneas aerodinámicas perfectas.", "price": "85.00", "sizes": ["40", "41", "42"]},
-  {"file": "PHOTO-2026-02-28-13-25-28.jpg", "category": "Sneaker", "name": "VORA Aurora Blush", "desc": "Tonalidades suaves, desempeño urbano premium.", "price": "85.00", "sizes": ["36", "37", "38"]},
-  {"file": "PHOTO-2026-02-28-13-26-24.jpg", "category": "Sneaker", "name": "VORA Crimson Flare", "desc": "Rojo intenso. Presencia innegable en el asfalto.", "price": "85.00", "sizes": ["39", "40", "41"]},
-  {"file": "PHOTO-2026-02-28-13-26-25.jpg", "category": "Sneaker", "name": "VORA Chroma Shift", "desc": "Diseño híbrido. Comodidad que redefine tendencias.", "price": "85.00", "sizes": ["37", "38", "39"]},
-  {"file": "PHOTO-2026-02-28-13-27-33.jpg", "category": "Sneaker", "name": "VORA Apex Obsidian", "desc": "Negro absoluto. Silueta dominante y furtiva.", "price": "85.00", "sizes": ["40", "41", "42", "43"]},
-  {"file": "PHOTO-2026-02-28-13-27-34.jpg", "category": "Sneaker", "name": "VORA Velocity Neon", "desc": "Ligereza extrema. Detalles vibrantes.", "price": "85.00", "sizes": ["41", "42", "43"]},
-  {"file": "PHOTO-2026-02-28-13-28-31.jpg", "category": "Sneaker", "name": "VORA Ivory Step", "desc": "Clásico reimaginado. Puntos de confort estratégico.", "price": "85.00", "sizes": ["39", "40", "41"]},
-  {"file": "PHOTO-2026-02-28-13-29-36(1).jpg", "category": "Sneaker", "name": "VORA Nova Red", "desc": "Edición limitada. Estructura de impacto.", "price": "85.00", "sizes": ["38", "39", "40"]},
-  {"file": "PHOTO-2026-02-28-13-29-36.jpg", "category": "Sneaker", "name": "VORA Horizon Blue", "desc": "Innovación táctica. Desgarro visual deportivo.", "price": "85.00", "sizes": ["40", "41", "42"]},
-  {"file": "PHOTO-2026-02-28-13-29-37(1).jpg", "category": "Sneaker", "name": "VORA Titan Sand", "desc": "Tonos tierra orgánicos. Versatilidad suprema.", "price": "85.00", "sizes": ["42", "43", "44"]},
-  {"file": "PHOTO-2026-02-28-13-29-37(2).jpg", "category": "Sneaker", "name": "VORA Matrix Black", "desc": "Sistema de amortiguación Elite. Oscuro e imponente.", "price": "85.00", "sizes": ["39", "40", "41", "42"]},
-  {"file": "PHOTO-2026-02-28-13-29-37.jpg", "category": "Sneaker", "name": "VORA Phantom Runner", "desc": "Aceleración estética. Construcción de malla premium.", "price": "85.00", "sizes": ["38", "39", "40"]},
-  {"file": "PHOTO-2026-02-28-13-31-01(1).jpg", "category": "Sneaker", "name": "VORA Onyx Classic", "desc": "Detalle inmaculado. El estándar del lujo callejero.", "price": "85.00", "sizes": ["41", "42", "43"]},
-  {"file": "PHOTO-2026-02-28-13-31-01.jpg", "category": "Sneaker", "name": "VORA Quantum Grey", "desc": "Texturas mixtas. Equilibrio cromático perfecto.", "price": "85.00", "sizes": ["40", "41", "42"]},
-  {"file": "PHOTO-2026-02-28-13-31-34.jpg", "category": "Sneaker", "name": "VORA Solar Orange", "desc": "Explosión visual. Sello de identidad VORA.", "price": "85.00", "sizes": ["39", "40", "41"]},
-  {"file": "PHOTO-2026-02-28-13-32-20.jpg", "category": "Sneaker", "name": "VORA Celeste Pearl", "desc": "Corte preciso. Detalles reflectantes exclusivos.", "price": "85.00", "sizes": ["37", "38", "39"]},
-  {"file": "PHOTO-2026-02-28-13-33-51.jpg", "category": "Sneaker", "name": "VORA Prism Light", "desc": "Transiciones tonales. Ingeniería de punta.", "price": "85.00", "sizes": ["41", "42", "43"]}
+  {"file": "PHOTO-2026-02-28-13-29-37.jpg", "category": "Sneaker", "name": "Rose Runner", "desc": "Aceleración estética con detalles magenta. Construcción premium.", "price": "85.00", "sizes": ["38", "39", "40"]},
+  {"file": "PHOTO-2026-02-28-13-31-01(1).jpg", "category": "Sneaker", "name": "Onyx Street", "desc": "Diseño clásico en blanco y negro. Lujo callejero.", "price": "85.00", "sizes": ["41", "42", "43"]},
+  {"file": "PHOTO-2026-02-28-13-31-01.jpg", "category": "Sneaker", "name": "Titan Sand", "desc": "Construcción táctica beige y negro. Versatilidad suprema.", "price": "85.00", "sizes": ["40", "41", "42"]},
+  {"file": "PHOTO-2026-02-28-13-29-37(1).jpg", "category": "Sneaker", "name": "Blush Trainer", "desc": "Estructura rosa con acentos oscuros. Equilibrio cromático perfecto.", "price": "85.00", "sizes": ["37", "38", "39"]},
+  {"file": "PHOTO-2026-02-28-13-29-36(1).jpg", "category": "Sneaker", "name": "Shadow Flex", "desc": "Negro absoluto. Perfil bajo y silueta dominante.", "price": "85.00", "sizes": ["39", "40", "41"]},
+  {"file": "PHOTO-2026-02-28-13-29-36.jpg", "category": "Sneaker", "name": "Arctic Cloud", "desc": "Corte de diseño chunky en blanco puro. Amortiguación máxima.", "price": "85.00", "sizes": ["40", "41", "42"]},
+  {"file": "PHOTO-2026-02-28-13-29-37(2).jpg", "category": "Sneaker", "name": "Midnight Core", "desc": "Diseño robusto oscuro con franjas de contraste.", "price": "85.00", "sizes": ["39", "40", "41", "42"]},
+  {"file": "PHOTO-2026-02-28-13-31-34.jpg", "category": "Sneaker", "name": "Obsidian Air", "desc": "Cápsula de aire visible. Presencia innegable en el asfalto.", "price": "85.00", "sizes": ["39", "40", "41"]},
+  {"file": "PHOTO-2026-02-28-13-32-20.jpg", "category": "Sneaker", "name": "Carbon Max", "desc": "Sistema Elite con cámara translúcida y texturas mixtas.", "price": "85.00", "sizes": ["40", "41", "42"]},
+  {"file": "PHOTO-2026-02-28-13-33-51.jpg", "category": "Sneaker", "name": "Silver Chrome", "desc": "Capas reflectantes en blanco y cromo. Ingeniería de punta.", "price": "85.00", "sizes": ["37", "38", "39"]},
+  {"file": "PHOTO-2026-02-28-13-23-05(1).jpg", "category": "Heel", "name": "Crimson Pump", "desc": "Stiletto rojo clásico. Altura y elegancia innegociable.", "price": "85.00", "sizes": ["36", "37", "38"]},
+  {"file": "PHOTO-2026-02-28-13-23-05.jpg", "category": "Heel", "name": "Noir Pump", "desc": "Básico indispensable. Corte fino color negro.", "price": "85.00", "sizes": ["37", "38", "39"]},
+  {"file": "PHOTO-2026-02-28-13-24-42(1).jpg", "category": "Heel", "name": "Noir Sandal", "desc": "Tiras de noche oscuras. Diseño fino y delicado.", "price": "85.00", "sizes": ["36", "37", "38"]},
+  {"file": "PHOTO-2026-02-28-13-24-42.jpg", "category": "Heel", "name": "Ruby Sandal", "desc": "Sandalia roja de tacón alto. Estructura de poder visual.", "price": "85.00", "sizes": ["37", "38", "39"]},
+  {"file": "PHOTO-2026-02-28-13-25-28(1).jpg", "category": "Heel", "name": "Noir Block", "desc": "Tacón cuadrado negro cerrado. Comodidad simétrica.", "price": "85.00", "sizes": ["36", "37", "38"]},
+  {"file": "PHOTO-2026-02-28-13-25-28.jpg", "category": "Heel", "name": "Nude Classic", "desc": "Zapatilla plana tono beige. Suavidad y confort premium.", "price": "85.00", "sizes": ["36", "37", "38"]},
+  {"file": "PHOTO-2026-02-28-13-26-24.jpg", "category": "Heel", "name": "Noir Slingback", "desc": "Zapato punta fina con talón descubierto. Silueta afilada.", "price": "85.00", "sizes": ["37", "38", "39"]},
+  {"file": "PHOTO-2026-02-28-13-26-25.jpg", "category": "Heel", "name": "Ruby Pattern", "desc": "Diseño híbrido plano con patrón rojo destalonado.", "price": "85.00", "sizes": ["37", "38", "39"]},
+  {"file": "PHOTO-2026-02-28-13-27-33.jpg", "category": "Heel", "name": "Cognac Block", "desc": "Sandalia de tacón grueso tono arena/bronce.", "price": "85.00", "sizes": ["37", "38", "39"]},
+  {"file": "PHOTO-2026-02-28-13-27-34.jpg", "category": "Heel", "name": "Onyx Block", "desc": "Sandalia plataforma de correas negras gruesas.", "price": "85.00", "sizes": ["36", "37", "38"]},
+  {"file": "PHOTO-2026-02-28-13-28-31.jpg", "category": "Heel", "name": "Navy Block", "desc": "Tacón alto grueso en azul marino de gamuza.", "price": "85.00", "sizes": ["37", "38", "39"]}
 ]
 
 sneakers_html = ""
@@ -39,16 +39,17 @@ heels_html = ""
 def build_card(prod, index):
     src = os.path.join(inventory_dir, prod["file"])
     ext = os.path.splitext(prod["file"])[1]
-    safe_name = f"product-{index}{ext}"
+    
+    slug = prod["name"].lower().replace(' ', '-')
+    safe_name = f"{slug}{ext}"
+    
     dst = os.path.join(assets_dir, safe_name)
     shutil.copy2(src, dst)
     
-    img_url = f"./assets/images/products/{safe_name}"
+    img_url = f"./assets/images/products/{safe_name}?v=1.0"
     
-    sizes_html = ""
-    for idx, s in enumerate(prod['sizes']):
-        active = ' active' if idx == 1 else ''
-        sizes_html += f"""<button onclick="selectSize(this, 'prod-{index}')" class="size-btn w-8 h-8 flex items-center justify-center border border-gray-200 text-sm transition-colors hover:border-black{active}">{s}</button>"""
+    options = "".join([f'<option value="{size}">{size}</option>' for size in range(35, 46)])
+    sizes_html = f"""<select id="size-input-prod-{index}" class="w-full bg-gray-50 border border-gray-200 text-center text-sm font-bold focus:outline-none focus:border-black transition-colors py-1 px-2 cursor-pointer"><option value="" disabled selected>Talla...</option>{options}</select>"""
         
     return f"""
     <!-- Product Card {index} -->
@@ -69,8 +70,10 @@ def build_card(prod, index):
             </div>
 
             <div class="mt-auto flex flex-col pt-4 gap-2 border-t border-gray-100">
-                <div class="flex justify-between items-center w-full mb-1 mt-1">
-                    <span class="font-display font-medium text-2xl tracking-tight">${prod['price']}</span>
+                <span class="text-xs text-gray-500 uppercase tracking-widest font-semibold mb-[-8px]">Lujo de Élite, Precio Real</span>
+                <div class="flex items-center gap-3 w-full mb-1 mt-1">
+                    <span class="font-display font-black text-2xl tracking-tight text-black">${prod['price']}</span>
+                    <del class="text-sm text-gray-400 font-medium">$120.00</del>
                 </div>
                 <div class="flex gap-2 w-full">
                     <button onclick="addToCart('{prod['name']}', {prod['price']}, 'prod-{index}', '{img_url}')" class="flex-[1] bg-white text-black border border-black hover:bg-black hover:text-white uppercase text-xs font-bold tracking-widest px-1 py-3 transition-colors flex items-center justify-center gap-1 group/btn">
