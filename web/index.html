@@ -26,6 +26,9 @@
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Oswald:wght@500;600;700&display=swap"
         rel="stylesheet">
 
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
     <!-- Phosphor Icons -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
@@ -49,6 +52,7 @@
                     animation: {
                         'fade-in': 'fadeIn 0.8s ease-out forwards',
                         'slide-up': 'slideUp 0.8s ease-out forwards',
+                        'marquee': 'marquee 25s linear infinite',
                     },
                     keyframes: {
                         fadeIn: {
@@ -58,6 +62,10 @@
                         slideUp: {
                             '0%': { opacity: '0', transform: 'translateY(20px)' },
                             '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        marquee: {
+                            '0%': { transform: 'translateX(0%)' },
+                            '100%': { transform: 'translateX(-50%)' },
                         }
                     }
                 }
@@ -183,11 +191,11 @@
                 <!-- Desktop Nav -->
                 <div class="hidden sm:flex sm:space-x-8 items-center">
                     <a href="#sneakers"
-                        class="inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-500 hover:text-black transition-colors uppercase tracking-widest">Sneakers</a>
+                        class="inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-800 hover:text-black transition-colors uppercase tracking-widest">Sneakers</a>
                     <a href="#heels"
-                        class="inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-500 hover:text-black transition-colors uppercase tracking-widest">Gala</a>
+                        class="inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-800 hover:text-black transition-colors uppercase tracking-widest">Gala</a>
                     <a href="#reviews"
-                        class="inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-500 hover:text-black transition-colors uppercase tracking-widest">Testimonios</a>
+                        class="inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-800 hover:text-black transition-colors uppercase tracking-widest">Testimonios</a>
                 </div>
 
                 <!-- Cart Icon -->
@@ -206,11 +214,25 @@
     </nav>
 
     <!-- PROMO NOTIFICATION BAR -->
-    <div class="bg-vora-black text-white px-4 py-2 text-center fixed w-full top-20 z-20 shadow-md">
-        <p class="text-xs sm:text-sm font-medium tracking-widest uppercase">
-            🔥 <span class="font-bold opacity-100">OFERTA ELITE:</span> Por compras superiores a <span
-                class="text-green-400 font-bold">$150 USD</span>, segundo par de regalo 🔥
-        </p>
+    <div class="bg-vora-black text-white py-2 overflow-hidden fixed w-full top-20 z-20 shadow-md flex whitespace-nowrap">
+        <div class="animate-marquee min-w-[200%] flex flex-nowrap items-center text-xs sm:text-sm font-medium tracking-widest uppercase">
+            <span class="px-4">🔥 <span class="font-bold opacity-100">OFERTA ELITE:</span> Por compras superiores a <span class="text-green-400 font-bold">$150 USD</span>, llévate un par de regalo (catálogo VIP) 🔥</span>
+            <span class="px-4 opacity-50">|</span>
+            <span class="px-4">🚀 <span class="font-bold text-green-400">ENVÍOS GRATUITOS</span> a toda Venezuela 🚀</span>
+            <span class="px-4 opacity-50">|</span>
+            <span class="px-4">🔥 <span class="font-bold opacity-100">OFERTA ELITE:</span> Por compras superiores a <span class="text-green-400 font-bold">$150 USD</span>, llévate un par de regalo (catálogo VIP) 🔥</span>
+            <span class="px-4 opacity-50">|</span>
+            <span class="px-4">🚀 <span class="font-bold text-green-400">ENVÍOS GRATUITOS</span> a toda Venezuela 🚀</span>
+            <span class="px-4 opacity-50">|</span>
+            <span class="px-4">🔥 <span class="font-bold opacity-100">OFERTA ELITE:</span> Por compras superiores a <span class="text-green-400 font-bold">$150 USD</span>, llévate un par de regalo (catálogo VIP) 🔥</span>
+            <span class="px-4 opacity-50">|</span>
+            <span class="px-4">🚀 <span class="font-bold text-green-400">ENVÍOS GRATUITOS</span> a toda Venezuela 🚀</span>
+            <span class="px-4 opacity-50">|</span>
+            <span class="px-4">🔥 <span class="font-bold opacity-100">OFERTA ELITE:</span> Por compras superiores a <span class="text-green-400 font-bold">$150 USD</span>, llévate un par de regalo (catálogo VIP) 🔥</span>
+            <span class="px-4 opacity-50">|</span>
+            <span class="px-4">🚀 <span class="font-bold text-green-400">ENVÍOS GRATUITOS</span> a toda Venezuela 🚀</span>
+            <span class="px-4 opacity-50">|</span>
+        </div>
     </div>
 
     <!-- MAIN HERO SECTION -->
@@ -270,13 +292,180 @@
         <div class="bg-black border-y border-black py-4">
             <div class="max-w-7xl mx-auto px-4 text-center">
                 <p class="text-xs sm:text-sm text-white uppercase tracking-[0.2em] font-medium leading-relaxed">
-                    <span class="text-[#FF3333] font-bold">EDICIONES LIMITADAS:</span> Solo <span
-                        class="font-extrabold underline">12 unidades</span> por modelo en stock para Venezuela. <span
-                        class="bg-[#FF3333] text-white px-2 py-0.5 ml-0 sm:ml-2 font-bold whitespace-nowrap">No habrá
-                        reposición este mes.</span>
+                    <span class="text-[#FF3333] font-bold">ENVÍOS GRATIS A TODA VENEZUELA:</span> Recibe exclusividad en la puerta de tu casa de forma rápida y segura. <span
+                        class="bg-[#FF3333] text-white px-2 py-0.5 ml-0 sm:ml-2 font-bold whitespace-nowrap">NUEVOS MODELOS CADA SEMANA.</span>
                 </p>
             </div>
         </div>
+
+        <!-- CATEGORY 3: URBAN WORKWEAR & CASUAL -->
+        <section id="cat-bundle" class="py-24 bg-[#FAFAFA] relative border-t border-gray-200 shadow-inner">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16 px-2">
+                    <div class="inline-block bg-[#FFCC00] text-black font-black text-xs uppercase px-4 py-1.5 mb-5 tracking-widest shadow-sm">
+                        🚨 DROP EXCLUSIVO 🚨
+                    </div>
+                    <h2 class="font-display font-black text-5xl sm:text-7xl uppercase tracking-tighter mb-4 text-black">
+                        Urban Workwear</h2>
+                    <div class="w-24 h-2 bg-black mx-auto mb-6"></div>
+                    <p class="text-gray-800 font-medium max-w-2xl mx-auto text-lg sm:text-xl leading-relaxed">
+                        El equipo definitivo para dominar la calle. Aprovecha nuestra <span class="font-black bg-[#FFCC00] px-1">OFERTA 3x1</span> por tiempo limitado.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+
+    <!-- Product Card 122 -->
+    <div class="group flex flex-col bg-white border border-gray-200 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 relative">
+        <!-- Badge -->
+        <div class="absolute top-4 left-4 z-10 bg-[#FFCC00] text-black font-black text-xs uppercase tracking-widest px-3 py-1 shadow-md">
+            🎁 COMBO INCLUIDO
+        </div>
+        
+        <div class="relative aspect-[4/3] overflow-hidden mb-0 bg-gray-100 flex items-center justify-center p-0">
+            <img src="./assets/images/products/media__1772981760642.jpg?v=1.0" alt="VORA x CAT Black Edition" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+        </div>
+        <div class="flex-grow flex flex-col p-5 bg-white">
+            <h3 class="font-display text-xl sm:text-2xl font-black uppercase tracking-tight mb-2 text-black leading-tight">VORA x CAT Black Edition</h3>
+            <p class="text-gray-600 text-sm mb-4 line-clamp-2 leading-relaxed">Zapatos todoterreno negros. Incluye Gorra Oficial y Llavero.</p>
+
+            <div class="mt-auto flex flex-col gap-3">
+                <div class="bg-gray-50 p-3 rounded-sm border border-gray-100 flex items-center gap-3">
+                    <i class="ph-fill ph-gift text-2xl text-[#FFCC00]"></i>
+                    <div class="text-xs font-bold text-gray-800 leading-tight">Gorra Oficial + Llavero CAT<br><span class="text-[10px] text-gray-500 font-normal uppercase">Ambos incluídos en el precio</span></div>
+                </div>
+
+                <div class="flex items-end justify-between w-full mt-2">
+                    <div>
+                        <del class="text-sm text-gray-400 font-bold">$110.00</del>
+                        <div class="font-display font-black text-3xl tracking-tight text-black">$59.99</div>
+                    </div>
+                </div>
+                
+                <div class="flex items-center gap-2 w-full mt-2">
+                    <button onclick="openQuickView('VORA x CAT Black Edition', '59.99', './assets/images/products/media__1772981760642.jpg?v=1.0', '38,39,40,41,42,43,44', 'prod-122')" class="flex-[1] bg-black text-white hover:bg-[#FFCC00] hover:text-black hover:border-black border-2 border-black uppercase text-xs font-black tracking-widest px-2 py-4 transition-colors flex items-center justify-center gap-2 group/qv">
+                        <span>Llevar Oferta 3x1</span>
+                        <i class="ph-bold ph-shopping-cart text-lg"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Product Card 123 -->
+    <div class="group flex flex-col bg-white border border-gray-200 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 relative">
+        <!-- Badge -->
+        <div class="absolute top-4 left-4 z-10 bg-[#FFCC00] text-black font-black text-xs uppercase tracking-widest px-3 py-1 shadow-md">
+            🎁 COMBO INCLUIDO
+        </div>
+        
+        <div class="relative aspect-[4/3] overflow-hidden mb-0 bg-gray-100 flex items-center justify-center p-0">
+            <img src="./assets/images/products/media__1772981760662.jpg?v=1.0" alt="VORA x CAT Brown Rust" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+        </div>
+        <div class="flex-grow flex flex-col p-5 bg-white">
+            <h3 class="font-display text-xl sm:text-2xl font-black uppercase tracking-tight mb-2 text-black leading-tight">VORA x CAT Brown Rust</h3>
+            <p class="text-gray-600 text-sm mb-4 line-clamp-2 leading-relaxed">Zapatos todoterreno marrones. Incluye Gorra Oficial y Llavero.</p>
+
+            <div class="mt-auto flex flex-col gap-3">
+                <div class="bg-gray-50 p-3 rounded-sm border border-gray-100 flex items-center gap-3">
+                    <i class="ph-fill ph-gift text-2xl text-[#FFCC00]"></i>
+                    <div class="text-xs font-bold text-gray-800 leading-tight">Gorra Oficial + Llavero CAT<br><span class="text-[10px] text-gray-500 font-normal uppercase">Ambos incluídos en el precio</span></div>
+                </div>
+
+                <div class="flex items-end justify-between w-full mt-2">
+                    <div>
+                        <del class="text-sm text-gray-400 font-bold">$110.00</del>
+                        <div class="font-display font-black text-3xl tracking-tight text-black">$59.99</div>
+                    </div>
+                </div>
+                
+                <div class="flex items-center gap-2 w-full mt-2">
+                    <button onclick="openQuickView('VORA x CAT Brown Rust', '59.99', './assets/images/products/media__1772981760662.jpg?v=1.0', '38,39,40,41,42,43,44', 'prod-123')" class="flex-[1] bg-black text-white hover:bg-[#FFCC00] hover:text-black hover:border-black border-2 border-black uppercase text-xs font-black tracking-widest px-2 py-4 transition-colors flex items-center justify-center gap-2 group/qv">
+                        <span>Llevar Oferta 3x1</span>
+                        <i class="ph-bold ph-shopping-cart text-lg"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Product Card 124 -->
+    <div class="group flex flex-col bg-white border border-gray-200 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 relative">
+        <!-- Badge -->
+        <div class="absolute top-4 left-4 z-10 bg-[#FFCC00] text-black font-black text-xs uppercase tracking-widest px-3 py-1 shadow-md">
+            🎁 COMBO INCLUIDO
+        </div>
+        
+        <div class="relative aspect-[4/3] overflow-hidden mb-0 bg-gray-100 flex items-center justify-center p-0">
+            <img src="./assets/images/products/media__1772981760756.jpg?v=1.0" alt="VORA x CAT Sand Desert" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+        </div>
+        <div class="flex-grow flex flex-col p-5 bg-white">
+            <h3 class="font-display text-xl sm:text-2xl font-black uppercase tracking-tight mb-2 text-black leading-tight">VORA x CAT Sand Desert</h3>
+            <p class="text-gray-600 text-sm mb-4 line-clamp-2 leading-relaxed">Zapatos todoterreno arena/negro. Incluye Gorra Oficial y Llavero.</p>
+
+            <div class="mt-auto flex flex-col gap-3">
+                <div class="bg-gray-50 p-3 rounded-sm border border-gray-100 flex items-center gap-3">
+                    <i class="ph-fill ph-gift text-2xl text-[#FFCC00]"></i>
+                    <div class="text-xs font-bold text-gray-800 leading-tight">Gorra Oficial + Llavero CAT<br><span class="text-[10px] text-gray-500 font-normal uppercase">Ambos incluídos en el precio</span></div>
+                </div>
+
+                <div class="flex items-end justify-between w-full mt-2">
+                    <div>
+                        <del class="text-sm text-gray-400 font-bold">$110.00</del>
+                        <div class="font-display font-black text-3xl tracking-tight text-black">$59.99</div>
+                    </div>
+                </div>
+                
+                <div class="flex items-center gap-2 w-full mt-2">
+                    <button onclick="openQuickView('VORA x CAT Sand Desert', '59.99', './assets/images/products/media__1772981760756.jpg?v=1.0', '38,39,40,41,42,43,44', 'prod-124')" class="flex-[1] bg-black text-white hover:bg-[#FFCC00] hover:text-black hover:border-black border-2 border-black uppercase text-xs font-black tracking-widest px-2 py-4 transition-colors flex items-center justify-center gap-2 group/qv">
+                        <span>Llevar Oferta 3x1</span>
+                        <i class="ph-bold ph-shopping-cart text-lg"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Product Card 125 -->
+    <div class="group flex flex-col bg-white border border-gray-200 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 relative">
+        <!-- Badge -->
+        <div class="absolute top-4 left-4 z-10 bg-[#FFCC00] text-black font-black text-xs uppercase tracking-widest px-3 py-1 shadow-md">
+            🎁 COMBO INCLUIDO
+        </div>
+        
+        <div class="relative aspect-[4/3] overflow-hidden mb-0 bg-gray-100 flex items-center justify-center p-0">
+            <img src="./assets/images/products/media__1772981760766.jpg?v=1.0" alt="VORA x CAT True Honey" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+        </div>
+        <div class="flex-grow flex flex-col p-5 bg-white">
+            <h3 class="font-display text-xl sm:text-2xl font-black uppercase tracking-tight mb-2 text-black leading-tight">VORA x CAT True Honey</h3>
+            <p class="text-gray-600 text-sm mb-4 line-clamp-2 leading-relaxed">Zapatos de trabajo color miel. Incluye Gorra Oficial y Llavero.</p>
+
+            <div class="mt-auto flex flex-col gap-3">
+                <div class="bg-gray-50 p-3 rounded-sm border border-gray-100 flex items-center gap-3">
+                    <i class="ph-fill ph-gift text-2xl text-[#FFCC00]"></i>
+                    <div class="text-xs font-bold text-gray-800 leading-tight">Gorra Oficial + Llavero CAT<br><span class="text-[10px] text-gray-500 font-normal uppercase">Ambos incluídos en el precio</span></div>
+                </div>
+
+                <div class="flex items-end justify-between w-full mt-2">
+                    <div>
+                        <del class="text-sm text-gray-400 font-bold">$110.00</del>
+                        <div class="font-display font-black text-3xl tracking-tight text-black">$59.99</div>
+                    </div>
+                </div>
+                
+                <div class="flex items-center gap-2 w-full mt-2">
+                    <button onclick="openQuickView('VORA x CAT True Honey', '59.99', './assets/images/products/media__1772981760766.jpg?v=1.0', '38,39,40,41,42,43,44', 'prod-125')" class="flex-[1] bg-black text-white hover:bg-[#FFCC00] hover:text-black hover:border-black border-2 border-black uppercase text-xs font-black tracking-widest px-2 py-4 transition-colors flex items-center justify-center gap-2 group/qv">
+                        <span>Llevar Oferta 3x1</span>
+                        <i class="ph-bold ph-shopping-cart text-lg"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+</div>
+</section>
 
         <!-- CATEGORY 1: SNEAKERS URBAN ELITE -->
         <section id="sneakers" class="py-24 bg-white relative">
@@ -293,10 +482,18 @@
                     </p>
                 </div>
 
+                <!-- CATEGORY FILTERS (UI) -->
+                <div class="flex flex-wrap justify-center gap-2 sm:gap-4 mb-12" id="sneakers-filters">
+                    <button onclick="filterCategory(this, 'todos', 'sneakers')" class="px-6 py-2.5 bg-black text-white text-xs font-bold uppercase tracking-widest border border-black hover:bg-gray-800 transition-colors shadow-sm">Todos</button>
+                    <button onclick="filterCategory(this, 'monocromo', 'sneakers')" class="px-6 py-2.5 bg-white text-black text-xs font-bold uppercase tracking-widest border border-gray-200 hover:border-black transition-colors shadow-sm">Monocromo</button>
+                    <button onclick="filterCategory(this, 'retro', 'sneakers')" class="px-6 py-2.5 bg-white text-black text-xs font-bold uppercase tracking-widest border border-gray-200 hover:border-black transition-colors shadow-sm">Retro</button>
+                    <button onclick="filterCategory(this, 'tech', 'sneakers')" class="px-6 py-2.5 bg-white text-black text-xs font-bold uppercase tracking-widest border border-gray-200 hover:border-black transition-colors shadow-sm">Tech</button>
+                </div>
+
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10">
 
     <!-- Product Card 101 -->
-    <div class="group flex flex-col bg-white border border-transparent hover:border-gray-200 transition-colors">
+    <div class="group flex flex-col bg-white border border-transparent hover:border-gray-200 transition-colors " data-category="retro">
         <div class="relative aspect-square overflow-hidden mb-4 premium-hover flex items-center justify-center p-4">
             <img src="./assets/images/products/rose-runner.jpg?v=1.0" alt="Rose Runner" class="object-cover w-full h-full mix-blend-darken hover:mix-blend-normal scale-110 object-center">
             <div class="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-300 pointer-events-none"></div>
@@ -305,43 +502,33 @@
             <h3 class="font-display text-xl font-bold uppercase tracking-tight mb-1 text-black">Rose Runner</h3>
             <p class="text-gray-500 text-sm mb-4 line-clamp-2">Aceleración estética con detalles magenta. Construcción premium.</p>
 
-            <div class="w-full mb-4 mt-auto">
-                <div class="w-full" id="sizes-prod-101">
-                    
-        <div class="relative w-full">
-            <select id="size-input-prod-101" class="appearance-none w-full bg-gray-50 border border-gray-200 text-center text-sm font-bold focus:outline-none focus:border-black transition-colors py-2 px-9 cursor-pointer">
-                <option value="" disabled selected>SELECCIONAR TALLA</option>
-                <option value="35">35</option><option value="36">36</option><option value="37">37</option><option value="38">38</option><option value="39">39</option><option value="40">40</option><option value="41">41</option><option value="42">42</option><option value="43">43</option><option value="44">44</option><option value="45">45</option>
-            </select>
-            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-black">
-                <i class="ph ph-caret-down text-lg"></i>
-            </div>
-        </div>
-    
-                </div>
-            </div>
-
             <div class="mt-auto flex flex-col pt-4 gap-2 border-t border-gray-100">
                 <span class="text-xs text-gray-500 uppercase tracking-widest font-semibold mb-[-8px]">Lujo de Élite, Precio Real</span>
                 <div class="flex items-center gap-3 w-full mb-1 mt-1">
                     <span class="font-display font-black text-2xl tracking-tight text-black">$85.00</span>
                     <del class="text-sm text-gray-400 font-medium">$120.00</del>
                 </div>
-                <div class="flex gap-2 w-full">
-                    <button onclick="addToCart('Rose Runner', 85.00, 'prod-101', './assets/images/products/rose-runner.jpg?v=1.0')" class="flex-[1] bg-white text-black border border-black hover:bg-black hover:text-white uppercase text-xs font-bold tracking-widest px-1 py-3 transition-colors flex items-center justify-center gap-1 group/btn">
+                <div class="flex items-center gap-2 w-full">
+                    <button onclick="openQuickView('Rose Runner', '85.00', './assets/images/products/rose-runner.jpg?v=1.0', '38,39,40', 'prod-101')" class="flex-[1] bg-white text-black border border-black hover:bg-black hover:text-white uppercase text-xs font-bold tracking-widest px-1 py-3 transition-colors flex items-center justify-center gap-1 group/btn">
                         <i class="ph ph-bag text-lg group-hover/btn:scale-110 transition-transform"></i>
                     </button>
-                    <button onclick="checkoutSingleItem('Rose Runner', 'prod-101')" class="flex-[2] bg-black text-white hover:bg-[#25D366] border border-black uppercase text-xs font-bold tracking-widest px-2 py-3 transition-colors flex items-center justify-center gap-2 group/wp">
-                        <span>Pedir</span>
-                        <i class="ph-fill ph-whatsapp-logo text-lg group-hover/wp:scale-110 transition-transform"></i>
+                    <button onclick="openQuickView('Rose Runner', '85.00', './assets/images/products/rose-runner.jpg?v=1.0', '38,39,40', 'prod-101')" class="flex-[2] bg-black text-white hover:bg-gray-800 border border-black uppercase text-xs font-bold tracking-widest px-2 py-3 transition-colors flex items-center justify-center gap-2 group/qv">
+                        <span>Ver Detalles</span>
+                        <i class="ph-bold ph-arrow-right text-lg group-hover/qv:translate-x-1 transition-transform"></i>
                     </button>
+                </div>
+                <!-- Payment Badges -->
+                <div class="flex items-center justify-center gap-3 mt-3 text-[10px] text-gray-400 font-medium uppercase tracking-wider">
+                    <span class="flex items-center gap-1"><i class="ph ph-wallet"></i> Zelle</span>
+                    <span class="flex items-center gap-1"><i class="ph ph-currency-btc"></i> USDT</span>
+                    <span class="flex items-center gap-1"><i class="ph ph-credit-card"></i> Cuotas</span>
                 </div>
             </div>
         </div>
     </div>
     
     <!-- Product Card 102 -->
-    <div class="group flex flex-col bg-white border border-transparent hover:border-gray-200 transition-colors">
+    <div class="group flex flex-col bg-white border border-transparent hover:border-gray-200 transition-colors " data-category="monocromo">
         <div class="relative aspect-square overflow-hidden mb-4 premium-hover flex items-center justify-center p-4">
             <img src="./assets/images/products/onyx-street.jpg?v=1.0" alt="Onyx Street" class="object-cover w-full h-full mix-blend-darken hover:mix-blend-normal scale-110 object-center">
             <div class="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-300 pointer-events-none"></div>
@@ -350,43 +537,33 @@
             <h3 class="font-display text-xl font-bold uppercase tracking-tight mb-1 text-black">Onyx Street</h3>
             <p class="text-gray-500 text-sm mb-4 line-clamp-2">Diseño clásico en blanco y negro. Lujo callejero.</p>
 
-            <div class="w-full mb-4 mt-auto">
-                <div class="w-full" id="sizes-prod-102">
-                    
-        <div class="relative w-full">
-            <select id="size-input-prod-102" class="appearance-none w-full bg-gray-50 border border-gray-200 text-center text-sm font-bold focus:outline-none focus:border-black transition-colors py-2 px-9 cursor-pointer">
-                <option value="" disabled selected>SELECCIONAR TALLA</option>
-                <option value="35">35</option><option value="36">36</option><option value="37">37</option><option value="38">38</option><option value="39">39</option><option value="40">40</option><option value="41">41</option><option value="42">42</option><option value="43">43</option><option value="44">44</option><option value="45">45</option>
-            </select>
-            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-black">
-                <i class="ph ph-caret-down text-lg"></i>
-            </div>
-        </div>
-    
-                </div>
-            </div>
-
             <div class="mt-auto flex flex-col pt-4 gap-2 border-t border-gray-100">
                 <span class="text-xs text-gray-500 uppercase tracking-widest font-semibold mb-[-8px]">Lujo de Élite, Precio Real</span>
                 <div class="flex items-center gap-3 w-full mb-1 mt-1">
                     <span class="font-display font-black text-2xl tracking-tight text-black">$85.00</span>
                     <del class="text-sm text-gray-400 font-medium">$120.00</del>
                 </div>
-                <div class="flex gap-2 w-full">
-                    <button onclick="addToCart('Onyx Street', 85.00, 'prod-102', './assets/images/products/onyx-street.jpg?v=1.0')" class="flex-[1] bg-white text-black border border-black hover:bg-black hover:text-white uppercase text-xs font-bold tracking-widest px-1 py-3 transition-colors flex items-center justify-center gap-1 group/btn">
+                <div class="flex items-center gap-2 w-full">
+                    <button onclick="openQuickView('Onyx Street', '85.00', './assets/images/products/onyx-street.jpg?v=1.0', '41,42,43', 'prod-102')" class="flex-[1] bg-white text-black border border-black hover:bg-black hover:text-white uppercase text-xs font-bold tracking-widest px-1 py-3 transition-colors flex items-center justify-center gap-1 group/btn">
                         <i class="ph ph-bag text-lg group-hover/btn:scale-110 transition-transform"></i>
                     </button>
-                    <button onclick="checkoutSingleItem('Onyx Street', 'prod-102')" class="flex-[2] bg-black text-white hover:bg-[#25D366] border border-black uppercase text-xs font-bold tracking-widest px-2 py-3 transition-colors flex items-center justify-center gap-2 group/wp">
-                        <span>Pedir</span>
-                        <i class="ph-fill ph-whatsapp-logo text-lg group-hover/wp:scale-110 transition-transform"></i>
+                    <button onclick="openQuickView('Onyx Street', '85.00', './assets/images/products/onyx-street.jpg?v=1.0', '41,42,43', 'prod-102')" class="flex-[2] bg-black text-white hover:bg-gray-800 border border-black uppercase text-xs font-bold tracking-widest px-2 py-3 transition-colors flex items-center justify-center gap-2 group/qv">
+                        <span>Ver Detalles</span>
+                        <i class="ph-bold ph-arrow-right text-lg group-hover/qv:translate-x-1 transition-transform"></i>
                     </button>
+                </div>
+                <!-- Payment Badges -->
+                <div class="flex items-center justify-center gap-3 mt-3 text-[10px] text-gray-400 font-medium uppercase tracking-wider">
+                    <span class="flex items-center gap-1"><i class="ph ph-wallet"></i> Zelle</span>
+                    <span class="flex items-center gap-1"><i class="ph ph-currency-btc"></i> USDT</span>
+                    <span class="flex items-center gap-1"><i class="ph ph-credit-card"></i> Cuotas</span>
                 </div>
             </div>
         </div>
     </div>
     
     <!-- Product Card 103 -->
-    <div class="group flex flex-col bg-white border border-transparent hover:border-gray-200 transition-colors">
+    <div class="group flex flex-col bg-white border border-transparent hover:border-gray-200 transition-colors " data-category="tech">
         <div class="relative aspect-square overflow-hidden mb-4 premium-hover flex items-center justify-center p-4">
             <img src="./assets/images/products/titan-sand.jpg?v=1.0" alt="Titan Sand" class="object-cover w-full h-full mix-blend-darken hover:mix-blend-normal scale-110 object-center">
             <div class="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-300 pointer-events-none"></div>
@@ -395,43 +572,33 @@
             <h3 class="font-display text-xl font-bold uppercase tracking-tight mb-1 text-black">Titan Sand</h3>
             <p class="text-gray-500 text-sm mb-4 line-clamp-2">Construcción táctica beige y negro. Versatilidad suprema.</p>
 
-            <div class="w-full mb-4 mt-auto">
-                <div class="w-full" id="sizes-prod-103">
-                    
-        <div class="relative w-full">
-            <select id="size-input-prod-103" class="appearance-none w-full bg-gray-50 border border-gray-200 text-center text-sm font-bold focus:outline-none focus:border-black transition-colors py-2 px-9 cursor-pointer">
-                <option value="" disabled selected>SELECCIONAR TALLA</option>
-                <option value="35">35</option><option value="36">36</option><option value="37">37</option><option value="38">38</option><option value="39">39</option><option value="40">40</option><option value="41">41</option><option value="42">42</option><option value="43">43</option><option value="44">44</option><option value="45">45</option>
-            </select>
-            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-black">
-                <i class="ph ph-caret-down text-lg"></i>
-            </div>
-        </div>
-    
-                </div>
-            </div>
-
             <div class="mt-auto flex flex-col pt-4 gap-2 border-t border-gray-100">
                 <span class="text-xs text-gray-500 uppercase tracking-widest font-semibold mb-[-8px]">Lujo de Élite, Precio Real</span>
                 <div class="flex items-center gap-3 w-full mb-1 mt-1">
                     <span class="font-display font-black text-2xl tracking-tight text-black">$85.00</span>
                     <del class="text-sm text-gray-400 font-medium">$120.00</del>
                 </div>
-                <div class="flex gap-2 w-full">
-                    <button onclick="addToCart('Titan Sand', 85.00, 'prod-103', './assets/images/products/titan-sand.jpg?v=1.0')" class="flex-[1] bg-white text-black border border-black hover:bg-black hover:text-white uppercase text-xs font-bold tracking-widest px-1 py-3 transition-colors flex items-center justify-center gap-1 group/btn">
+                <div class="flex items-center gap-2 w-full">
+                    <button onclick="openQuickView('Titan Sand', '85.00', './assets/images/products/titan-sand.jpg?v=1.0', '40,41,42', 'prod-103')" class="flex-[1] bg-white text-black border border-black hover:bg-black hover:text-white uppercase text-xs font-bold tracking-widest px-1 py-3 transition-colors flex items-center justify-center gap-1 group/btn">
                         <i class="ph ph-bag text-lg group-hover/btn:scale-110 transition-transform"></i>
                     </button>
-                    <button onclick="checkoutSingleItem('Titan Sand', 'prod-103')" class="flex-[2] bg-black text-white hover:bg-[#25D366] border border-black uppercase text-xs font-bold tracking-widest px-2 py-3 transition-colors flex items-center justify-center gap-2 group/wp">
-                        <span>Pedir</span>
-                        <i class="ph-fill ph-whatsapp-logo text-lg group-hover/wp:scale-110 transition-transform"></i>
+                    <button onclick="openQuickView('Titan Sand', '85.00', './assets/images/products/titan-sand.jpg?v=1.0', '40,41,42', 'prod-103')" class="flex-[2] bg-black text-white hover:bg-gray-800 border border-black uppercase text-xs font-bold tracking-widest px-2 py-3 transition-colors flex items-center justify-center gap-2 group/qv">
+                        <span>Ver Detalles</span>
+                        <i class="ph-bold ph-arrow-right text-lg group-hover/qv:translate-x-1 transition-transform"></i>
                     </button>
+                </div>
+                <!-- Payment Badges -->
+                <div class="flex items-center justify-center gap-3 mt-3 text-[10px] text-gray-400 font-medium uppercase tracking-wider">
+                    <span class="flex items-center gap-1"><i class="ph ph-wallet"></i> Zelle</span>
+                    <span class="flex items-center gap-1"><i class="ph ph-currency-btc"></i> USDT</span>
+                    <span class="flex items-center gap-1"><i class="ph ph-credit-card"></i> Cuotas</span>
                 </div>
             </div>
         </div>
     </div>
     
     <!-- Product Card 104 -->
-    <div class="group flex flex-col bg-white border border-transparent hover:border-gray-200 transition-colors">
+    <div class="group flex flex-col bg-white border border-transparent hover:border-gray-200 transition-colors " data-category="retro">
         <div class="relative aspect-square overflow-hidden mb-4 premium-hover flex items-center justify-center p-4">
             <img src="./assets/images/products/blush-trainer.jpg?v=1.0" alt="Blush Trainer" class="object-cover w-full h-full mix-blend-darken hover:mix-blend-normal scale-110 object-center">
             <div class="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-300 pointer-events-none"></div>
@@ -440,43 +607,33 @@
             <h3 class="font-display text-xl font-bold uppercase tracking-tight mb-1 text-black">Blush Trainer</h3>
             <p class="text-gray-500 text-sm mb-4 line-clamp-2">Estructura rosa con acentos oscuros. Equilibrio cromático perfecto.</p>
 
-            <div class="w-full mb-4 mt-auto">
-                <div class="w-full" id="sizes-prod-104">
-                    
-        <div class="relative w-full">
-            <select id="size-input-prod-104" class="appearance-none w-full bg-gray-50 border border-gray-200 text-center text-sm font-bold focus:outline-none focus:border-black transition-colors py-2 px-9 cursor-pointer">
-                <option value="" disabled selected>SELECCIONAR TALLA</option>
-                <option value="35">35</option><option value="36">36</option><option value="37">37</option><option value="38">38</option><option value="39">39</option><option value="40">40</option><option value="41">41</option><option value="42">42</option><option value="43">43</option><option value="44">44</option><option value="45">45</option>
-            </select>
-            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-black">
-                <i class="ph ph-caret-down text-lg"></i>
-            </div>
-        </div>
-    
-                </div>
-            </div>
-
             <div class="mt-auto flex flex-col pt-4 gap-2 border-t border-gray-100">
                 <span class="text-xs text-gray-500 uppercase tracking-widest font-semibold mb-[-8px]">Lujo de Élite, Precio Real</span>
                 <div class="flex items-center gap-3 w-full mb-1 mt-1">
                     <span class="font-display font-black text-2xl tracking-tight text-black">$85.00</span>
                     <del class="text-sm text-gray-400 font-medium">$120.00</del>
                 </div>
-                <div class="flex gap-2 w-full">
-                    <button onclick="addToCart('Blush Trainer', 85.00, 'prod-104', './assets/images/products/blush-trainer.jpg?v=1.0')" class="flex-[1] bg-white text-black border border-black hover:bg-black hover:text-white uppercase text-xs font-bold tracking-widest px-1 py-3 transition-colors flex items-center justify-center gap-1 group/btn">
+                <div class="flex items-center gap-2 w-full">
+                    <button onclick="openQuickView('Blush Trainer', '85.00', './assets/images/products/blush-trainer.jpg?v=1.0', '37,38,39', 'prod-104')" class="flex-[1] bg-white text-black border border-black hover:bg-black hover:text-white uppercase text-xs font-bold tracking-widest px-1 py-3 transition-colors flex items-center justify-center gap-1 group/btn">
                         <i class="ph ph-bag text-lg group-hover/btn:scale-110 transition-transform"></i>
                     </button>
-                    <button onclick="checkoutSingleItem('Blush Trainer', 'prod-104')" class="flex-[2] bg-black text-white hover:bg-[#25D366] border border-black uppercase text-xs font-bold tracking-widest px-2 py-3 transition-colors flex items-center justify-center gap-2 group/wp">
-                        <span>Pedir</span>
-                        <i class="ph-fill ph-whatsapp-logo text-lg group-hover/wp:scale-110 transition-transform"></i>
+                    <button onclick="openQuickView('Blush Trainer', '85.00', './assets/images/products/blush-trainer.jpg?v=1.0', '37,38,39', 'prod-104')" class="flex-[2] bg-black text-white hover:bg-gray-800 border border-black uppercase text-xs font-bold tracking-widest px-2 py-3 transition-colors flex items-center justify-center gap-2 group/qv">
+                        <span>Ver Detalles</span>
+                        <i class="ph-bold ph-arrow-right text-lg group-hover/qv:translate-x-1 transition-transform"></i>
                     </button>
+                </div>
+                <!-- Payment Badges -->
+                <div class="flex items-center justify-center gap-3 mt-3 text-[10px] text-gray-400 font-medium uppercase tracking-wider">
+                    <span class="flex items-center gap-1"><i class="ph ph-wallet"></i> Zelle</span>
+                    <span class="flex items-center gap-1"><i class="ph ph-currency-btc"></i> USDT</span>
+                    <span class="flex items-center gap-1"><i class="ph ph-credit-card"></i> Cuotas</span>
                 </div>
             </div>
         </div>
     </div>
     
     <!-- Product Card 105 -->
-    <div class="group flex flex-col bg-white border border-transparent hover:border-gray-200 transition-colors">
+    <div class="group flex flex-col bg-white border border-transparent hover:border-gray-200 transition-colors " data-category="monocromo">
         <div class="relative aspect-square overflow-hidden mb-4 premium-hover flex items-center justify-center p-4">
             <img src="./assets/images/products/shadow-flex.jpg?v=1.0" alt="Shadow Flex" class="object-cover w-full h-full mix-blend-darken hover:mix-blend-normal scale-110 object-center">
             <div class="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-300 pointer-events-none"></div>
@@ -485,43 +642,33 @@
             <h3 class="font-display text-xl font-bold uppercase tracking-tight mb-1 text-black">Shadow Flex</h3>
             <p class="text-gray-500 text-sm mb-4 line-clamp-2">Negro absoluto. Perfil bajo y silueta dominante.</p>
 
-            <div class="w-full mb-4 mt-auto">
-                <div class="w-full" id="sizes-prod-105">
-                    
-        <div class="relative w-full">
-            <select id="size-input-prod-105" class="appearance-none w-full bg-gray-50 border border-gray-200 text-center text-sm font-bold focus:outline-none focus:border-black transition-colors py-2 px-9 cursor-pointer">
-                <option value="" disabled selected>SELECCIONAR TALLA</option>
-                <option value="35">35</option><option value="36">36</option><option value="37">37</option><option value="38">38</option><option value="39">39</option><option value="40">40</option><option value="41">41</option><option value="42">42</option><option value="43">43</option><option value="44">44</option><option value="45">45</option>
-            </select>
-            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-black">
-                <i class="ph ph-caret-down text-lg"></i>
-            </div>
-        </div>
-    
-                </div>
-            </div>
-
             <div class="mt-auto flex flex-col pt-4 gap-2 border-t border-gray-100">
                 <span class="text-xs text-gray-500 uppercase tracking-widest font-semibold mb-[-8px]">Lujo de Élite, Precio Real</span>
                 <div class="flex items-center gap-3 w-full mb-1 mt-1">
                     <span class="font-display font-black text-2xl tracking-tight text-black">$85.00</span>
                     <del class="text-sm text-gray-400 font-medium">$120.00</del>
                 </div>
-                <div class="flex gap-2 w-full">
-                    <button onclick="addToCart('Shadow Flex', 85.00, 'prod-105', './assets/images/products/shadow-flex.jpg?v=1.0')" class="flex-[1] bg-white text-black border border-black hover:bg-black hover:text-white uppercase text-xs font-bold tracking-widest px-1 py-3 transition-colors flex items-center justify-center gap-1 group/btn">
+                <div class="flex items-center gap-2 w-full">
+                    <button onclick="openQuickView('Shadow Flex', '85.00', './assets/images/products/shadow-flex.jpg?v=1.0', '39,40,41', 'prod-105')" class="flex-[1] bg-white text-black border border-black hover:bg-black hover:text-white uppercase text-xs font-bold tracking-widest px-1 py-3 transition-colors flex items-center justify-center gap-1 group/btn">
                         <i class="ph ph-bag text-lg group-hover/btn:scale-110 transition-transform"></i>
                     </button>
-                    <button onclick="checkoutSingleItem('Shadow Flex', 'prod-105')" class="flex-[2] bg-black text-white hover:bg-[#25D366] border border-black uppercase text-xs font-bold tracking-widest px-2 py-3 transition-colors flex items-center justify-center gap-2 group/wp">
-                        <span>Pedir</span>
-                        <i class="ph-fill ph-whatsapp-logo text-lg group-hover/wp:scale-110 transition-transform"></i>
+                    <button onclick="openQuickView('Shadow Flex', '85.00', './assets/images/products/shadow-flex.jpg?v=1.0', '39,40,41', 'prod-105')" class="flex-[2] bg-black text-white hover:bg-gray-800 border border-black uppercase text-xs font-bold tracking-widest px-2 py-3 transition-colors flex items-center justify-center gap-2 group/qv">
+                        <span>Ver Detalles</span>
+                        <i class="ph-bold ph-arrow-right text-lg group-hover/qv:translate-x-1 transition-transform"></i>
                     </button>
+                </div>
+                <!-- Payment Badges -->
+                <div class="flex items-center justify-center gap-3 mt-3 text-[10px] text-gray-400 font-medium uppercase tracking-wider">
+                    <span class="flex items-center gap-1"><i class="ph ph-wallet"></i> Zelle</span>
+                    <span class="flex items-center gap-1"><i class="ph ph-currency-btc"></i> USDT</span>
+                    <span class="flex items-center gap-1"><i class="ph ph-credit-card"></i> Cuotas</span>
                 </div>
             </div>
         </div>
     </div>
     
     <!-- Product Card 106 -->
-    <div class="group flex flex-col bg-white border border-transparent hover:border-gray-200 transition-colors">
+    <div class="group flex flex-col bg-white border border-transparent hover:border-gray-200 transition-colors " data-category="tech">
         <div class="relative aspect-square overflow-hidden mb-4 premium-hover flex items-center justify-center p-4">
             <img src="./assets/images/products/arctic-cloud.jpg?v=1.0" alt="Arctic Cloud" class="object-cover w-full h-full mix-blend-darken hover:mix-blend-normal scale-110 object-center">
             <div class="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-300 pointer-events-none"></div>
@@ -530,43 +677,33 @@
             <h3 class="font-display text-xl font-bold uppercase tracking-tight mb-1 text-black">Arctic Cloud</h3>
             <p class="text-gray-500 text-sm mb-4 line-clamp-2">Corte de diseño chunky en blanco puro. Amortiguación máxima.</p>
 
-            <div class="w-full mb-4 mt-auto">
-                <div class="w-full" id="sizes-prod-106">
-                    
-        <div class="relative w-full">
-            <select id="size-input-prod-106" class="appearance-none w-full bg-gray-50 border border-gray-200 text-center text-sm font-bold focus:outline-none focus:border-black transition-colors py-2 px-9 cursor-pointer">
-                <option value="" disabled selected>SELECCIONAR TALLA</option>
-                <option value="35">35</option><option value="36">36</option><option value="37">37</option><option value="38">38</option><option value="39">39</option><option value="40">40</option><option value="41">41</option><option value="42">42</option><option value="43">43</option><option value="44">44</option><option value="45">45</option>
-            </select>
-            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-black">
-                <i class="ph ph-caret-down text-lg"></i>
-            </div>
-        </div>
-    
-                </div>
-            </div>
-
             <div class="mt-auto flex flex-col pt-4 gap-2 border-t border-gray-100">
                 <span class="text-xs text-gray-500 uppercase tracking-widest font-semibold mb-[-8px]">Lujo de Élite, Precio Real</span>
                 <div class="flex items-center gap-3 w-full mb-1 mt-1">
                     <span class="font-display font-black text-2xl tracking-tight text-black">$85.00</span>
                     <del class="text-sm text-gray-400 font-medium">$120.00</del>
                 </div>
-                <div class="flex gap-2 w-full">
-                    <button onclick="addToCart('Arctic Cloud', 85.00, 'prod-106', './assets/images/products/arctic-cloud.jpg?v=1.0')" class="flex-[1] bg-white text-black border border-black hover:bg-black hover:text-white uppercase text-xs font-bold tracking-widest px-1 py-3 transition-colors flex items-center justify-center gap-1 group/btn">
+                <div class="flex items-center gap-2 w-full">
+                    <button onclick="openQuickView('Arctic Cloud', '85.00', './assets/images/products/arctic-cloud.jpg?v=1.0', '40,41,42', 'prod-106')" class="flex-[1] bg-white text-black border border-black hover:bg-black hover:text-white uppercase text-xs font-bold tracking-widest px-1 py-3 transition-colors flex items-center justify-center gap-1 group/btn">
                         <i class="ph ph-bag text-lg group-hover/btn:scale-110 transition-transform"></i>
                     </button>
-                    <button onclick="checkoutSingleItem('Arctic Cloud', 'prod-106')" class="flex-[2] bg-black text-white hover:bg-[#25D366] border border-black uppercase text-xs font-bold tracking-widest px-2 py-3 transition-colors flex items-center justify-center gap-2 group/wp">
-                        <span>Pedir</span>
-                        <i class="ph-fill ph-whatsapp-logo text-lg group-hover/wp:scale-110 transition-transform"></i>
+                    <button onclick="openQuickView('Arctic Cloud', '85.00', './assets/images/products/arctic-cloud.jpg?v=1.0', '40,41,42', 'prod-106')" class="flex-[2] bg-black text-white hover:bg-gray-800 border border-black uppercase text-xs font-bold tracking-widest px-2 py-3 transition-colors flex items-center justify-center gap-2 group/qv">
+                        <span>Ver Detalles</span>
+                        <i class="ph-bold ph-arrow-right text-lg group-hover/qv:translate-x-1 transition-transform"></i>
                     </button>
+                </div>
+                <!-- Payment Badges -->
+                <div class="flex items-center justify-center gap-3 mt-3 text-[10px] text-gray-400 font-medium uppercase tracking-wider">
+                    <span class="flex items-center gap-1"><i class="ph ph-wallet"></i> Zelle</span>
+                    <span class="flex items-center gap-1"><i class="ph ph-currency-btc"></i> USDT</span>
+                    <span class="flex items-center gap-1"><i class="ph ph-credit-card"></i> Cuotas</span>
                 </div>
             </div>
         </div>
     </div>
     
     <!-- Product Card 107 -->
-    <div class="group flex flex-col bg-white border border-transparent hover:border-gray-200 transition-colors">
+    <div class="group flex flex-col bg-white border border-transparent hover:border-gray-200 transition-colors hidden extra-sneaker" data-category="monocromo">
         <div class="relative aspect-square overflow-hidden mb-4 premium-hover flex items-center justify-center p-4">
             <img src="./assets/images/products/midnight-core.jpg?v=1.0" alt="Midnight Core" class="object-cover w-full h-full mix-blend-darken hover:mix-blend-normal scale-110 object-center">
             <div class="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-300 pointer-events-none"></div>
@@ -575,43 +712,33 @@
             <h3 class="font-display text-xl font-bold uppercase tracking-tight mb-1 text-black">Midnight Core</h3>
             <p class="text-gray-500 text-sm mb-4 line-clamp-2">Diseño robusto oscuro con franjas de contraste.</p>
 
-            <div class="w-full mb-4 mt-auto">
-                <div class="w-full" id="sizes-prod-107">
-                    
-        <div class="relative w-full">
-            <select id="size-input-prod-107" class="appearance-none w-full bg-gray-50 border border-gray-200 text-center text-sm font-bold focus:outline-none focus:border-black transition-colors py-2 px-9 cursor-pointer">
-                <option value="" disabled selected>SELECCIONAR TALLA</option>
-                <option value="35">35</option><option value="36">36</option><option value="37">37</option><option value="38">38</option><option value="39">39</option><option value="40">40</option><option value="41">41</option><option value="42">42</option><option value="43">43</option><option value="44">44</option><option value="45">45</option>
-            </select>
-            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-black">
-                <i class="ph ph-caret-down text-lg"></i>
-            </div>
-        </div>
-    
-                </div>
-            </div>
-
             <div class="mt-auto flex flex-col pt-4 gap-2 border-t border-gray-100">
                 <span class="text-xs text-gray-500 uppercase tracking-widest font-semibold mb-[-8px]">Lujo de Élite, Precio Real</span>
                 <div class="flex items-center gap-3 w-full mb-1 mt-1">
                     <span class="font-display font-black text-2xl tracking-tight text-black">$85.00</span>
                     <del class="text-sm text-gray-400 font-medium">$120.00</del>
                 </div>
-                <div class="flex gap-2 w-full">
-                    <button onclick="addToCart('Midnight Core', 85.00, 'prod-107', './assets/images/products/midnight-core.jpg?v=1.0')" class="flex-[1] bg-white text-black border border-black hover:bg-black hover:text-white uppercase text-xs font-bold tracking-widest px-1 py-3 transition-colors flex items-center justify-center gap-1 group/btn">
+                <div class="flex items-center gap-2 w-full">
+                    <button onclick="openQuickView('Midnight Core', '85.00', './assets/images/products/midnight-core.jpg?v=1.0', '39,40,41,42', 'prod-107')" class="flex-[1] bg-white text-black border border-black hover:bg-black hover:text-white uppercase text-xs font-bold tracking-widest px-1 py-3 transition-colors flex items-center justify-center gap-1 group/btn">
                         <i class="ph ph-bag text-lg group-hover/btn:scale-110 transition-transform"></i>
                     </button>
-                    <button onclick="checkoutSingleItem('Midnight Core', 'prod-107')" class="flex-[2] bg-black text-white hover:bg-[#25D366] border border-black uppercase text-xs font-bold tracking-widest px-2 py-3 transition-colors flex items-center justify-center gap-2 group/wp">
-                        <span>Pedir</span>
-                        <i class="ph-fill ph-whatsapp-logo text-lg group-hover/wp:scale-110 transition-transform"></i>
+                    <button onclick="openQuickView('Midnight Core', '85.00', './assets/images/products/midnight-core.jpg?v=1.0', '39,40,41,42', 'prod-107')" class="flex-[2] bg-black text-white hover:bg-gray-800 border border-black uppercase text-xs font-bold tracking-widest px-2 py-3 transition-colors flex items-center justify-center gap-2 group/qv">
+                        <span>Ver Detalles</span>
+                        <i class="ph-bold ph-arrow-right text-lg group-hover/qv:translate-x-1 transition-transform"></i>
                     </button>
+                </div>
+                <!-- Payment Badges -->
+                <div class="flex items-center justify-center gap-3 mt-3 text-[10px] text-gray-400 font-medium uppercase tracking-wider">
+                    <span class="flex items-center gap-1"><i class="ph ph-wallet"></i> Zelle</span>
+                    <span class="flex items-center gap-1"><i class="ph ph-currency-btc"></i> USDT</span>
+                    <span class="flex items-center gap-1"><i class="ph ph-credit-card"></i> Cuotas</span>
                 </div>
             </div>
         </div>
     </div>
     
     <!-- Product Card 108 -->
-    <div class="group flex flex-col bg-white border border-transparent hover:border-gray-200 transition-colors">
+    <div class="group flex flex-col bg-white border border-transparent hover:border-gray-200 transition-colors hidden extra-sneaker" data-category="retro">
         <div class="relative aspect-square overflow-hidden mb-4 premium-hover flex items-center justify-center p-4">
             <img src="./assets/images/products/obsidian-air.jpg?v=1.0" alt="Obsidian Air" class="object-cover w-full h-full mix-blend-darken hover:mix-blend-normal scale-110 object-center">
             <div class="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-300 pointer-events-none"></div>
@@ -620,43 +747,33 @@
             <h3 class="font-display text-xl font-bold uppercase tracking-tight mb-1 text-black">Obsidian Air</h3>
             <p class="text-gray-500 text-sm mb-4 line-clamp-2">Cápsula de aire visible. Presencia innegable en el asfalto.</p>
 
-            <div class="w-full mb-4 mt-auto">
-                <div class="w-full" id="sizes-prod-108">
-                    
-        <div class="relative w-full">
-            <select id="size-input-prod-108" class="appearance-none w-full bg-gray-50 border border-gray-200 text-center text-sm font-bold focus:outline-none focus:border-black transition-colors py-2 px-9 cursor-pointer">
-                <option value="" disabled selected>SELECCIONAR TALLA</option>
-                <option value="35">35</option><option value="36">36</option><option value="37">37</option><option value="38">38</option><option value="39">39</option><option value="40">40</option><option value="41">41</option><option value="42">42</option><option value="43">43</option><option value="44">44</option><option value="45">45</option>
-            </select>
-            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-black">
-                <i class="ph ph-caret-down text-lg"></i>
-            </div>
-        </div>
-    
-                </div>
-            </div>
-
             <div class="mt-auto flex flex-col pt-4 gap-2 border-t border-gray-100">
                 <span class="text-xs text-gray-500 uppercase tracking-widest font-semibold mb-[-8px]">Lujo de Élite, Precio Real</span>
                 <div class="flex items-center gap-3 w-full mb-1 mt-1">
                     <span class="font-display font-black text-2xl tracking-tight text-black">$85.00</span>
                     <del class="text-sm text-gray-400 font-medium">$120.00</del>
                 </div>
-                <div class="flex gap-2 w-full">
-                    <button onclick="addToCart('Obsidian Air', 85.00, 'prod-108', './assets/images/products/obsidian-air.jpg?v=1.0')" class="flex-[1] bg-white text-black border border-black hover:bg-black hover:text-white uppercase text-xs font-bold tracking-widest px-1 py-3 transition-colors flex items-center justify-center gap-1 group/btn">
+                <div class="flex items-center gap-2 w-full">
+                    <button onclick="openQuickView('Obsidian Air', '85.00', './assets/images/products/obsidian-air.jpg?v=1.0', '39,40,41', 'prod-108')" class="flex-[1] bg-white text-black border border-black hover:bg-black hover:text-white uppercase text-xs font-bold tracking-widest px-1 py-3 transition-colors flex items-center justify-center gap-1 group/btn">
                         <i class="ph ph-bag text-lg group-hover/btn:scale-110 transition-transform"></i>
                     </button>
-                    <button onclick="checkoutSingleItem('Obsidian Air', 'prod-108')" class="flex-[2] bg-black text-white hover:bg-[#25D366] border border-black uppercase text-xs font-bold tracking-widest px-2 py-3 transition-colors flex items-center justify-center gap-2 group/wp">
-                        <span>Pedir</span>
-                        <i class="ph-fill ph-whatsapp-logo text-lg group-hover/wp:scale-110 transition-transform"></i>
+                    <button onclick="openQuickView('Obsidian Air', '85.00', './assets/images/products/obsidian-air.jpg?v=1.0', '39,40,41', 'prod-108')" class="flex-[2] bg-black text-white hover:bg-gray-800 border border-black uppercase text-xs font-bold tracking-widest px-2 py-3 transition-colors flex items-center justify-center gap-2 group/qv">
+                        <span>Ver Detalles</span>
+                        <i class="ph-bold ph-arrow-right text-lg group-hover/qv:translate-x-1 transition-transform"></i>
                     </button>
+                </div>
+                <!-- Payment Badges -->
+                <div class="flex items-center justify-center gap-3 mt-3 text-[10px] text-gray-400 font-medium uppercase tracking-wider">
+                    <span class="flex items-center gap-1"><i class="ph ph-wallet"></i> Zelle</span>
+                    <span class="flex items-center gap-1"><i class="ph ph-currency-btc"></i> USDT</span>
+                    <span class="flex items-center gap-1"><i class="ph ph-credit-card"></i> Cuotas</span>
                 </div>
             </div>
         </div>
     </div>
     
     <!-- Product Card 109 -->
-    <div class="group flex flex-col bg-white border border-transparent hover:border-gray-200 transition-colors">
+    <div class="group flex flex-col bg-white border border-transparent hover:border-gray-200 transition-colors hidden extra-sneaker" data-category="tech">
         <div class="relative aspect-square overflow-hidden mb-4 premium-hover flex items-center justify-center p-4">
             <img src="./assets/images/products/carbon-max.jpg?v=1.0" alt="Carbon Max" class="object-cover w-full h-full mix-blend-darken hover:mix-blend-normal scale-110 object-center">
             <div class="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-300 pointer-events-none"></div>
@@ -665,43 +782,33 @@
             <h3 class="font-display text-xl font-bold uppercase tracking-tight mb-1 text-black">Carbon Max</h3>
             <p class="text-gray-500 text-sm mb-4 line-clamp-2">Sistema Elite con cámara translúcida y texturas mixtas.</p>
 
-            <div class="w-full mb-4 mt-auto">
-                <div class="w-full" id="sizes-prod-109">
-                    
-        <div class="relative w-full">
-            <select id="size-input-prod-109" class="appearance-none w-full bg-gray-50 border border-gray-200 text-center text-sm font-bold focus:outline-none focus:border-black transition-colors py-2 px-9 cursor-pointer">
-                <option value="" disabled selected>SELECCIONAR TALLA</option>
-                <option value="35">35</option><option value="36">36</option><option value="37">37</option><option value="38">38</option><option value="39">39</option><option value="40">40</option><option value="41">41</option><option value="42">42</option><option value="43">43</option><option value="44">44</option><option value="45">45</option>
-            </select>
-            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-black">
-                <i class="ph ph-caret-down text-lg"></i>
-            </div>
-        </div>
-    
-                </div>
-            </div>
-
             <div class="mt-auto flex flex-col pt-4 gap-2 border-t border-gray-100">
                 <span class="text-xs text-gray-500 uppercase tracking-widest font-semibold mb-[-8px]">Lujo de Élite, Precio Real</span>
                 <div class="flex items-center gap-3 w-full mb-1 mt-1">
                     <span class="font-display font-black text-2xl tracking-tight text-black">$85.00</span>
                     <del class="text-sm text-gray-400 font-medium">$120.00</del>
                 </div>
-                <div class="flex gap-2 w-full">
-                    <button onclick="addToCart('Carbon Max', 85.00, 'prod-109', './assets/images/products/carbon-max.jpg?v=1.0')" class="flex-[1] bg-white text-black border border-black hover:bg-black hover:text-white uppercase text-xs font-bold tracking-widest px-1 py-3 transition-colors flex items-center justify-center gap-1 group/btn">
+                <div class="flex items-center gap-2 w-full">
+                    <button onclick="openQuickView('Carbon Max', '85.00', './assets/images/products/carbon-max.jpg?v=1.0', '40,41,42', 'prod-109')" class="flex-[1] bg-white text-black border border-black hover:bg-black hover:text-white uppercase text-xs font-bold tracking-widest px-1 py-3 transition-colors flex items-center justify-center gap-1 group/btn">
                         <i class="ph ph-bag text-lg group-hover/btn:scale-110 transition-transform"></i>
                     </button>
-                    <button onclick="checkoutSingleItem('Carbon Max', 'prod-109')" class="flex-[2] bg-black text-white hover:bg-[#25D366] border border-black uppercase text-xs font-bold tracking-widest px-2 py-3 transition-colors flex items-center justify-center gap-2 group/wp">
-                        <span>Pedir</span>
-                        <i class="ph-fill ph-whatsapp-logo text-lg group-hover/wp:scale-110 transition-transform"></i>
+                    <button onclick="openQuickView('Carbon Max', '85.00', './assets/images/products/carbon-max.jpg?v=1.0', '40,41,42', 'prod-109')" class="flex-[2] bg-black text-white hover:bg-gray-800 border border-black uppercase text-xs font-bold tracking-widest px-2 py-3 transition-colors flex items-center justify-center gap-2 group/qv">
+                        <span>Ver Detalles</span>
+                        <i class="ph-bold ph-arrow-right text-lg group-hover/qv:translate-x-1 transition-transform"></i>
                     </button>
+                </div>
+                <!-- Payment Badges -->
+                <div class="flex items-center justify-center gap-3 mt-3 text-[10px] text-gray-400 font-medium uppercase tracking-wider">
+                    <span class="flex items-center gap-1"><i class="ph ph-wallet"></i> Zelle</span>
+                    <span class="flex items-center gap-1"><i class="ph ph-currency-btc"></i> USDT</span>
+                    <span class="flex items-center gap-1"><i class="ph ph-credit-card"></i> Cuotas</span>
                 </div>
             </div>
         </div>
     </div>
     
     <!-- Product Card 110 -->
-    <div class="group flex flex-col bg-white border border-transparent hover:border-gray-200 transition-colors">
+    <div class="group flex flex-col bg-white border border-transparent hover:border-gray-200 transition-colors hidden extra-sneaker" data-category="retro">
         <div class="relative aspect-square overflow-hidden mb-4 premium-hover flex items-center justify-center p-4">
             <img src="./assets/images/products/silver-chrome.jpg?v=1.0" alt="Silver Chrome" class="object-cover w-full h-full mix-blend-darken hover:mix-blend-normal scale-110 object-center">
             <div class="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-300 pointer-events-none"></div>
@@ -710,53 +817,48 @@
             <h3 class="font-display text-xl font-bold uppercase tracking-tight mb-1 text-black">Silver Chrome</h3>
             <p class="text-gray-500 text-sm mb-4 line-clamp-2">Capas reflectantes en blanco y cromo. Ingeniería de punta.</p>
 
-            <div class="w-full mb-4 mt-auto">
-                <div class="w-full" id="sizes-prod-110">
-                    
-        <div class="relative w-full">
-            <select id="size-input-prod-110" class="appearance-none w-full bg-gray-50 border border-gray-200 text-center text-sm font-bold focus:outline-none focus:border-black transition-colors py-2 px-9 cursor-pointer">
-                <option value="" disabled selected>SELECCIONAR TALLA</option>
-                <option value="35">35</option><option value="36">36</option><option value="37">37</option><option value="38">38</option><option value="39">39</option><option value="40">40</option><option value="41">41</option><option value="42">42</option><option value="43">43</option><option value="44">44</option><option value="45">45</option>
-            </select>
-            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-black">
-                <i class="ph ph-caret-down text-lg"></i>
-            </div>
-        </div>
-    
-                </div>
-            </div>
-
             <div class="mt-auto flex flex-col pt-4 gap-2 border-t border-gray-100">
                 <span class="text-xs text-gray-500 uppercase tracking-widest font-semibold mb-[-8px]">Lujo de Élite, Precio Real</span>
                 <div class="flex items-center gap-3 w-full mb-1 mt-1">
                     <span class="font-display font-black text-2xl tracking-tight text-black">$85.00</span>
                     <del class="text-sm text-gray-400 font-medium">$120.00</del>
                 </div>
-                <div class="flex gap-2 w-full">
-                    <button onclick="addToCart('Silver Chrome', 85.00, 'prod-110', './assets/images/products/silver-chrome.jpg?v=1.0')" class="flex-[1] bg-white text-black border border-black hover:bg-black hover:text-white uppercase text-xs font-bold tracking-widest px-1 py-3 transition-colors flex items-center justify-center gap-1 group/btn">
+                <div class="flex items-center gap-2 w-full">
+                    <button onclick="openQuickView('Silver Chrome', '85.00', './assets/images/products/silver-chrome.jpg?v=1.0', '37,38,39', 'prod-110')" class="flex-[1] bg-white text-black border border-black hover:bg-black hover:text-white uppercase text-xs font-bold tracking-widest px-1 py-3 transition-colors flex items-center justify-center gap-1 group/btn">
                         <i class="ph ph-bag text-lg group-hover/btn:scale-110 transition-transform"></i>
                     </button>
-                    <button onclick="checkoutSingleItem('Silver Chrome', 'prod-110')" class="flex-[2] bg-black text-white hover:bg-[#25D366] border border-black uppercase text-xs font-bold tracking-widest px-2 py-3 transition-colors flex items-center justify-center gap-2 group/wp">
-                        <span>Pedir</span>
-                        <i class="ph-fill ph-whatsapp-logo text-lg group-hover/wp:scale-110 transition-transform"></i>
+                    <button onclick="openQuickView('Silver Chrome', '85.00', './assets/images/products/silver-chrome.jpg?v=1.0', '37,38,39', 'prod-110')" class="flex-[2] bg-black text-white hover:bg-gray-800 border border-black uppercase text-xs font-bold tracking-widest px-2 py-3 transition-colors flex items-center justify-center gap-2 group/qv">
+                        <span>Ver Detalles</span>
+                        <i class="ph-bold ph-arrow-right text-lg group-hover/qv:translate-x-1 transition-transform"></i>
                     </button>
+                </div>
+                <!-- Payment Badges -->
+                <div class="flex items-center justify-center gap-3 mt-3 text-[10px] text-gray-400 font-medium uppercase tracking-wider">
+                    <span class="flex items-center gap-1"><i class="ph ph-wallet"></i> Zelle</span>
+                    <span class="flex items-center gap-1"><i class="ph ph-currency-btc"></i> USDT</span>
+                    <span class="flex items-center gap-1"><i class="ph ph-credit-card"></i> Cuotas</span>
                 </div>
             </div>
         </div>
     </div>
     
 </div>
-            </div>
-        </section>
+<div class="w-full flex justify-center mt-12 items-center" id="btn-more-sneakers">
+    <button onclick="document.querySelectorAll('.extra-sneaker').forEach(el => el.classList.remove('hidden')); this.parentElement.style.display='none';" class="bg-black text-white hover:bg-gray-800 border-2 border-black uppercase text-sm font-black tracking-widest px-10 py-4 transition-colors">
+        Ver Más Modelos
+    </button>
+</div>
+<!-- Closing div that original regex expects -->
+<div>
+</div>
+</section>
 
+        
+        
         <!-- SEPARATOR BANNER -->
         <div class="w-full bg-black py-20 px-4 text-center">
-            <h2 class="font-display font-black text-4xl sm:text-5xl text-white uppercase tracking-tighter mb-4">La
-                Exclusividad no
-                Espera</h2>
-            <p class="text-gray-300 max-w-xl mx-auto mb-8 font-medium">Diseños agotados no son reabastecidos. Si es
-                tuyo,
-                tómalo ahora. Inventario actualizado en tiempo real.</p>
+            <h2 class="font-display font-black text-4xl sm:text-5xl text-white uppercase tracking-tighter mb-4">EXCLUSIVIDAD CON CRITERIO</h2>
+            <p class="text-gray-300 max-w-xl mx-auto mb-8 font-medium">Cuidamos cada detalle de nuestro catálogo. Te ofrecemos modelos nuevos, exclusivos y meticulosamente detallados constantemente. Marca la diferencia con piezas únicas que elevan tu presencia.</p>
             <a href="https://wa.me/message/TU_LINK_API" target="_blank"
                 class="inline-block bg-white text-black font-bold uppercase tracking-widest text-sm py-4 px-10 hover:scale-105 transition-transform">
                 Consultar Disponibilidad VIP
@@ -776,10 +878,18 @@
                     </p>
                 </div>
 
+                <!-- CATEGORY FILTERS HEELS (UI) -->
+                <div class="flex flex-wrap justify-center gap-2 sm:gap-4 mb-12" id="heels-filters">
+                    <button onclick="filterCategory(this, 'todos', 'heels')" class="px-6 py-2.5 bg-black text-white text-xs font-bold uppercase tracking-widest border border-black hover:bg-gray-800 transition-colors shadow-sm">Todos</button>
+                    <button onclick="filterCategory(this, 'classic', 'heels')" class="px-6 py-2.5 bg-white text-black text-xs font-bold uppercase tracking-widest border border-gray-200 hover:border-black transition-colors shadow-sm">Clásicos</button>
+                    <button onclick="filterCategory(this, 'noche', 'heels')" class="px-6 py-2.5 bg-white text-black text-xs font-bold uppercase tracking-widest border border-gray-200 hover:border-black transition-colors shadow-sm">Noche</button>
+                    <button onclick="filterCategory(this, 'block', 'heels')" class="px-6 py-2.5 bg-white text-black text-xs font-bold uppercase tracking-widest border border-gray-200 hover:border-black transition-colors shadow-sm">Plataformas</button>
+                </div>
+
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10">
 
     <!-- Product Card 111 -->
-    <div class="group flex flex-col bg-white border border-transparent hover:border-gray-200 transition-colors">
+    <div class="group flex flex-col bg-white border border-transparent hover:border-gray-200 transition-colors " data-category="classic">
         <div class="relative aspect-square overflow-hidden mb-4 premium-hover flex items-center justify-center p-4">
             <img src="./assets/images/products/crimson-pump.jpg?v=1.0" alt="Crimson Pump" class="object-cover w-full h-full mix-blend-darken hover:mix-blend-normal scale-110 object-center">
             <div class="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-300 pointer-events-none"></div>
@@ -788,43 +898,33 @@
             <h3 class="font-display text-xl font-bold uppercase tracking-tight mb-1 text-black">Crimson Pump</h3>
             <p class="text-gray-500 text-sm mb-4 line-clamp-2">Stiletto rojo clásico. Altura y elegancia innegociable.</p>
 
-            <div class="w-full mb-4 mt-auto">
-                <div class="w-full" id="sizes-prod-111">
-                    
-        <div class="relative w-full">
-            <select id="size-input-prod-111" class="appearance-none w-full bg-gray-50 border border-gray-200 text-center text-sm font-bold focus:outline-none focus:border-black transition-colors py-2 px-9 cursor-pointer">
-                <option value="" disabled selected>SELECCIONAR TALLA</option>
-                <option value="35">35</option><option value="36">36</option><option value="37">37</option><option value="38">38</option><option value="39">39</option><option value="40">40</option><option value="41">41</option><option value="42">42</option><option value="43">43</option><option value="44">44</option><option value="45">45</option>
-            </select>
-            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-black">
-                <i class="ph ph-caret-down text-lg"></i>
-            </div>
-        </div>
-    
-                </div>
-            </div>
-
             <div class="mt-auto flex flex-col pt-4 gap-2 border-t border-gray-100">
                 <span class="text-xs text-gray-500 uppercase tracking-widest font-semibold mb-[-8px]">Lujo de Élite, Precio Real</span>
                 <div class="flex items-center gap-3 w-full mb-1 mt-1">
                     <span class="font-display font-black text-2xl tracking-tight text-black">$85.00</span>
                     <del class="text-sm text-gray-400 font-medium">$120.00</del>
                 </div>
-                <div class="flex gap-2 w-full">
-                    <button onclick="addToCart('Crimson Pump', 85.00, 'prod-111', './assets/images/products/crimson-pump.jpg?v=1.0')" class="flex-[1] bg-white text-black border border-black hover:bg-black hover:text-white uppercase text-xs font-bold tracking-widest px-1 py-3 transition-colors flex items-center justify-center gap-1 group/btn">
+                <div class="flex items-center gap-2 w-full">
+                    <button onclick="openQuickView('Crimson Pump', '85.00', './assets/images/products/crimson-pump.jpg?v=1.0', '36,37,38', 'prod-111')" class="flex-[1] bg-white text-black border border-black hover:bg-black hover:text-white uppercase text-xs font-bold tracking-widest px-1 py-3 transition-colors flex items-center justify-center gap-1 group/btn">
                         <i class="ph ph-bag text-lg group-hover/btn:scale-110 transition-transform"></i>
                     </button>
-                    <button onclick="checkoutSingleItem('Crimson Pump', 'prod-111')" class="flex-[2] bg-black text-white hover:bg-[#25D366] border border-black uppercase text-xs font-bold tracking-widest px-2 py-3 transition-colors flex items-center justify-center gap-2 group/wp">
-                        <span>Pedir</span>
-                        <i class="ph-fill ph-whatsapp-logo text-lg group-hover/wp:scale-110 transition-transform"></i>
+                    <button onclick="openQuickView('Crimson Pump', '85.00', './assets/images/products/crimson-pump.jpg?v=1.0', '36,37,38', 'prod-111')" class="flex-[2] bg-black text-white hover:bg-gray-800 border border-black uppercase text-xs font-bold tracking-widest px-2 py-3 transition-colors flex items-center justify-center gap-2 group/qv">
+                        <span>Ver Detalles</span>
+                        <i class="ph-bold ph-arrow-right text-lg group-hover/qv:translate-x-1 transition-transform"></i>
                     </button>
+                </div>
+                <!-- Payment Badges -->
+                <div class="flex items-center justify-center gap-3 mt-3 text-[10px] text-gray-400 font-medium uppercase tracking-wider">
+                    <span class="flex items-center gap-1"><i class="ph ph-wallet"></i> Zelle</span>
+                    <span class="flex items-center gap-1"><i class="ph ph-currency-btc"></i> USDT</span>
+                    <span class="flex items-center gap-1"><i class="ph ph-credit-card"></i> Cuotas</span>
                 </div>
             </div>
         </div>
     </div>
     
     <!-- Product Card 112 -->
-    <div class="group flex flex-col bg-white border border-transparent hover:border-gray-200 transition-colors">
+    <div class="group flex flex-col bg-white border border-transparent hover:border-gray-200 transition-colors " data-category="classic">
         <div class="relative aspect-square overflow-hidden mb-4 premium-hover flex items-center justify-center p-4">
             <img src="./assets/images/products/noir-pump.jpg?v=1.0" alt="Noir Pump" class="object-cover w-full h-full mix-blend-darken hover:mix-blend-normal scale-110 object-center">
             <div class="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-300 pointer-events-none"></div>
@@ -833,43 +933,33 @@
             <h3 class="font-display text-xl font-bold uppercase tracking-tight mb-1 text-black">Noir Pump</h3>
             <p class="text-gray-500 text-sm mb-4 line-clamp-2">Básico indispensable. Corte fino color negro.</p>
 
-            <div class="w-full mb-4 mt-auto">
-                <div class="w-full" id="sizes-prod-112">
-                    
-        <div class="relative w-full">
-            <select id="size-input-prod-112" class="appearance-none w-full bg-gray-50 border border-gray-200 text-center text-sm font-bold focus:outline-none focus:border-black transition-colors py-2 px-9 cursor-pointer">
-                <option value="" disabled selected>SELECCIONAR TALLA</option>
-                <option value="35">35</option><option value="36">36</option><option value="37">37</option><option value="38">38</option><option value="39">39</option><option value="40">40</option><option value="41">41</option><option value="42">42</option><option value="43">43</option><option value="44">44</option><option value="45">45</option>
-            </select>
-            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-black">
-                <i class="ph ph-caret-down text-lg"></i>
-            </div>
-        </div>
-    
-                </div>
-            </div>
-
             <div class="mt-auto flex flex-col pt-4 gap-2 border-t border-gray-100">
                 <span class="text-xs text-gray-500 uppercase tracking-widest font-semibold mb-[-8px]">Lujo de Élite, Precio Real</span>
                 <div class="flex items-center gap-3 w-full mb-1 mt-1">
                     <span class="font-display font-black text-2xl tracking-tight text-black">$85.00</span>
                     <del class="text-sm text-gray-400 font-medium">$120.00</del>
                 </div>
-                <div class="flex gap-2 w-full">
-                    <button onclick="addToCart('Noir Pump', 85.00, 'prod-112', './assets/images/products/noir-pump.jpg?v=1.0')" class="flex-[1] bg-white text-black border border-black hover:bg-black hover:text-white uppercase text-xs font-bold tracking-widest px-1 py-3 transition-colors flex items-center justify-center gap-1 group/btn">
+                <div class="flex items-center gap-2 w-full">
+                    <button onclick="openQuickView('Noir Pump', '85.00', './assets/images/products/noir-pump.jpg?v=1.0', '37,38,39', 'prod-112')" class="flex-[1] bg-white text-black border border-black hover:bg-black hover:text-white uppercase text-xs font-bold tracking-widest px-1 py-3 transition-colors flex items-center justify-center gap-1 group/btn">
                         <i class="ph ph-bag text-lg group-hover/btn:scale-110 transition-transform"></i>
                     </button>
-                    <button onclick="checkoutSingleItem('Noir Pump', 'prod-112')" class="flex-[2] bg-black text-white hover:bg-[#25D366] border border-black uppercase text-xs font-bold tracking-widest px-2 py-3 transition-colors flex items-center justify-center gap-2 group/wp">
-                        <span>Pedir</span>
-                        <i class="ph-fill ph-whatsapp-logo text-lg group-hover/wp:scale-110 transition-transform"></i>
+                    <button onclick="openQuickView('Noir Pump', '85.00', './assets/images/products/noir-pump.jpg?v=1.0', '37,38,39', 'prod-112')" class="flex-[2] bg-black text-white hover:bg-gray-800 border border-black uppercase text-xs font-bold tracking-widest px-2 py-3 transition-colors flex items-center justify-center gap-2 group/qv">
+                        <span>Ver Detalles</span>
+                        <i class="ph-bold ph-arrow-right text-lg group-hover/qv:translate-x-1 transition-transform"></i>
                     </button>
+                </div>
+                <!-- Payment Badges -->
+                <div class="flex items-center justify-center gap-3 mt-3 text-[10px] text-gray-400 font-medium uppercase tracking-wider">
+                    <span class="flex items-center gap-1"><i class="ph ph-wallet"></i> Zelle</span>
+                    <span class="flex items-center gap-1"><i class="ph ph-currency-btc"></i> USDT</span>
+                    <span class="flex items-center gap-1"><i class="ph ph-credit-card"></i> Cuotas</span>
                 </div>
             </div>
         </div>
     </div>
     
     <!-- Product Card 113 -->
-    <div class="group flex flex-col bg-white border border-transparent hover:border-gray-200 transition-colors">
+    <div class="group flex flex-col bg-white border border-transparent hover:border-gray-200 transition-colors " data-category="noche">
         <div class="relative aspect-square overflow-hidden mb-4 premium-hover flex items-center justify-center p-4">
             <img src="./assets/images/products/noir-sandal.jpg?v=1.0" alt="Noir Sandal" class="object-cover w-full h-full mix-blend-darken hover:mix-blend-normal scale-110 object-center">
             <div class="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-300 pointer-events-none"></div>
@@ -878,43 +968,33 @@
             <h3 class="font-display text-xl font-bold uppercase tracking-tight mb-1 text-black">Noir Sandal</h3>
             <p class="text-gray-500 text-sm mb-4 line-clamp-2">Tiras de noche oscuras. Diseño fino y delicado.</p>
 
-            <div class="w-full mb-4 mt-auto">
-                <div class="w-full" id="sizes-prod-113">
-                    
-        <div class="relative w-full">
-            <select id="size-input-prod-113" class="appearance-none w-full bg-gray-50 border border-gray-200 text-center text-sm font-bold focus:outline-none focus:border-black transition-colors py-2 px-9 cursor-pointer">
-                <option value="" disabled selected>SELECCIONAR TALLA</option>
-                <option value="35">35</option><option value="36">36</option><option value="37">37</option><option value="38">38</option><option value="39">39</option><option value="40">40</option><option value="41">41</option><option value="42">42</option><option value="43">43</option><option value="44">44</option><option value="45">45</option>
-            </select>
-            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-black">
-                <i class="ph ph-caret-down text-lg"></i>
-            </div>
-        </div>
-    
-                </div>
-            </div>
-
             <div class="mt-auto flex flex-col pt-4 gap-2 border-t border-gray-100">
                 <span class="text-xs text-gray-500 uppercase tracking-widest font-semibold mb-[-8px]">Lujo de Élite, Precio Real</span>
                 <div class="flex items-center gap-3 w-full mb-1 mt-1">
                     <span class="font-display font-black text-2xl tracking-tight text-black">$85.00</span>
                     <del class="text-sm text-gray-400 font-medium">$120.00</del>
                 </div>
-                <div class="flex gap-2 w-full">
-                    <button onclick="addToCart('Noir Sandal', 85.00, 'prod-113', './assets/images/products/noir-sandal.jpg?v=1.0')" class="flex-[1] bg-white text-black border border-black hover:bg-black hover:text-white uppercase text-xs font-bold tracking-widest px-1 py-3 transition-colors flex items-center justify-center gap-1 group/btn">
+                <div class="flex items-center gap-2 w-full">
+                    <button onclick="openQuickView('Noir Sandal', '85.00', './assets/images/products/noir-sandal.jpg?v=1.0', '36,37,38', 'prod-113')" class="flex-[1] bg-white text-black border border-black hover:bg-black hover:text-white uppercase text-xs font-bold tracking-widest px-1 py-3 transition-colors flex items-center justify-center gap-1 group/btn">
                         <i class="ph ph-bag text-lg group-hover/btn:scale-110 transition-transform"></i>
                     </button>
-                    <button onclick="checkoutSingleItem('Noir Sandal', 'prod-113')" class="flex-[2] bg-black text-white hover:bg-[#25D366] border border-black uppercase text-xs font-bold tracking-widest px-2 py-3 transition-colors flex items-center justify-center gap-2 group/wp">
-                        <span>Pedir</span>
-                        <i class="ph-fill ph-whatsapp-logo text-lg group-hover/wp:scale-110 transition-transform"></i>
+                    <button onclick="openQuickView('Noir Sandal', '85.00', './assets/images/products/noir-sandal.jpg?v=1.0', '36,37,38', 'prod-113')" class="flex-[2] bg-black text-white hover:bg-gray-800 border border-black uppercase text-xs font-bold tracking-widest px-2 py-3 transition-colors flex items-center justify-center gap-2 group/qv">
+                        <span>Ver Detalles</span>
+                        <i class="ph-bold ph-arrow-right text-lg group-hover/qv:translate-x-1 transition-transform"></i>
                     </button>
+                </div>
+                <!-- Payment Badges -->
+                <div class="flex items-center justify-center gap-3 mt-3 text-[10px] text-gray-400 font-medium uppercase tracking-wider">
+                    <span class="flex items-center gap-1"><i class="ph ph-wallet"></i> Zelle</span>
+                    <span class="flex items-center gap-1"><i class="ph ph-currency-btc"></i> USDT</span>
+                    <span class="flex items-center gap-1"><i class="ph ph-credit-card"></i> Cuotas</span>
                 </div>
             </div>
         </div>
     </div>
     
     <!-- Product Card 114 -->
-    <div class="group flex flex-col bg-white border border-transparent hover:border-gray-200 transition-colors">
+    <div class="group flex flex-col bg-white border border-transparent hover:border-gray-200 transition-colors " data-category="noche">
         <div class="relative aspect-square overflow-hidden mb-4 premium-hover flex items-center justify-center p-4">
             <img src="./assets/images/products/ruby-sandal.jpg?v=1.0" alt="Ruby Sandal" class="object-cover w-full h-full mix-blend-darken hover:mix-blend-normal scale-110 object-center">
             <div class="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-300 pointer-events-none"></div>
@@ -923,43 +1003,33 @@
             <h3 class="font-display text-xl font-bold uppercase tracking-tight mb-1 text-black">Ruby Sandal</h3>
             <p class="text-gray-500 text-sm mb-4 line-clamp-2">Sandalia roja de tacón alto. Estructura de poder visual.</p>
 
-            <div class="w-full mb-4 mt-auto">
-                <div class="w-full" id="sizes-prod-114">
-                    
-        <div class="relative w-full">
-            <select id="size-input-prod-114" class="appearance-none w-full bg-gray-50 border border-gray-200 text-center text-sm font-bold focus:outline-none focus:border-black transition-colors py-2 px-9 cursor-pointer">
-                <option value="" disabled selected>SELECCIONAR TALLA</option>
-                <option value="35">35</option><option value="36">36</option><option value="37">37</option><option value="38">38</option><option value="39">39</option><option value="40">40</option><option value="41">41</option><option value="42">42</option><option value="43">43</option><option value="44">44</option><option value="45">45</option>
-            </select>
-            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-black">
-                <i class="ph ph-caret-down text-lg"></i>
-            </div>
-        </div>
-    
-                </div>
-            </div>
-
             <div class="mt-auto flex flex-col pt-4 gap-2 border-t border-gray-100">
                 <span class="text-xs text-gray-500 uppercase tracking-widest font-semibold mb-[-8px]">Lujo de Élite, Precio Real</span>
                 <div class="flex items-center gap-3 w-full mb-1 mt-1">
                     <span class="font-display font-black text-2xl tracking-tight text-black">$85.00</span>
                     <del class="text-sm text-gray-400 font-medium">$120.00</del>
                 </div>
-                <div class="flex gap-2 w-full">
-                    <button onclick="addToCart('Ruby Sandal', 85.00, 'prod-114', './assets/images/products/ruby-sandal.jpg?v=1.0')" class="flex-[1] bg-white text-black border border-black hover:bg-black hover:text-white uppercase text-xs font-bold tracking-widest px-1 py-3 transition-colors flex items-center justify-center gap-1 group/btn">
+                <div class="flex items-center gap-2 w-full">
+                    <button onclick="openQuickView('Ruby Sandal', '85.00', './assets/images/products/ruby-sandal.jpg?v=1.0', '37,38,39', 'prod-114')" class="flex-[1] bg-white text-black border border-black hover:bg-black hover:text-white uppercase text-xs font-bold tracking-widest px-1 py-3 transition-colors flex items-center justify-center gap-1 group/btn">
                         <i class="ph ph-bag text-lg group-hover/btn:scale-110 transition-transform"></i>
                     </button>
-                    <button onclick="checkoutSingleItem('Ruby Sandal', 'prod-114')" class="flex-[2] bg-black text-white hover:bg-[#25D366] border border-black uppercase text-xs font-bold tracking-widest px-2 py-3 transition-colors flex items-center justify-center gap-2 group/wp">
-                        <span>Pedir</span>
-                        <i class="ph-fill ph-whatsapp-logo text-lg group-hover/wp:scale-110 transition-transform"></i>
+                    <button onclick="openQuickView('Ruby Sandal', '85.00', './assets/images/products/ruby-sandal.jpg?v=1.0', '37,38,39', 'prod-114')" class="flex-[2] bg-black text-white hover:bg-gray-800 border border-black uppercase text-xs font-bold tracking-widest px-2 py-3 transition-colors flex items-center justify-center gap-2 group/qv">
+                        <span>Ver Detalles</span>
+                        <i class="ph-bold ph-arrow-right text-lg group-hover/qv:translate-x-1 transition-transform"></i>
                     </button>
+                </div>
+                <!-- Payment Badges -->
+                <div class="flex items-center justify-center gap-3 mt-3 text-[10px] text-gray-400 font-medium uppercase tracking-wider">
+                    <span class="flex items-center gap-1"><i class="ph ph-wallet"></i> Zelle</span>
+                    <span class="flex items-center gap-1"><i class="ph ph-currency-btc"></i> USDT</span>
+                    <span class="flex items-center gap-1"><i class="ph ph-credit-card"></i> Cuotas</span>
                 </div>
             </div>
         </div>
     </div>
     
     <!-- Product Card 115 -->
-    <div class="group flex flex-col bg-white border border-transparent hover:border-gray-200 transition-colors">
+    <div class="group flex flex-col bg-white border border-transparent hover:border-gray-200 transition-colors " data-category="block">
         <div class="relative aspect-square overflow-hidden mb-4 premium-hover flex items-center justify-center p-4">
             <img src="./assets/images/products/noir-block.jpg?v=1.0" alt="Noir Block" class="object-cover w-full h-full mix-blend-darken hover:mix-blend-normal scale-110 object-center">
             <div class="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-300 pointer-events-none"></div>
@@ -968,43 +1038,33 @@
             <h3 class="font-display text-xl font-bold uppercase tracking-tight mb-1 text-black">Noir Block</h3>
             <p class="text-gray-500 text-sm mb-4 line-clamp-2">Tacón cuadrado negro cerrado. Comodidad simétrica.</p>
 
-            <div class="w-full mb-4 mt-auto">
-                <div class="w-full" id="sizes-prod-115">
-                    
-        <div class="relative w-full">
-            <select id="size-input-prod-115" class="appearance-none w-full bg-gray-50 border border-gray-200 text-center text-sm font-bold focus:outline-none focus:border-black transition-colors py-2 px-9 cursor-pointer">
-                <option value="" disabled selected>SELECCIONAR TALLA</option>
-                <option value="35">35</option><option value="36">36</option><option value="37">37</option><option value="38">38</option><option value="39">39</option><option value="40">40</option><option value="41">41</option><option value="42">42</option><option value="43">43</option><option value="44">44</option><option value="45">45</option>
-            </select>
-            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-black">
-                <i class="ph ph-caret-down text-lg"></i>
-            </div>
-        </div>
-    
-                </div>
-            </div>
-
             <div class="mt-auto flex flex-col pt-4 gap-2 border-t border-gray-100">
                 <span class="text-xs text-gray-500 uppercase tracking-widest font-semibold mb-[-8px]">Lujo de Élite, Precio Real</span>
                 <div class="flex items-center gap-3 w-full mb-1 mt-1">
                     <span class="font-display font-black text-2xl tracking-tight text-black">$85.00</span>
                     <del class="text-sm text-gray-400 font-medium">$120.00</del>
                 </div>
-                <div class="flex gap-2 w-full">
-                    <button onclick="addToCart('Noir Block', 85.00, 'prod-115', './assets/images/products/noir-block.jpg?v=1.0')" class="flex-[1] bg-white text-black border border-black hover:bg-black hover:text-white uppercase text-xs font-bold tracking-widest px-1 py-3 transition-colors flex items-center justify-center gap-1 group/btn">
+                <div class="flex items-center gap-2 w-full">
+                    <button onclick="openQuickView('Noir Block', '85.00', './assets/images/products/noir-block.jpg?v=1.0', '36,37,38', 'prod-115')" class="flex-[1] bg-white text-black border border-black hover:bg-black hover:text-white uppercase text-xs font-bold tracking-widest px-1 py-3 transition-colors flex items-center justify-center gap-1 group/btn">
                         <i class="ph ph-bag text-lg group-hover/btn:scale-110 transition-transform"></i>
                     </button>
-                    <button onclick="checkoutSingleItem('Noir Block', 'prod-115')" class="flex-[2] bg-black text-white hover:bg-[#25D366] border border-black uppercase text-xs font-bold tracking-widest px-2 py-3 transition-colors flex items-center justify-center gap-2 group/wp">
-                        <span>Pedir</span>
-                        <i class="ph-fill ph-whatsapp-logo text-lg group-hover/wp:scale-110 transition-transform"></i>
+                    <button onclick="openQuickView('Noir Block', '85.00', './assets/images/products/noir-block.jpg?v=1.0', '36,37,38', 'prod-115')" class="flex-[2] bg-black text-white hover:bg-gray-800 border border-black uppercase text-xs font-bold tracking-widest px-2 py-3 transition-colors flex items-center justify-center gap-2 group/qv">
+                        <span>Ver Detalles</span>
+                        <i class="ph-bold ph-arrow-right text-lg group-hover/qv:translate-x-1 transition-transform"></i>
                     </button>
+                </div>
+                <!-- Payment Badges -->
+                <div class="flex items-center justify-center gap-3 mt-3 text-[10px] text-gray-400 font-medium uppercase tracking-wider">
+                    <span class="flex items-center gap-1"><i class="ph ph-wallet"></i> Zelle</span>
+                    <span class="flex items-center gap-1"><i class="ph ph-currency-btc"></i> USDT</span>
+                    <span class="flex items-center gap-1"><i class="ph ph-credit-card"></i> Cuotas</span>
                 </div>
             </div>
         </div>
     </div>
     
     <!-- Product Card 116 -->
-    <div class="group flex flex-col bg-white border border-transparent hover:border-gray-200 transition-colors">
+    <div class="group flex flex-col bg-white border border-transparent hover:border-gray-200 transition-colors " data-category="classic">
         <div class="relative aspect-square overflow-hidden mb-4 premium-hover flex items-center justify-center p-4">
             <img src="./assets/images/products/nude-classic.jpg?v=1.0" alt="Nude Classic" class="object-cover w-full h-full mix-blend-darken hover:mix-blend-normal scale-110 object-center">
             <div class="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-300 pointer-events-none"></div>
@@ -1013,43 +1073,33 @@
             <h3 class="font-display text-xl font-bold uppercase tracking-tight mb-1 text-black">Nude Classic</h3>
             <p class="text-gray-500 text-sm mb-4 line-clamp-2">Zapatilla plana tono beige. Suavidad y confort premium.</p>
 
-            <div class="w-full mb-4 mt-auto">
-                <div class="w-full" id="sizes-prod-116">
-                    
-        <div class="relative w-full">
-            <select id="size-input-prod-116" class="appearance-none w-full bg-gray-50 border border-gray-200 text-center text-sm font-bold focus:outline-none focus:border-black transition-colors py-2 px-9 cursor-pointer">
-                <option value="" disabled selected>SELECCIONAR TALLA</option>
-                <option value="35">35</option><option value="36">36</option><option value="37">37</option><option value="38">38</option><option value="39">39</option><option value="40">40</option><option value="41">41</option><option value="42">42</option><option value="43">43</option><option value="44">44</option><option value="45">45</option>
-            </select>
-            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-black">
-                <i class="ph ph-caret-down text-lg"></i>
-            </div>
-        </div>
-    
-                </div>
-            </div>
-
             <div class="mt-auto flex flex-col pt-4 gap-2 border-t border-gray-100">
                 <span class="text-xs text-gray-500 uppercase tracking-widest font-semibold mb-[-8px]">Lujo de Élite, Precio Real</span>
                 <div class="flex items-center gap-3 w-full mb-1 mt-1">
                     <span class="font-display font-black text-2xl tracking-tight text-black">$85.00</span>
                     <del class="text-sm text-gray-400 font-medium">$120.00</del>
                 </div>
-                <div class="flex gap-2 w-full">
-                    <button onclick="addToCart('Nude Classic', 85.00, 'prod-116', './assets/images/products/nude-classic.jpg?v=1.0')" class="flex-[1] bg-white text-black border border-black hover:bg-black hover:text-white uppercase text-xs font-bold tracking-widest px-1 py-3 transition-colors flex items-center justify-center gap-1 group/btn">
+                <div class="flex items-center gap-2 w-full">
+                    <button onclick="openQuickView('Nude Classic', '85.00', './assets/images/products/nude-classic.jpg?v=1.0', '36,37,38', 'prod-116')" class="flex-[1] bg-white text-black border border-black hover:bg-black hover:text-white uppercase text-xs font-bold tracking-widest px-1 py-3 transition-colors flex items-center justify-center gap-1 group/btn">
                         <i class="ph ph-bag text-lg group-hover/btn:scale-110 transition-transform"></i>
                     </button>
-                    <button onclick="checkoutSingleItem('Nude Classic', 'prod-116')" class="flex-[2] bg-black text-white hover:bg-[#25D366] border border-black uppercase text-xs font-bold tracking-widest px-2 py-3 transition-colors flex items-center justify-center gap-2 group/wp">
-                        <span>Pedir</span>
-                        <i class="ph-fill ph-whatsapp-logo text-lg group-hover/wp:scale-110 transition-transform"></i>
+                    <button onclick="openQuickView('Nude Classic', '85.00', './assets/images/products/nude-classic.jpg?v=1.0', '36,37,38', 'prod-116')" class="flex-[2] bg-black text-white hover:bg-gray-800 border border-black uppercase text-xs font-bold tracking-widest px-2 py-3 transition-colors flex items-center justify-center gap-2 group/qv">
+                        <span>Ver Detalles</span>
+                        <i class="ph-bold ph-arrow-right text-lg group-hover/qv:translate-x-1 transition-transform"></i>
                     </button>
+                </div>
+                <!-- Payment Badges -->
+                <div class="flex items-center justify-center gap-3 mt-3 text-[10px] text-gray-400 font-medium uppercase tracking-wider">
+                    <span class="flex items-center gap-1"><i class="ph ph-wallet"></i> Zelle</span>
+                    <span class="flex items-center gap-1"><i class="ph ph-currency-btc"></i> USDT</span>
+                    <span class="flex items-center gap-1"><i class="ph ph-credit-card"></i> Cuotas</span>
                 </div>
             </div>
         </div>
     </div>
     
     <!-- Product Card 117 -->
-    <div class="group flex flex-col bg-white border border-transparent hover:border-gray-200 transition-colors">
+    <div class="group flex flex-col bg-white border border-transparent hover:border-gray-200 transition-colors hidden extra-heel" data-category="classic">
         <div class="relative aspect-square overflow-hidden mb-4 premium-hover flex items-center justify-center p-4">
             <img src="./assets/images/products/noir-slingback.jpg?v=1.0" alt="Noir Slingback" class="object-cover w-full h-full mix-blend-darken hover:mix-blend-normal scale-110 object-center">
             <div class="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-300 pointer-events-none"></div>
@@ -1058,43 +1108,33 @@
             <h3 class="font-display text-xl font-bold uppercase tracking-tight mb-1 text-black">Noir Slingback</h3>
             <p class="text-gray-500 text-sm mb-4 line-clamp-2">Zapato punta fina con talón descubierto. Silueta afilada.</p>
 
-            <div class="w-full mb-4 mt-auto">
-                <div class="w-full" id="sizes-prod-117">
-                    
-        <div class="relative w-full">
-            <select id="size-input-prod-117" class="appearance-none w-full bg-gray-50 border border-gray-200 text-center text-sm font-bold focus:outline-none focus:border-black transition-colors py-2 px-9 cursor-pointer">
-                <option value="" disabled selected>SELECCIONAR TALLA</option>
-                <option value="35">35</option><option value="36">36</option><option value="37">37</option><option value="38">38</option><option value="39">39</option><option value="40">40</option><option value="41">41</option><option value="42">42</option><option value="43">43</option><option value="44">44</option><option value="45">45</option>
-            </select>
-            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-black">
-                <i class="ph ph-caret-down text-lg"></i>
-            </div>
-        </div>
-    
-                </div>
-            </div>
-
             <div class="mt-auto flex flex-col pt-4 gap-2 border-t border-gray-100">
                 <span class="text-xs text-gray-500 uppercase tracking-widest font-semibold mb-[-8px]">Lujo de Élite, Precio Real</span>
                 <div class="flex items-center gap-3 w-full mb-1 mt-1">
                     <span class="font-display font-black text-2xl tracking-tight text-black">$85.00</span>
                     <del class="text-sm text-gray-400 font-medium">$120.00</del>
                 </div>
-                <div class="flex gap-2 w-full">
-                    <button onclick="addToCart('Noir Slingback', 85.00, 'prod-117', './assets/images/products/noir-slingback.jpg?v=1.0')" class="flex-[1] bg-white text-black border border-black hover:bg-black hover:text-white uppercase text-xs font-bold tracking-widest px-1 py-3 transition-colors flex items-center justify-center gap-1 group/btn">
+                <div class="flex items-center gap-2 w-full">
+                    <button onclick="openQuickView('Noir Slingback', '85.00', './assets/images/products/noir-slingback.jpg?v=1.0', '37,38,39', 'prod-117')" class="flex-[1] bg-white text-black border border-black hover:bg-black hover:text-white uppercase text-xs font-bold tracking-widest px-1 py-3 transition-colors flex items-center justify-center gap-1 group/btn">
                         <i class="ph ph-bag text-lg group-hover/btn:scale-110 transition-transform"></i>
                     </button>
-                    <button onclick="checkoutSingleItem('Noir Slingback', 'prod-117')" class="flex-[2] bg-black text-white hover:bg-[#25D366] border border-black uppercase text-xs font-bold tracking-widest px-2 py-3 transition-colors flex items-center justify-center gap-2 group/wp">
-                        <span>Pedir</span>
-                        <i class="ph-fill ph-whatsapp-logo text-lg group-hover/wp:scale-110 transition-transform"></i>
+                    <button onclick="openQuickView('Noir Slingback', '85.00', './assets/images/products/noir-slingback.jpg?v=1.0', '37,38,39', 'prod-117')" class="flex-[2] bg-black text-white hover:bg-gray-800 border border-black uppercase text-xs font-bold tracking-widest px-2 py-3 transition-colors flex items-center justify-center gap-2 group/qv">
+                        <span>Ver Detalles</span>
+                        <i class="ph-bold ph-arrow-right text-lg group-hover/qv:translate-x-1 transition-transform"></i>
                     </button>
+                </div>
+                <!-- Payment Badges -->
+                <div class="flex items-center justify-center gap-3 mt-3 text-[10px] text-gray-400 font-medium uppercase tracking-wider">
+                    <span class="flex items-center gap-1"><i class="ph ph-wallet"></i> Zelle</span>
+                    <span class="flex items-center gap-1"><i class="ph ph-currency-btc"></i> USDT</span>
+                    <span class="flex items-center gap-1"><i class="ph ph-credit-card"></i> Cuotas</span>
                 </div>
             </div>
         </div>
     </div>
     
     <!-- Product Card 118 -->
-    <div class="group flex flex-col bg-white border border-transparent hover:border-gray-200 transition-colors">
+    <div class="group flex flex-col bg-white border border-transparent hover:border-gray-200 transition-colors hidden extra-heel" data-category="noche">
         <div class="relative aspect-square overflow-hidden mb-4 premium-hover flex items-center justify-center p-4">
             <img src="./assets/images/products/ruby-pattern.jpg?v=1.0" alt="Ruby Pattern" class="object-cover w-full h-full mix-blend-darken hover:mix-blend-normal scale-110 object-center">
             <div class="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-300 pointer-events-none"></div>
@@ -1103,43 +1143,33 @@
             <h3 class="font-display text-xl font-bold uppercase tracking-tight mb-1 text-black">Ruby Pattern</h3>
             <p class="text-gray-500 text-sm mb-4 line-clamp-2">Diseño híbrido plano con patrón rojo destalonado.</p>
 
-            <div class="w-full mb-4 mt-auto">
-                <div class="w-full" id="sizes-prod-118">
-                    
-        <div class="relative w-full">
-            <select id="size-input-prod-118" class="appearance-none w-full bg-gray-50 border border-gray-200 text-center text-sm font-bold focus:outline-none focus:border-black transition-colors py-2 px-9 cursor-pointer">
-                <option value="" disabled selected>SELECCIONAR TALLA</option>
-                <option value="35">35</option><option value="36">36</option><option value="37">37</option><option value="38">38</option><option value="39">39</option><option value="40">40</option><option value="41">41</option><option value="42">42</option><option value="43">43</option><option value="44">44</option><option value="45">45</option>
-            </select>
-            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-black">
-                <i class="ph ph-caret-down text-lg"></i>
-            </div>
-        </div>
-    
-                </div>
-            </div>
-
             <div class="mt-auto flex flex-col pt-4 gap-2 border-t border-gray-100">
                 <span class="text-xs text-gray-500 uppercase tracking-widest font-semibold mb-[-8px]">Lujo de Élite, Precio Real</span>
                 <div class="flex items-center gap-3 w-full mb-1 mt-1">
                     <span class="font-display font-black text-2xl tracking-tight text-black">$85.00</span>
                     <del class="text-sm text-gray-400 font-medium">$120.00</del>
                 </div>
-                <div class="flex gap-2 w-full">
-                    <button onclick="addToCart('Ruby Pattern', 85.00, 'prod-118', './assets/images/products/ruby-pattern.jpg?v=1.0')" class="flex-[1] bg-white text-black border border-black hover:bg-black hover:text-white uppercase text-xs font-bold tracking-widest px-1 py-3 transition-colors flex items-center justify-center gap-1 group/btn">
+                <div class="flex items-center gap-2 w-full">
+                    <button onclick="openQuickView('Ruby Pattern', '85.00', './assets/images/products/ruby-pattern.jpg?v=1.0', '37,38,39', 'prod-118')" class="flex-[1] bg-white text-black border border-black hover:bg-black hover:text-white uppercase text-xs font-bold tracking-widest px-1 py-3 transition-colors flex items-center justify-center gap-1 group/btn">
                         <i class="ph ph-bag text-lg group-hover/btn:scale-110 transition-transform"></i>
                     </button>
-                    <button onclick="checkoutSingleItem('Ruby Pattern', 'prod-118')" class="flex-[2] bg-black text-white hover:bg-[#25D366] border border-black uppercase text-xs font-bold tracking-widest px-2 py-3 transition-colors flex items-center justify-center gap-2 group/wp">
-                        <span>Pedir</span>
-                        <i class="ph-fill ph-whatsapp-logo text-lg group-hover/wp:scale-110 transition-transform"></i>
+                    <button onclick="openQuickView('Ruby Pattern', '85.00', './assets/images/products/ruby-pattern.jpg?v=1.0', '37,38,39', 'prod-118')" class="flex-[2] bg-black text-white hover:bg-gray-800 border border-black uppercase text-xs font-bold tracking-widest px-2 py-3 transition-colors flex items-center justify-center gap-2 group/qv">
+                        <span>Ver Detalles</span>
+                        <i class="ph-bold ph-arrow-right text-lg group-hover/qv:translate-x-1 transition-transform"></i>
                     </button>
+                </div>
+                <!-- Payment Badges -->
+                <div class="flex items-center justify-center gap-3 mt-3 text-[10px] text-gray-400 font-medium uppercase tracking-wider">
+                    <span class="flex items-center gap-1"><i class="ph ph-wallet"></i> Zelle</span>
+                    <span class="flex items-center gap-1"><i class="ph ph-currency-btc"></i> USDT</span>
+                    <span class="flex items-center gap-1"><i class="ph ph-credit-card"></i> Cuotas</span>
                 </div>
             </div>
         </div>
     </div>
     
     <!-- Product Card 119 -->
-    <div class="group flex flex-col bg-white border border-transparent hover:border-gray-200 transition-colors">
+    <div class="group flex flex-col bg-white border border-transparent hover:border-gray-200 transition-colors hidden extra-heel" data-category="block">
         <div class="relative aspect-square overflow-hidden mb-4 premium-hover flex items-center justify-center p-4">
             <img src="./assets/images/products/cognac-block.jpg?v=1.0" alt="Cognac Block" class="object-cover w-full h-full mix-blend-darken hover:mix-blend-normal scale-110 object-center">
             <div class="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-300 pointer-events-none"></div>
@@ -1148,43 +1178,33 @@
             <h3 class="font-display text-xl font-bold uppercase tracking-tight mb-1 text-black">Cognac Block</h3>
             <p class="text-gray-500 text-sm mb-4 line-clamp-2">Sandalia de tacón grueso tono arena/bronce.</p>
 
-            <div class="w-full mb-4 mt-auto">
-                <div class="w-full" id="sizes-prod-119">
-                    
-        <div class="relative w-full">
-            <select id="size-input-prod-119" class="appearance-none w-full bg-gray-50 border border-gray-200 text-center text-sm font-bold focus:outline-none focus:border-black transition-colors py-2 px-9 cursor-pointer">
-                <option value="" disabled selected>SELECCIONAR TALLA</option>
-                <option value="35">35</option><option value="36">36</option><option value="37">37</option><option value="38">38</option><option value="39">39</option><option value="40">40</option><option value="41">41</option><option value="42">42</option><option value="43">43</option><option value="44">44</option><option value="45">45</option>
-            </select>
-            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-black">
-                <i class="ph ph-caret-down text-lg"></i>
-            </div>
-        </div>
-    
-                </div>
-            </div>
-
             <div class="mt-auto flex flex-col pt-4 gap-2 border-t border-gray-100">
                 <span class="text-xs text-gray-500 uppercase tracking-widest font-semibold mb-[-8px]">Lujo de Élite, Precio Real</span>
                 <div class="flex items-center gap-3 w-full mb-1 mt-1">
                     <span class="font-display font-black text-2xl tracking-tight text-black">$85.00</span>
                     <del class="text-sm text-gray-400 font-medium">$120.00</del>
                 </div>
-                <div class="flex gap-2 w-full">
-                    <button onclick="addToCart('Cognac Block', 85.00, 'prod-119', './assets/images/products/cognac-block.jpg?v=1.0')" class="flex-[1] bg-white text-black border border-black hover:bg-black hover:text-white uppercase text-xs font-bold tracking-widest px-1 py-3 transition-colors flex items-center justify-center gap-1 group/btn">
+                <div class="flex items-center gap-2 w-full">
+                    <button onclick="openQuickView('Cognac Block', '85.00', './assets/images/products/cognac-block.jpg?v=1.0', '37,38,39', 'prod-119')" class="flex-[1] bg-white text-black border border-black hover:bg-black hover:text-white uppercase text-xs font-bold tracking-widest px-1 py-3 transition-colors flex items-center justify-center gap-1 group/btn">
                         <i class="ph ph-bag text-lg group-hover/btn:scale-110 transition-transform"></i>
                     </button>
-                    <button onclick="checkoutSingleItem('Cognac Block', 'prod-119')" class="flex-[2] bg-black text-white hover:bg-[#25D366] border border-black uppercase text-xs font-bold tracking-widest px-2 py-3 transition-colors flex items-center justify-center gap-2 group/wp">
-                        <span>Pedir</span>
-                        <i class="ph-fill ph-whatsapp-logo text-lg group-hover/wp:scale-110 transition-transform"></i>
+                    <button onclick="openQuickView('Cognac Block', '85.00', './assets/images/products/cognac-block.jpg?v=1.0', '37,38,39', 'prod-119')" class="flex-[2] bg-black text-white hover:bg-gray-800 border border-black uppercase text-xs font-bold tracking-widest px-2 py-3 transition-colors flex items-center justify-center gap-2 group/qv">
+                        <span>Ver Detalles</span>
+                        <i class="ph-bold ph-arrow-right text-lg group-hover/qv:translate-x-1 transition-transform"></i>
                     </button>
+                </div>
+                <!-- Payment Badges -->
+                <div class="flex items-center justify-center gap-3 mt-3 text-[10px] text-gray-400 font-medium uppercase tracking-wider">
+                    <span class="flex items-center gap-1"><i class="ph ph-wallet"></i> Zelle</span>
+                    <span class="flex items-center gap-1"><i class="ph ph-currency-btc"></i> USDT</span>
+                    <span class="flex items-center gap-1"><i class="ph ph-credit-card"></i> Cuotas</span>
                 </div>
             </div>
         </div>
     </div>
     
     <!-- Product Card 120 -->
-    <div class="group flex flex-col bg-white border border-transparent hover:border-gray-200 transition-colors">
+    <div class="group flex flex-col bg-white border border-transparent hover:border-gray-200 transition-colors hidden extra-heel" data-category="block">
         <div class="relative aspect-square overflow-hidden mb-4 premium-hover flex items-center justify-center p-4">
             <img src="./assets/images/products/onyx-block.jpg?v=1.0" alt="Onyx Block" class="object-cover w-full h-full mix-blend-darken hover:mix-blend-normal scale-110 object-center">
             <div class="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-300 pointer-events-none"></div>
@@ -1193,43 +1213,33 @@
             <h3 class="font-display text-xl font-bold uppercase tracking-tight mb-1 text-black">Onyx Block</h3>
             <p class="text-gray-500 text-sm mb-4 line-clamp-2">Sandalia plataforma de correas negras gruesas.</p>
 
-            <div class="w-full mb-4 mt-auto">
-                <div class="w-full" id="sizes-prod-120">
-                    
-        <div class="relative w-full">
-            <select id="size-input-prod-120" class="appearance-none w-full bg-gray-50 border border-gray-200 text-center text-sm font-bold focus:outline-none focus:border-black transition-colors py-2 px-9 cursor-pointer">
-                <option value="" disabled selected>SELECCIONAR TALLA</option>
-                <option value="35">35</option><option value="36">36</option><option value="37">37</option><option value="38">38</option><option value="39">39</option><option value="40">40</option><option value="41">41</option><option value="42">42</option><option value="43">43</option><option value="44">44</option><option value="45">45</option>
-            </select>
-            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-black">
-                <i class="ph ph-caret-down text-lg"></i>
-            </div>
-        </div>
-    
-                </div>
-            </div>
-
             <div class="mt-auto flex flex-col pt-4 gap-2 border-t border-gray-100">
                 <span class="text-xs text-gray-500 uppercase tracking-widest font-semibold mb-[-8px]">Lujo de Élite, Precio Real</span>
                 <div class="flex items-center gap-3 w-full mb-1 mt-1">
                     <span class="font-display font-black text-2xl tracking-tight text-black">$85.00</span>
                     <del class="text-sm text-gray-400 font-medium">$120.00</del>
                 </div>
-                <div class="flex gap-2 w-full">
-                    <button onclick="addToCart('Onyx Block', 85.00, 'prod-120', './assets/images/products/onyx-block.jpg?v=1.0')" class="flex-[1] bg-white text-black border border-black hover:bg-black hover:text-white uppercase text-xs font-bold tracking-widest px-1 py-3 transition-colors flex items-center justify-center gap-1 group/btn">
+                <div class="flex items-center gap-2 w-full">
+                    <button onclick="openQuickView('Onyx Block', '85.00', './assets/images/products/onyx-block.jpg?v=1.0', '36,37,38', 'prod-120')" class="flex-[1] bg-white text-black border border-black hover:bg-black hover:text-white uppercase text-xs font-bold tracking-widest px-1 py-3 transition-colors flex items-center justify-center gap-1 group/btn">
                         <i class="ph ph-bag text-lg group-hover/btn:scale-110 transition-transform"></i>
                     </button>
-                    <button onclick="checkoutSingleItem('Onyx Block', 'prod-120')" class="flex-[2] bg-black text-white hover:bg-[#25D366] border border-black uppercase text-xs font-bold tracking-widest px-2 py-3 transition-colors flex items-center justify-center gap-2 group/wp">
-                        <span>Pedir</span>
-                        <i class="ph-fill ph-whatsapp-logo text-lg group-hover/wp:scale-110 transition-transform"></i>
+                    <button onclick="openQuickView('Onyx Block', '85.00', './assets/images/products/onyx-block.jpg?v=1.0', '36,37,38', 'prod-120')" class="flex-[2] bg-black text-white hover:bg-gray-800 border border-black uppercase text-xs font-bold tracking-widest px-2 py-3 transition-colors flex items-center justify-center gap-2 group/qv">
+                        <span>Ver Detalles</span>
+                        <i class="ph-bold ph-arrow-right text-lg group-hover/qv:translate-x-1 transition-transform"></i>
                     </button>
+                </div>
+                <!-- Payment Badges -->
+                <div class="flex items-center justify-center gap-3 mt-3 text-[10px] text-gray-400 font-medium uppercase tracking-wider">
+                    <span class="flex items-center gap-1"><i class="ph ph-wallet"></i> Zelle</span>
+                    <span class="flex items-center gap-1"><i class="ph ph-currency-btc"></i> USDT</span>
+                    <span class="flex items-center gap-1"><i class="ph ph-credit-card"></i> Cuotas</span>
                 </div>
             </div>
         </div>
     </div>
     
     <!-- Product Card 121 -->
-    <div class="group flex flex-col bg-white border border-transparent hover:border-gray-200 transition-colors">
+    <div class="group flex flex-col bg-white border border-transparent hover:border-gray-200 transition-colors hidden extra-heel" data-category="block">
         <div class="relative aspect-square overflow-hidden mb-4 premium-hover flex items-center justify-center p-4">
             <img src="./assets/images/products/navy-block.jpg?v=1.0" alt="Navy Block" class="object-cover w-full h-full mix-blend-darken hover:mix-blend-normal scale-110 object-center">
             <div class="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-300 pointer-events-none"></div>
@@ -1238,44 +1248,41 @@
             <h3 class="font-display text-xl font-bold uppercase tracking-tight mb-1 text-black">Navy Block</h3>
             <p class="text-gray-500 text-sm mb-4 line-clamp-2">Tacón alto grueso en azul marino de gamuza.</p>
 
-            <div class="w-full mb-4 mt-auto">
-                <div class="w-full" id="sizes-prod-121">
-                    
-        <div class="relative w-full">
-            <select id="size-input-prod-121" class="appearance-none w-full bg-gray-50 border border-gray-200 text-center text-sm font-bold focus:outline-none focus:border-black transition-colors py-2 px-9 cursor-pointer">
-                <option value="" disabled selected>SELECCIONAR TALLA</option>
-                <option value="35">35</option><option value="36">36</option><option value="37">37</option><option value="38">38</option><option value="39">39</option><option value="40">40</option><option value="41">41</option><option value="42">42</option><option value="43">43</option><option value="44">44</option><option value="45">45</option>
-            </select>
-            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-black">
-                <i class="ph ph-caret-down text-lg"></i>
-            </div>
-        </div>
-    
-                </div>
-            </div>
-
             <div class="mt-auto flex flex-col pt-4 gap-2 border-t border-gray-100">
                 <span class="text-xs text-gray-500 uppercase tracking-widest font-semibold mb-[-8px]">Lujo de Élite, Precio Real</span>
                 <div class="flex items-center gap-3 w-full mb-1 mt-1">
                     <span class="font-display font-black text-2xl tracking-tight text-black">$85.00</span>
                     <del class="text-sm text-gray-400 font-medium">$120.00</del>
                 </div>
-                <div class="flex gap-2 w-full">
-                    <button onclick="addToCart('Navy Block', 85.00, 'prod-121', './assets/images/products/navy-block.jpg?v=1.0')" class="flex-[1] bg-white text-black border border-black hover:bg-black hover:text-white uppercase text-xs font-bold tracking-widest px-1 py-3 transition-colors flex items-center justify-center gap-1 group/btn">
+                <div class="flex items-center gap-2 w-full">
+                    <button onclick="openQuickView('Navy Block', '85.00', './assets/images/products/navy-block.jpg?v=1.0', '37,38,39', 'prod-121')" class="flex-[1] bg-white text-black border border-black hover:bg-black hover:text-white uppercase text-xs font-bold tracking-widest px-1 py-3 transition-colors flex items-center justify-center gap-1 group/btn">
                         <i class="ph ph-bag text-lg group-hover/btn:scale-110 transition-transform"></i>
                     </button>
-                    <button onclick="checkoutSingleItem('Navy Block', 'prod-121')" class="flex-[2] bg-black text-white hover:bg-[#25D366] border border-black uppercase text-xs font-bold tracking-widest px-2 py-3 transition-colors flex items-center justify-center gap-2 group/wp">
-                        <span>Pedir</span>
-                        <i class="ph-fill ph-whatsapp-logo text-lg group-hover/wp:scale-110 transition-transform"></i>
+                    <button onclick="openQuickView('Navy Block', '85.00', './assets/images/products/navy-block.jpg?v=1.0', '37,38,39', 'prod-121')" class="flex-[2] bg-black text-white hover:bg-gray-800 border border-black uppercase text-xs font-bold tracking-widest px-2 py-3 transition-colors flex items-center justify-center gap-2 group/qv">
+                        <span>Ver Detalles</span>
+                        <i class="ph-bold ph-arrow-right text-lg group-hover/qv:translate-x-1 transition-transform"></i>
                     </button>
+                </div>
+                <!-- Payment Badges -->
+                <div class="flex items-center justify-center gap-3 mt-3 text-[10px] text-gray-400 font-medium uppercase tracking-wider">
+                    <span class="flex items-center gap-1"><i class="ph ph-wallet"></i> Zelle</span>
+                    <span class="flex items-center gap-1"><i class="ph ph-currency-btc"></i> USDT</span>
+                    <span class="flex items-center gap-1"><i class="ph ph-credit-card"></i> Cuotas</span>
                 </div>
             </div>
         </div>
     </div>
     
 </div>
-            </div>
-        </section>
+<div class="w-full flex justify-center mt-12 items-center" id="btn-more-heels">
+    <button onclick="document.querySelectorAll('.extra-heel').forEach(el => el.classList.remove('hidden')); this.parentElement.style.display='none';" class="bg-black text-white hover:bg-gray-800 border-2 border-black uppercase text-sm font-black tracking-widest px-10 py-4 transition-colors">
+        Ver Más Modelos
+    </button>
+</div>
+<!-- Closing div that original regex expects -->
+<div>
+</div>
+</section>
 
         <!-- SOCIAL PROOF / REVIEWS -->
         <section id="reviews" class="py-24 bg-white border-t border-gray-100">
@@ -1296,72 +1303,139 @@
                     </div>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <!-- Review 1 -->
-                    <div class="bg-gray-50 p-8 flex flex-col relative overflow-hidden">
-                        <i class="ph-fill ph-quotes text-5xl absolute -top-4 -left-2 text-gray-200 opacity-50"></i>
-                        <div class="flex items-center text-black mb-4 relative z-10">
-                            <i class="ph-fill ph-star text-sm"></i><i class="ph-fill ph-star text-sm"></i><i
-                                class="ph-fill ph-star text-sm"></i><i class="ph-fill ph-star text-sm"></i><i
-                                class="ph-fill ph-star text-sm"></i>
-                        </div>
-                        <p class="text-gray-600 font-medium mb-6 flex-grow relative z-10">"Atención quirúrgica desde el
-                            primer mensaje por WhatsApp. Los zapatos tienen acabados premium exactos a las fotos. El
-                            packing eleva toda la experiencia."</p>
-                        <div class="flex items-center gap-3 relative z-10">
-                            <div
-                                class="w-10 h-10 bg-black rounded-full flex items-center justify-center text-white font-bold font-display tracking-widest text-xs">
-                                A.M.</div>
-                            <div>
-                                <h4 class="font-bold text-sm uppercase tracking-wider">Alejandra M.</h4>
-                                <span class="text-xs text-gray-400">Comprador Verificado • Caracas</span>
+                <div class="relative px-4 sm:px-12">
+                    <div class="swiper reviewsSwiper pb-12">
+                        <div class="swiper-wrapper">
+                            <!-- Review 1 -->
+                            <div class="swiper-slide h-auto">
+                                <div class="bg-gray-50 h-full flex flex-col relative group cursor-pointer border border-transparent hover:border-gray-200 transition-colors">
+                                    <div class="w-full h-36 sm:h-44 overflow-hidden relative">
+                                        <img src="./assets/images/products/rose-runner.jpg?v=1.0" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                                        <div class="absolute inset-0 bg-black/10"></div>
+                                        <div class="absolute bottom-3 left-3 bg-white/90 backdrop-blur text-black text-[9px] font-bold tracking-widest px-2 py-1 uppercase shadow-sm">Entrega Verificada</div>
+                                    </div>
+                                    <div class="p-5 flex flex-col flex-grow relative">
+                                        <i class="ph-fill ph-quotes text-4xl absolute -top-3 -left-1 text-gray-200 opacity-50 z-0"></i>
+                                        <div class="flex items-center text-black mb-3 relative z-10">
+                                            <i class="ph-fill ph-star text-xs"></i><i class="ph-fill ph-star text-xs"></i><i class="ph-fill ph-star text-xs"></i><i class="ph-fill ph-star text-xs"></i><i class="ph-fill ph-star text-xs"></i>
+                                        </div>
+                                        <p class="text-gray-600 font-medium mb-5 flex-grow relative z-10 text-xs sm:text-sm">"Chamo, la atención brutal por WhatsApp. Los zapatos tal cual como en las fotos, cero detalles. El empaque está criminal, 100% recomendados."</p>
+                                        <div class="flex items-center gap-3 relative z-10 border-t border-gray-200 pt-3 mt-auto">
+                                            <div class="w-8 h-8 bg-black rounded-sm flex items-center justify-center text-white font-bold font-display tracking-widest text-[10px] flex-shrink-0">A.M.</div>
+                                            <div>
+                                                <h4 class="font-bold text-xs uppercase tracking-wider text-black leading-tight">Alejandro M.</h4>
+                                                <span class="text-[9px] text-gray-400 uppercase tracking-widest">Caracas</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
 
-                    <!-- Review 2 -->
-                    <div
-                        class="bg-black text-white p-8 flex flex-col relative overflow-hidden transform md:-translate-y-4 shadow-xl shadow-black/10">
-                        <i class="ph-fill ph-quotes text-5xl absolute -top-4 -left-2 text-gray-800 opacity-50"></i>
-                        <div class="flex items-center text-white mb-4 relative z-10">
-                            <i class="ph-fill ph-star text-sm"></i><i class="ph-fill ph-star text-sm"></i><i
-                                class="ph-fill ph-star text-sm"></i><i class="ph-fill ph-star text-sm"></i><i
-                                class="ph-fill ph-star text-sm"></i>
-                        </div>
-                        <p class="text-gray-300 font-medium mb-6 flex-grow relative z-10">"La dinámica de compra y el
-                            concierge me salvaron un evento de última hora. La colección de gala es otro nivel. Envío
-                            seguro desde Táchira, cero estrés."</p>
-                        <div class="flex items-center gap-3 relative z-10">
-                            <div
-                                class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-black font-bold font-display tracking-widest text-xs">
-                                C.R.</div>
-                            <div>
-                                <h4 class="font-bold text-sm uppercase tracking-wider text-white">Carla Ramirez</h4>
-                                <span class="text-xs text-gray-400">Cliente VIP • Valencia</span>
+                            <!-- Review 2 -->
+                            <div class="swiper-slide h-auto">
+                                <div class="bg-black text-white h-full flex flex-col relative group cursor-pointer transform md:-translate-y-2 shadow-xl shadow-black/10">
+                                    <div class="w-full h-36 sm:h-44 overflow-hidden relative">
+                                        <img src="./assets/images/products/crimson-pump.jpg?v=1.0" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90">
+                                        <div class="absolute inset-0 bg-black/30"></div>
+                                        <div class="absolute bottom-3 left-3 bg-white/10 backdrop-blur text-white border border-gray-600 text-[9px] font-bold tracking-widest px-2 py-1 uppercase shadow-sm">VIP Verificado</div>
+                                    </div>
+                                    <div class="p-5 flex flex-col flex-grow relative">
+                                        <i class="ph-fill ph-quotes text-4xl absolute -top-3 -left-1 text-gray-800 opacity-50 z-0"></i>
+                                        <div class="flex items-center text-white mb-3 relative z-10">
+                                            <i class="ph-fill ph-star text-xs"></i><i class="ph-fill ph-star text-xs"></i><i class="ph-fill ph-star text-xs"></i><i class="ph-fill ph-star text-xs"></i><i class="ph-fill ph-star text-xs"></i>
+                                        </div>
+                                        <p class="text-gray-300 font-medium mb-5 flex-grow relative z-10 text-xs sm:text-sm">"Los salvé para una rumba de última hora. Las sandalias de gala están a otro nivel. El envío pa' Valencia fue súper rápido y seguro."</p>
+                                        <div class="flex items-center gap-3 relative z-10 border-t border-gray-800 pt-3 mt-auto">
+                                            <div class="w-8 h-8 bg-white rounded-sm flex items-center justify-center text-black font-bold font-display tracking-widest text-[10px] flex-shrink-0">C.R.</div>
+                                            <div>
+                                                <h4 class="font-bold text-xs uppercase tracking-wider text-white leading-tight">Carla Ramirez</h4>
+                                                <span class="text-[9px] text-gray-400 uppercase tracking-widest">Valencia</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
 
-                    <!-- Review 3 -->
-                    <div class="bg-gray-50 p-8 flex flex-col relative overflow-hidden">
-                        <i class="ph-fill ph-quotes text-5xl absolute -top-4 -left-2 text-gray-200 opacity-50"></i>
-                        <div class="flex items-center text-black mb-4 relative z-10">
-                            <i class="ph-fill ph-star text-sm"></i><i class="ph-fill ph-star text-sm"></i><i
-                                class="ph-fill ph-star text-sm"></i><i class="ph-fill ph-star text-sm"></i><i
-                                class="ph-fill ph-star text-sm"></i>
-                        </div>
-                        <p class="text-gray-600 font-medium mb-6 flex-grow relative z-10">"Compré los runners Obsidian y
-                            pedí los Zenith blancos aprovechando la oferta. Superó mis expectativas en calidad de
-                            materiales. El diseño habla por sí solo."</p>
-                        <div class="flex items-center gap-3 relative z-10">
-                            <div
-                                class="w-10 h-10 bg-black rounded-full flex items-center justify-center text-white font-bold font-display tracking-widest text-xs">
-                                J.S.</div>
-                            <div>
-                                <h4 class="font-bold text-sm uppercase tracking-wider">Javier S.</h4>
-                                <span class="text-xs text-gray-400">Comprador Verificado • Lechería</span>
+                            <!-- Review 3 -->
+                            <div class="swiper-slide h-auto">
+                                <div class="bg-gray-50 h-full flex flex-col relative group cursor-pointer border border-transparent hover:border-gray-200 transition-colors">
+                                    <div class="w-full h-36 sm:h-44 overflow-hidden relative">
+                                        <img src="./assets/images/products/onyx-street.jpg?v=1.0" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                                        <div class="absolute inset-0 bg-black/10"></div>
+                                        <div class="absolute bottom-3 left-3 bg-white/90 backdrop-blur text-black text-[9px] font-bold tracking-widest px-2 py-1 uppercase shadow-sm">Entrega Verificada</div>
+                                    </div>
+                                    <div class="p-5 flex flex-col flex-grow relative">
+                                        <i class="ph-fill ph-quotes text-4xl absolute -top-3 -left-1 text-gray-200 opacity-50 z-0"></i>
+                                        <div class="flex items-center text-black mb-3 relative z-10">
+                                            <i class="ph-fill ph-star text-xs"></i><i class="ph-fill ph-star text-xs"></i><i class="ph-fill ph-star text-xs"></i><i class="ph-fill ph-star text-xs"></i><i class="ph-fill ph-star text-xs"></i>
+                                        </div>
+                                        <p class="text-gray-600 font-medium mb-5 flex-grow relative z-10 text-xs sm:text-sm">"Aproveché la promo y me llevé los runners Onyx. Chacho, la calidad de los materiales está brutal. Se ven súper exclusivos en persona."</p>
+                                        <div class="flex items-center gap-3 relative z-10 border-t border-gray-200 pt-3 mt-auto">
+                                            <div class="w-8 h-8 bg-black rounded-sm flex items-center justify-center text-white font-bold font-display tracking-widest text-[10px] flex-shrink-0">J.S.</div>
+                                            <div>
+                                                <h4 class="font-bold text-xs uppercase tracking-wider text-black leading-tight">Javier S.</h4>
+                                                <span class="text-[9px] text-gray-400 uppercase tracking-widest">Lechería</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Review 4 -->
+                            <div class="swiper-slide h-auto">
+                                <div class="bg-gray-50 h-full flex flex-col relative group cursor-pointer border border-transparent hover:border-gray-200 transition-colors">
+                                    <div class="w-full h-36 sm:h-44 overflow-hidden relative">
+                                        <img src="./assets/images/products/noir-sandal.jpg?v=1.0" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                                        <div class="absolute inset-0 bg-black/10"></div>
+                                        <div class="absolute bottom-3 left-3 bg-white/90 backdrop-blur text-black text-[9px] font-bold tracking-widest px-2 py-1 uppercase shadow-sm">Entrega Verificada</div>
+                                    </div>
+                                    <div class="p-5 flex flex-col flex-grow relative">
+                                        <i class="ph-fill ph-quotes text-4xl absolute -top-3 -left-1 text-gray-200 opacity-50 z-0"></i>
+                                        <div class="flex items-center text-black mb-3 relative z-10">
+                                            <i class="ph-fill ph-star text-xs"></i><i class="ph-fill ph-star text-xs"></i><i class="ph-fill ph-star text-xs"></i><i class="ph-fill ph-star text-xs"></i><i class="ph-fill ph-star text-xs"></i>
+                                        </div>
+                                        <p class="text-gray-600 font-medium mb-5 flex-grow relative z-10 text-xs sm:text-sm">"La asesoría por WhatsApp es un éxito, me ayudaron con la talla de una. Los zapatos llegaron finísimo a Maracaibo."</p>
+                                        <div class="flex items-center gap-3 relative z-10 border-t border-gray-200 pt-3 mt-auto">
+                                            <div class="w-8 h-8 bg-black rounded-sm flex items-center justify-center text-white font-bold font-display tracking-widest text-[10px] flex-shrink-0">D.V.</div>
+                                            <div>
+                                                <h4 class="font-bold text-xs uppercase tracking-wider text-black leading-tight">Diego V.</h4>
+                                                <span class="text-[9px] text-gray-400 uppercase tracking-widest">Maracaibo</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Review 5 -->
+                            <div class="swiper-slide h-auto">
+                                <div class="bg-gray-50 h-full flex flex-col relative group cursor-pointer border border-transparent hover:border-gray-200 transition-colors">
+                                    <div class="w-full h-36 sm:h-44 overflow-hidden relative">
+                                        <img src="./assets/images/products/navy-block.jpg?v=1.0" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                                        <div class="absolute inset-0 bg-black/10"></div>
+                                        <div class="absolute bottom-3 left-3 bg-white/90 backdrop-blur text-black text-[9px] font-bold tracking-widest px-2 py-1 uppercase shadow-sm">Entrega Verificada</div>
+                                    </div>
+                                    <div class="p-5 flex flex-col flex-grow relative">
+                                        <i class="ph-fill ph-quotes text-4xl absolute -top-3 -left-1 text-gray-200 opacity-50 z-0"></i>
+                                        <div class="flex items-center text-black mb-3 relative z-10">
+                                            <i class="ph-fill ph-star text-xs"></i><i class="ph-fill ph-star text-xs"></i><i class="ph-fill ph-star text-xs"></i><i class="ph-fill ph-star text-xs"></i><i class="ph-fill ph-star text-xs"></i>
+                                        </div>
+                                        <p class="text-gray-600 font-medium mb-5 flex-grow relative z-10 text-xs sm:text-sm">"Excelente servicio mi gente. Los pedí ayer y ya los tengo aquí. Los zapatos están de lujo mi hermano."</p>
+                                        <div class="flex items-center gap-3 relative z-10 border-t border-gray-200 pt-3 mt-auto">
+                                            <div class="w-8 h-8 bg-black rounded-sm flex items-center justify-center text-white font-bold font-display tracking-widest text-[10px] flex-shrink-0">V.T.</div>
+                                            <div>
+                                                <h4 class="font-bold text-xs uppercase tracking-wider text-black leading-tight">Víctor T.</h4>
+                                                <span class="text-[9px] text-gray-400 uppercase tracking-widest">Barquisimeto</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
+                        
+                        <!-- Navigation Arrows (customized to be outside the cards or sleek) -->
+                        <div class="swiper-button-next !text-black flex items-center justify-center -right-4 sm:-right-8 w-10 h-10 bg-white shadow-md border border-gray-100 rounded-full after:!text-xl"></div>
+                        <div class="swiper-button-prev !text-black flex items-center justify-center -left-4 sm:-left-8 w-10 h-10 bg-white shadow-md border border-gray-100 rounded-full after:!text-xl"></div>
+                        <div class="swiper-pagination !-bottom-2"></div>
                     </div>
                 </div>
             </div>
@@ -1462,35 +1536,283 @@
         </div>
     </footer>
 
+    <!-- QUICK VIEW MODAL -->
+    <div id="quick-view-modal" class="fixed inset-0 z-[100] hidden items-center justify-center">
+        <!-- Backdrop -->
+        <div class="absolute inset-0 bg-black/80 backdrop-blur-sm transition-opacity" onclick="closeQuickView()"></div>
+        
+        <!-- Modal Content -->
+        <div class="relative bg-white w-full max-w-4xl max-h-[90vh] mx-4 sm:mx-auto flex flex-col md:flex-row overflow-hidden shadow-2xl animate-slide-up rounded-sm">
+            <!-- Close Button -->
+            <button onclick="closeQuickView()" class="absolute top-4 right-4 z-10 p-2 bg-white/50 hover:bg-white rounded-full text-black transition-colors">
+                <i class="ph ph-x text-xl"></i>
+            </button>
+            
+            <!-- Image Side -->
+            <div class="w-full md:w-1/2 bg-gray-50 flex items-center justify-center p-8 aspect-square md:aspect-auto">
+                <img id="qv-image" src="" alt="Product" class="w-full h-full object-cover mix-blend-darken scale-110 object-center">
+            </div>
+            
+            <!-- Info Side -->
+            <div class="w-full md:w-1/2 p-6 md:p-10 flex flex-col justify-between overflow-y-auto">
+                <div>
+                    <h2 id="qv-title" class="font-display text-3xl md:text-4xl font-black uppercase tracking-tight text-black mb-2"></h2>
+                    <p class="text-sm text-gray-500 uppercase tracking-widest font-semibold mb-6">Lujo de Élite, Precio Real</p>
+                    
+                    <div class="flex items-center gap-4 mb-8">
+                        <span id="qv-price" class="font-display font-black text-3xl tracking-tight text-black"></span>
+                        <del class="text-lg text-gray-400 font-medium">$120.00</del>
+                    </div>
+
+                    <!-- Size Selector -->
+                    <div class="mb-8">
+                        <label class="block text-xs font-bold uppercase tracking-widest text-black mb-3">SELECCIONA TU TALLA</label>
+                        <div class="relative w-full">
+                            <select id="qv-size" class="appearance-none w-full bg-gray-50 border border-gray-300 text-center text-sm font-bold focus:outline-none focus:border-black transition-colors py-4 px-6 cursor-pointer">
+                                <option value="" disabled selected>Escoge una talla...</option>
+                            </select>
+                            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-black">
+                                <i class="ph ph-caret-down text-xl"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Cross Selling -->
+                    <div class="bg-gray-50 p-4 border border-gray-200 mb-8 flex items-center justify-between gap-4 cursor-pointer" onclick="document.getElementById('qv-addon').click()">
+                        <div class="flex items-center gap-3">
+                            <i class="ph-fill ph-shield-check text-2xl text-black"></i>
+                            <div>
+                                <h4 class="text-xs font-bold uppercase tracking-wider text-black">Kit de Protección VIP</h4>
+                                <p class="text-[10px] text-gray-500 uppercase mt-0.5">Incluye repelente y cepillo (+$15)</p>
+                            </div>
+                        </div>
+                        <input type="checkbox" id="qv-addon" class="w-5 h-5 accent-black cursor-pointer" onclick="event.stopPropagation()">
+                    </div>
+                </div>
+
+                <!-- Actions -->
+                <div class="flex flex-col gap-3 mt-4">
+                    <button onclick="checkoutQuickView()" class="w-full bg-[#25D366] text-white hover:bg-[#1DA851] uppercase text-sm font-bold tracking-widest py-4 transition-colors flex items-center justify-center gap-2">
+                        <span>Pedir Directo al VIP</span>
+                        <i class="ph-fill ph-whatsapp-logo text-xl"></i>
+                    </button>
+                    <button onclick="addToCartFromQV()" class="w-full bg-white text-black border-2 border-black hover:bg-black hover:text-white uppercase text-xs font-bold tracking-widest py-3 transition-colors flex items-center justify-center gap-2">
+                        <span>Agregar al Carrito</span>
+                        <i class="ph ph-bag text-lg"></i>
+                    </button>
+                    <div class="flex items-center justify-center gap-4 mt-3 opacity-60">
+                        <span class="flex items-center gap-1 text-[10px] uppercase font-bold tracking-wider text-black"><i class="ph ph-wallet"></i> Zelle</span>
+                        <span class="flex items-center gap-1 text-[10px] uppercase font-bold tracking-wider text-black"><i class="ph ph-currency-btc"></i> Binance</span>
+                        <span class="flex items-center gap-1 text-[10px] uppercase font-bold tracking-wider text-black"><i class="ph ph-credit-card"></i> Cuotas</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MOBILE STICKY BOTTOM CTA -->
+    <div class="sm:hidden fixed bottom-0 left-0 w-full z-40 bg-white border-t border-gray-200 p-3 shadow-[0_-4px_10px_rgba(0,0,0,0.05)] flex items-center gap-2 pb-5">
+        <a href="https://api.whatsapp.com/send?phone=584223794800&text=Hola%20VORA,%20necesito%20asesor%C3%ADa%20VIP%20con%20mi%20compra." target="_blank" class="flex-grow bg-black text-white py-3.5 rounded-sm flex justify-center items-center gap-2 font-bold uppercase text-xs tracking-wider shadow-lg">
+            <i class="ph-fill ph-chat-circle-text text-lg text-[#25D366]"></i> Asesor VIP Directo
+        </a>
+    </div>
+
+    <!-- FLOATING WHATSAPP BUTTON (GLOBAL) -->
+    <a href="https://api.whatsapp.com/send?phone=584223794800&text=Hola%20VORA,%20tengo%20una%20pregunta%20sobre%20un%20modelo." target="_blank" class="fixed bottom-24 sm:bottom-8 right-4 sm:right-8 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-[0_4px_15px_rgba(37,211,102,0.4)] hover:scale-110 hover:bg-[#1DA851] transition-all flex items-center justify-center animate-bounce-slow">
+        <i class="ph-fill ph-whatsapp-logo text-3xl"></i>
+    </a>
+
+    <!-- SOCIAL PROOF POPUP -->
+    <div id="social-proof-popup" class="fixed bottom-24 sm:bottom-8 left-4 z-50 bg-white shadow-xl border border-gray-100 p-3 flex items-center gap-3 rounded-sm transform translate-y-10 opacity-0 transition-all duration-500 pointer-events-none max-w-[280px]">
+        <div class="w-12 h-12 bg-gray-100 rounded-sm overflow-hidden flex-shrink-0">
+            <img id="sp-img" src="./assets/images/products/rose-runner.jpg?v=1.0" class="w-full h-full object-cover mix-blend-darken">
+        </div>
+        <div>
+            <p class="text-[10px] text-gray-500 uppercase tracking-widest font-bold mb-0.5" id="sp-time">Hace 3 minutos</p>
+            <p class="text-xs font-bold text-black leading-tight"><span id="sp-location" class="text-[#FF3333]">Caracas</span> compró</p>
+            <p class="text-xs text-gray-800 font-medium" id="sp-product">Rose Runner</p>
+        </div>
+    </div>
+
+
     <!-- INTERACTIVE JAVASCRIPT BLOCK -->
     <script>
         // --- ESTADO GLOBAL ---
         let cart = [];
         const PRICE_PER_ITEM = 85.00;
+        let currentQVProduct = null;
+        let currentQVPrice = null;
+        let currentQVImage = null;
+        let currentQVId = null;
 
         // --- UI UTILS ---
         const formatMoney = (amount) => `$${amount.toFixed(2)}`;
 
-        // --- MANEJO DE TALLAS ---
-        function selectSize() {
-            // Ya no aplica botones. Se reemplazan por input manual.
+        // --- CATEGORY FILTERS ---
+        function filterCategory(btnElement, category, sectionId) {
+            const section = document.getElementById(sectionId);
+            const grid = section.querySelector('.grid');
+            const cards = grid.children;
+            
+            // update active state styles
+            const buttons = btnElement.parentElement.children;
+            for(let b of buttons) {
+                b.classList.remove('bg-black', 'text-white', 'border-black');
+                b.classList.add('bg-white', 'text-black', 'border-gray-200');
+            }
+            btnElement.classList.remove('bg-white', 'text-black', 'border-gray-200');
+            btnElement.classList.add('bg-black', 'text-white', 'border-black');
+
+            for (let card of cards) {
+                if(card.tagName !== 'DIV') continue;
+                if(category === 'todos' || card.getAttribute('data-category') === category) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            }
         }
 
-        // --- LOGICA CARRITO ---
-        function addToCart(productName, price, productId, defaultImg) {
-            // Obtener talla ingresada manualmente
-            const inputField = document.getElementById(`size-input-${productId}`);
-            if (inputField && inputField.value.trim() === '') {
-                alert("Por favor, ingresa tu talla deseada antes de continuar.");
-                inputField.focus();
+        // --- SOCIAL PROOF POPUPS ---
+        function initSocialProof() {
+            const products = [
+                {name: 'Rose Runner', img: './assets/images/products/rose-runner.jpg?v=1.0'},
+                {name: 'Onyx Street', img: './assets/images/products/onyx-street.jpg?v=1.0'},
+                {name: 'Crimson Pump', img: './assets/images/products/crimson-pump.jpg?v=1.0'},
+                {name: 'Titan Sand', img: './assets/images/products/titan-sand.jpg?v=1.0'},
+                {name: 'Noir Sandal', img: './assets/images/products/noir-sandal.jpg?v=1.0'}
+            ];
+            const locations = ['Caracas', 'Valencia', 'Lechería', 'Maracaibo', 'Barquisimeto', 'Margarita', 'Maracay', 'San Cristóbal', 'Mérida', 'Puerto Ordaz', 'Punto Fijo'];
+            const names = ['Carlos V.', 'María P.', 'José Gregorio', 'Andrea L.', 'Luis R.', 'Gabriela S.', 'Miguel Á.', 'Paola M.', 'Jesús D.', 'Daniela C.', 'Héctor B.', 'Sofía N.'];
+            const times = ['Hace 3 min', 'Hace 12 min', 'Hace 1 hora', 'Acaba de comprar', 'Hace 5 min', 'Hace 23 min'];
+
+            const popup = document.getElementById('social-proof-popup');
+            
+            // To track recently shown users
+            const RECENTLY_SHOWN_KEY = 'recently_shown_users';
+            let recentlyShown = [];
+            try {
+                // Read from sessionStorage to persist across refreshes but reset on new sessions
+                const stored = sessionStorage.getItem(RECENTLY_SHOWN_KEY);
+                if (stored) recentlyShown = JSON.parse(stored);
+            } catch (e) {}
+
+            setInterval(() => {
+                // Filter out recently used names to avoid duplicates
+                let availableNames = names.filter(n => !recentlyShown.includes(n));
+                if (availableNames.length === 0) {
+                    // Reset if we used all names
+                    recentlyShown = [];
+                    availableNames = names;
+                }
+
+                const randomName = availableNames[Math.floor(Math.random() * availableNames.length)];
+                recentlyShown.push(randomName);
+                if (recentlyShown.length > 5) recentlyShown.shift(); // keep last 5 in memory
+                
+                try {
+                    sessionStorage.setItem(RECENTLY_SHOWN_KEY, JSON.stringify(recentlyShown));
+                } catch(e) {}
+
+                // Pick random data
+                const prod = products[Math.floor(Math.random() * products.length)];
+                const loc = locations[Math.floor(Math.random() * locations.length)];
+                const time = times[Math.floor(Math.random() * times.length)];
+
+                document.getElementById('sp-img').src = prod.img;
+                
+                // Update to: "[Name] en [Location] compró"
+                document.getElementById('sp-location').innerHTML = `${randomName} <span class="text-gray-800 font-normal text-[10px]">en</span> ${loc}`;
+                document.getElementById('sp-product').innerText = prod.name;
+                document.getElementById('sp-time').innerText = time;
+
+                // Show
+                popup.classList.remove('translate-y-10', 'opacity-0');
+                popup.classList.add('translate-y-0', 'opacity-100');
+
+                // Hide after 4 seconds
+                setTimeout(() => {
+                    popup.classList.remove('translate-y-0', 'opacity-100');
+                    popup.classList.add('translate-y-10', 'opacity-0');
+                }, 4000);
+
+            }, 18000); // Trigger every 18 seconds
+        }
+        // Initialize on load
+        window.addEventListener('scroll', initSocialProof, {once:true});
+
+        // --- QUICK VIEW MODAL ---
+        function openQuickView(name, price, img, sizesComma, prodId) {
+            currentQVProduct = name;
+            currentQVPrice = price;
+            currentQVImage = img;
+            currentQVId = prodId;
+
+            document.getElementById('qv-title').innerText = name;
+            document.getElementById('qv-price').innerText = formatMoney(parseFloat(price));
+            document.getElementById('qv-image').src = img;
+            
+            const sizeSelect = document.getElementById('qv-size');
+            sizeSelect.innerHTML = '<option value="" disabled selected>Escoge una talla...</option>';
+            const sizes = sizesComma.split(',');
+            sizes.forEach(s => {
+                if(s.trim()) sizeSelect.innerHTML += `<option value="${s.trim()}">${s.trim()}</option>`;
+            });
+
+            document.getElementById('qv-addon').checked = false;
+
+            const modal = document.getElementById('quick-view-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeQuickView() {
+            const modal = document.getElementById('quick-view-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            document.body.style.overflow = '';
+        }
+
+        function checkoutQuickView() {
+            const sizeSelect = document.getElementById('qv-size');
+            if (sizeSelect.value === '') {
+                alert("Por favor, selecciona tu talla antes de continuar.");
+                sizeSelect.focus();
                 return;
             }
-            let size = inputField ? inputField.value.trim() : "Única";
 
-            // Identificador único por modelo+talla
-            const cartItemId = `${productId}-${size}`;
+            const addonChecked = document.getElementById('qv-addon').checked;
+            let msg = `Hola VORA Elite, deseo comprar el modelo [${currentQVProduct}] en talla [${sizeSelect.value}].`;
+            if (addonChecked) {
+                msg += ` Además, agregaré el Kit de Protección VIP (+$15).`;
+            }
 
-            // Verificar si ya existe
+            const phoneNumber = "584223794800";
+            const encodedMessage = encodeURIComponent(msg);
+            const whatsappURL = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodedMessage}`;
+            window.open(whatsappURL, '_blank');
+        }
+
+        function addToCartFromQV() {
+            const sizeSelect = document.getElementById('qv-size');
+            if (sizeSelect.value === '') {
+                alert("Por favor, selecciona tu talla antes de agregar al carrito.");
+                sizeSelect.focus();
+                return;
+            }
+            
+            const size = sizeSelect.value;
+            const addonChecked = document.getElementById('qv-addon').checked;
+            let finalPrice = parseFloat(currentQVPrice);
+            let name = currentQVProduct;
+            
+            if (addonChecked) {
+                finalPrice += 15;
+                name += " + Kit VIP";
+            }
+
+            const cartItemId = `${currentQVId}-${size}${addonChecked ? '-kit' : ''}`;
             const existingItem = cart.find(item => item.id === cartItemId);
 
             if (existingItem) {
@@ -1498,21 +1820,27 @@
             } else {
                 cart.push({
                     id: cartItemId,
-                    name: productName,
+                    name: name,
                     size: size,
-                    price: price,
+                    price: finalPrice,
                     quantity: 1,
-                    image: defaultImg
+                    image: currentQVImage
                 });
             }
 
             updateCartUI();
-
-            // Si el carrito está oculto, ábrelo para feedback visual
+            closeQuickView();
             const drawer = document.getElementById('cart-drawer');
             if (drawer.classList.contains('translate-x-full')) {
                 toggleCart();
             }
+        }
+
+        // --- LOGICA CARRITO ORIGIN ---
+        function addToCart(productName, price, productId, defaultImg) {
+            // Deprecated from main card, redirects to Quick View now
+            // But if it's called somewhere else, we just redirect it to an alert for now if quick view is preferred.
+            alert("Usa el botón 'Ver Detalles' para seleccionar la talla de este producto.");
         }
 
         function removeCartItem(cartItemId) {
@@ -1647,6 +1975,40 @@
                 nav.classList.remove('shadow-sm');
                 nav.style.background = 'rgba(255, 255, 255, 0.95)';
             }
+        });
+    </script>
+    
+    <!-- Swiper JS Library and Initialization -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const swiper = new Swiper('.reviewsSwiper', {
+                slidesPerView: 1,
+                spaceBetween: 30,
+                loop: true,
+                autoplay: {
+                    delay: 5000,
+                    disableOnInteraction: false,
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+                breakpoints: {
+                    640: {
+                        slidesPerView: 2,
+                        spaceBetween: 20,
+                    },
+                    1024: {
+                        slidesPerView: 3,
+                        spaceBetween: 30,
+                    },
+                }
+            });
         });
     </script>
 </body>
