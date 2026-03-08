@@ -3,8 +3,8 @@ import shutil
 import re
 
 inventory_dir = r"C:\Users\Alex Rosales\.gemini\antigravity\scratch\Zapatosproject\inventory"
-assets_dir = r"C:\Users\Alex Rosales\.gemini\antigravity\scratch\Zapatosproject\web\assets\images\products"
-html_path = r"C:\Users\Alex Rosales\.gemini\antigravity\scratch\Zapatosproject\web\index.html"
+assets_dir = r"C:\Users\Alex Rosales\.gemini\antigravity\scratch\Zapatosproject\assets\images\products"
+html_path = r"C:\Users\Alex Rosales\.gemini\antigravity\scratch\Zapatosproject\index.html"
 
 os.makedirs(assets_dir, exist_ok=True)
 

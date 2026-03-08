@@ -1,5 +1,4 @@
-import re
-html_path = r"C:\Users\Alex Rosales\.gemini\antigravity\scratch\Zapatosproject\web\index.html"
+html_path = r"C:\Users\Alex Rosales\.gemini\antigravity\scratch\Zapatosproject\index.html"
 
 with open(html_path, "r", encoding="utf-8") as f:
     content = f.read()
